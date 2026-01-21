@@ -37,7 +37,7 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         {/* Google Analytics */}
         <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-D47HNBRPNG"
+          src="https://www.googletagmanager.com/gtag/js?id=G-2NDFEE4GSW"
           strategy="afterInteractive"
         />
         <Script id="google-analytics" strategy="afterInteractive">
@@ -45,7 +45,7 @@ export default function RootLayout({
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'G-D47HNBRPNG');
+            gtag('config', 'G-2NDFEE4GSW');
           `}
         </Script>
       </head>
