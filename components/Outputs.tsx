@@ -109,7 +109,7 @@ export function Outputs() {
         {/* Supported File Types Note */}
         <div className="mt-12 text-center">
           <p className="text-sm text-muted-foreground mb-4">
-            <strong>Supported uploads:</strong> MP3, MP4, WAV, M4A (Zoom recordings)
+            <strong>Supported uploads:</strong> MP3, MP4, WAV, M4A (from Zoom, Teams, Google Meet, Webex, and more)
           </p>
         </div>
 

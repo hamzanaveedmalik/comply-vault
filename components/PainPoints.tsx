@@ -6,7 +6,7 @@ const benefits = [
   {
     icon: Mic,
     title: 'AI Transcription',
-    description: 'Upload your Zoom recording and get a complete, speaker-diarized transcript in minutes.',
+    description: 'Upload your meeting recording from any platform and get a complete, speaker-diarized transcript in minutes.',
   },
   {
     icon: Clock,

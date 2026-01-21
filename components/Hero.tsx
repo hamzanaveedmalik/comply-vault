@@ -23,19 +23,19 @@ export function Hero() {
             {/* Badge */}
             <div className="inline-flex items-center gap-2 bg-accent text-accent-foreground px-4 py-2 rounded-full text-sm font-medium mb-8 animate-fade-in border border-primary/20">
               <Scale className="w-4 h-4" />
-              <span>Built for SEC-Registered RIAs</span>
+              <span>Built for SEC Rule 206(4)-7 & FCA SYSC 9</span>
             </div>
 
             {/* Headline */}
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold font-display leading-tight mb-8 text-foreground animate-fade-in-up">
-              Meeting Notes to{' '}
-              <span className="text-gradient">Audit Pack</span>{' '}
-              in Minutes
+              Turn Client Meetings Into{' '}
+              <span className="text-gradient">SEC-Ready Audit Documentation</span>{' '}
+              in Under 10 Minutes
             </h1>
 
             {/* Subheadline */}
             <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed mb-10 max-w-xl mx-auto lg:mx-0 animate-fade-in-up animation-delay-100">
-              Upload Zoom recordings, get timestamped supervision notes with evidence linking. 
+              Upload meeting recordings from Zoom, Teams, Google Meet, Webex, and more. Get timestamped supervision notes with evidence linking. 
               Review, finalize, and export exam-ready documentation.
             </p>
 
@@ -52,7 +52,7 @@ export function Hero() {
             </div>
 
             {/* Trust Indicators - Actually Built Features */}
-            <div className="flex flex-wrap gap-6 justify-center lg:justify-start text-sm text-muted-foreground animate-fade-in-up animation-delay-300">
+            <div className="flex flex-wrap gap-6 justify-center lg:justify-start text-sm text-muted-foreground animate-fade-in-up animation-delay-300 mb-6">
               <div className="flex items-center gap-2">
                 <Clock className="w-5 h-5 text-vault-green-500 dark:text-vault-green-400" />
                 <span>Evidence timestamps</span>
@@ -65,6 +65,19 @@ export function Hero() {
                 <Users className="w-5 h-5 text-vault-green-500 dark:text-vault-green-400" />
                 <span>CCO-only finalization</span>
               </div>
+            </div>
+
+            {/* Tech Credentials */}
+            <div className="flex flex-wrap gap-4 justify-center lg:justify-start text-xs text-muted-foreground animate-fade-in-up animation-delay-400">
+              <span className="flex items-center gap-1.5">
+                <Shield className="w-4 h-4 text-vault-green-500 dark:text-vault-green-400" />
+                Enterprise-grade encryption
+              </span>
+              <span className="text-muted-foreground/60">•</span>
+              <span className="flex items-center gap-1.5">
+                <FileCheck className="w-4 h-4 text-vault-green-500 dark:text-vault-green-400" />
+                SOC 2 Type II compliant
+              </span>
             </div>
           </div>
 

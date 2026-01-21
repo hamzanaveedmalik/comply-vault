@@ -14,7 +14,7 @@ const features = [
   {
     icon: Mic,
     title: 'Smart Transcription',
-    description: 'Upload Zoom recordings (MP3, MP4, WAV, M4A) and get speaker-diarized transcripts with precise timestamps.',
+    description: 'Upload meeting recordings from Zoom, Teams, Google Meet, Webex, and more (MP3, MP4, WAV, M4A) and get speaker-diarized transcripts with precise timestamps.',
     color: 'green',
   },
   {

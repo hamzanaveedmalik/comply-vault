@@ -85,7 +85,7 @@ export function Footer() {
               </span>
             </a>
             <p className="text-gray-500 dark:text-gray-400 mb-7 max-w-xs leading-relaxed">
-              Turn Zoom meeting recordings into exam-ready client interaction records. 
+              Turn meeting recordings into exam-ready client interaction records. 
               Upload, review, finalize, export.
             </p>
             

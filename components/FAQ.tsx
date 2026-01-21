@@ -7,11 +7,11 @@ import { cn } from '@/lib/utils'
 const faqs = [
   {
     question: 'What exactly does Comply Vault do?',
-    answer: 'Comply Vault turns your Zoom meeting recordings into structured compliance documentation. You upload a recording, we transcribe it with timestamps and speaker labels, extract key information (topics, recommendations, disclosures, decisions, follow-ups), and let you review/edit before finalizing. You get a downloadable audit pack (PDF, CSV, TXT, ZIP) that you can file into your compliance system.',
+    answer: 'Comply Vault turns your meeting recordings from Zoom, Teams, Google Meet, Webex, and other platforms into structured compliance documentation. You upload a recording, we transcribe it with timestamps and speaker labels, extract key information (topics, recommendations, disclosures, decisions, follow-ups), and let you review/edit before finalizing. You get a downloadable audit pack (PDF, CSV, TXT, ZIP) that you can file into your compliance system.',
   },
   {
     question: 'What file formats can I upload?',
-    answer: 'We support MP3, MP4, WAV, and M4A files. These are the standard formats for Zoom recordings. We recommend uploading the original recording for best transcription quality.',
+    answer: 'We support MP3, MP4, WAV, and M4A files. These are standard formats from Zoom, Teams, Google Meet, Webex, and other meeting platforms. We recommend uploading the original recording for best transcription quality.',
   },
   {
     question: 'What do I get when I export?',

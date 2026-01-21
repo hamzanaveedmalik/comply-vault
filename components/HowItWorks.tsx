@@ -7,7 +7,7 @@ const steps = [
     number: '01',
     icon: Upload,
     title: 'Upload Recording',
-    description: 'Upload your Zoom meeting recording. We support MP3, MP4, WAV, and M4A formats up to 500MB.',
+    description: 'Upload your meeting recording from Zoom, Teams, Google Meet, Webex, or any platform. We support MP3, MP4, WAV, and M4A formats up to 500MB.',
     details: ['Drag & drop upload', 'Multiple formats', 'Secure transfer'],
   },
   {
