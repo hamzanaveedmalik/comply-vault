@@ -1,0 +1,260 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-inter: 'Inter', system-ui, sans-serif;
+    --font-space-grotesk: 'Space Grotesk', system-ui, sans-serif;
+    
+    --background: 0 0% 99%;
+    --foreground: 222 47% 11%;
+    
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+    
+    --primary: 150 75% 27%;
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: 16 64% 59%;
+    --secondary-foreground: 0 0% 100%;
+    
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+    
+    --accent: 150 75% 95%;
+    --accent-foreground: 150 75% 27%;
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 150 75% 27%;
+    
+    --radius: 0.75rem;
+  }
+  
+  .dark {
+    /* Main background - Deep forest green */
+    --background: 160 50% 6%;
+    /* Improved text contrast - much lighter */
+    --foreground: 150 10% 92%;
+    
+    /* Card - slightly elevated from background */
+    --card: 160 40% 9%;
+    --card-foreground: 150 10% 92%;
+    
+    --popover: 160 40% 9%;
+    --popover-foreground: 150 10% 92%;
+    
+    --primary: 150 60% 42%;
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: 16 54% 55%;
+    --secondary-foreground: 0 0% 100%;
+    
+    /* Lighter muted text for better readability */
+    --muted: 160 25% 12%;
+    --muted-foreground: 150 8% 72%;
+    
+    --accent: 160 35% 14%;
+    --accent-foreground: 150 55% 55%;
+    
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --border: 160 25% 16%;
+    --input: 160 25% 16%;
+    --ring: 150 60% 42%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-background text-foreground font-sans;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* Custom selection color */
+::selection {
+  @apply bg-primary/20 text-primary;
+}
+
+/* Animation delays */
+@layer utilities {
+  .animation-delay-100 { animation-delay: 100ms; }
+  .animation-delay-200 { animation-delay: 200ms; }
+  .animation-delay-300 { animation-delay: 300ms; }
+  .animation-delay-400 { animation-delay: 400ms; }
+  .animation-delay-500 { animation-delay: 500ms; }
+  .animation-delay-600 { animation-delay: 600ms; }
+  .animation-delay-700 { animation-delay: 700ms; }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-muted;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-muted-foreground/30 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-muted-foreground/50;
+}
+
+/* Section background variants for dark mode rhythm */
+.section-dark-deep {
+  @apply bg-background;
+}
+
+.section-dark-deeper {
+  background-color: hsl(160 55% 4%);
+}
+
+.section-dark-elevated {
+  background-color: hsl(160 40% 8%);
+}
+
+/* Subtle noise texture overlay */
+.noise-texture {
+  position: relative;
+}
+
+.noise-texture::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.025;
+  pointer-events: none;
+  mix-blend-mode: overlay;
+}
+
+/* Grid background pattern */
+.bg-grid {
+  background-image: 
+    linear-gradient(to right, hsl(var(--primary) / 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, hsl(var(--primary) / 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.dark .bg-grid {
+  background-image: 
+    linear-gradient(to right, hsl(var(--primary) / 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, hsl(var(--primary) / 0.06) 1px, transparent 1px);
+}
+
+/* Text gradient */
+.text-gradient {
+  @apply bg-gradient-to-r from-vault-green-500 to-vault-green-400 bg-clip-text text-transparent;
+}
+
+.dark .text-gradient {
+  @apply from-vault-green-400 to-emerald-300;
+}
+
+/* Floating animations */
+.float-slow {
+  animation: float 8s ease-in-out infinite;
+}
+
+.float-medium {
+  animation: float 6s ease-in-out infinite;
+}
+
+.float-fast {
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+/* Card hover effects */
+.card-hover {
+  @apply transition-all duration-300;
+}
+
+.card-hover:hover {
+  @apply -translate-y-1;
+}
+
+/* Dark mode card improvements */
+.dark .card-elevated {
+  background-color: hsl(160 35% 11%);
+  border-color: hsl(160 25% 18%);
+}
+
+.dark .card-elevated:hover {
+  background-color: hsl(160 32% 13%);
+  border-color: hsl(150 40% 25%);
+}
+
+/* Button primary shimmer effect */
+.btn-primary {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: 0.5s;
+}
+
+.btn-primary:hover::before {
+  left: 100%;
+}
+
+/* Section dividers for visual rhythm */
+.section-divider-top {
+  position: relative;
+}
+
+.section-divider-top::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, hsl(var(--primary) / 0.2), transparent);
+}
+
+/* Glow effects for dark mode */
+.dark .glow-green {
+  box-shadow: 0 0 60px -15px hsl(150 60% 40% / 0.3);
+}
+
+.dark .glow-coral {
+  box-shadow: 0 0 60px -15px hsl(16 54% 55% / 0.2);
+}
