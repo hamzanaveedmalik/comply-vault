@@ -1,10 +1,14 @@
 User-agent: *
 Allow: /
+# Allow Next.js static assets (required for page rendering)
+Allow: /_next/static/
 # AI/LLM Crawlers
 Allow: /llms.txt
+# Block internal/admin paths
 Disallow: /api/
 Disallow: /dashboard/
-Disallow: /_next/
 Disallow: /admin/
+# Block other Next.js internal paths (but allow static assets above)
+Disallow: /_next/
 
 Sitemap: https://www.complyvault.co/sitemap.xml
