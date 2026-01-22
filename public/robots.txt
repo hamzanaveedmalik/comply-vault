@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+# AI/LLM Crawlers
+Allow: /llms.txt
+Disallow: /api/
+Disallow: /dashboard/
+Disallow: /_next/
+Disallow: /admin/
+
+Sitemap: https://www.complyvault.co/sitemap.xml
