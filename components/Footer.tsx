@@ -29,6 +29,13 @@ const footerLinks = {
       { label: 'How It Works', href: '/#how-it-works' },
     ],
   },
+  solutions: {
+    title: 'Solutions',
+    links: [
+      { label: 'RIA Compliance Software', href: '/ria-compliance-software' },
+      { label: 'Sample Audit Pack', href: '/sample-audit-pack' },
+    ],
+  },
   company: {
     title: 'Company',
     links: [
@@ -68,9 +75,9 @@ export function Footer() {
     <footer className="bg-gray-900 dark:bg-[hsl(160_55%_3%)] text-gray-400 pt-20 pb-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Main Footer Content */}
-        <div className="grid grid-cols-2 md:grid-cols-6 gap-10 pb-14 border-b border-gray-800 dark:border-white/10">
+        <div className="grid grid-cols-2 md:grid-cols-7 gap-10 pb-14 border-b border-gray-800 dark:border-white/10">
           {/* Brand Column */}
-          <div className="col-span-2">
+          <div className="col-span-2 md:col-span-2">
             <a href="#" className="flex items-center gap-3 mb-5">
               <div className="w-11 h-11 relative">
                 <Image

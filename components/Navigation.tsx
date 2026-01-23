@@ -9,6 +9,7 @@ import { ThemeToggle } from './ThemeToggle'
 import { DemoModal } from './DemoModal'
 
 const navLinks = [
+  { label: 'Solutions', href: '/ria-compliance-software' },
   { label: 'Features', href: '#features' },
   { label: 'How It Works', href: '#how-it-works' },
   { label: 'Security', href: '#security' },

@@ -5,6 +5,9 @@ import Link from 'next/link'
 export const metadata: Metadata = {
   title: 'Terms of Service | Comply Vault',
   description: 'Read the terms and conditions for using Comply Vault.',
+  alternates: {
+    canonical: 'https://www.complyvault.co/terms',
+  },
 }
 
 const sections = [

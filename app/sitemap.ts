@@ -11,6 +11,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
             priority: 1,
         },
         {
+            url: `${baseUrl}/ria-compliance-software`,
+            lastModified: new Date('2026-01-23'),
+            changeFrequency: 'weekly',
+            priority: 0.9,
+        },
+        {
+            url: `${baseUrl}/sample-audit-pack`,
+            lastModified: new Date('2026-01-23'),
+            changeFrequency: 'monthly',
+            priority: 0.7,
+        },
+        {
             url: `${baseUrl}/about`,
             lastModified: new Date('2026-01-22'),
             changeFrequency: 'monthly',

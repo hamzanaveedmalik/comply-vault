@@ -111,6 +111,24 @@ export function WhoItsFor() {
             </div>
           </div>
         </div>
+
+        {/* Learn More CTA */}
+        <div className="mt-16 text-center">
+          <div className="inline-block bg-card dark:bg-[hsl(160_35%_10%)] rounded-2xl p-8 border border-border dark:border-white/10">
+            <p className="text-muted-foreground mb-4">
+              Want to learn more about our RIA compliance software features?
+            </p>
+            <a
+              href="/ria-compliance-software"
+              className="inline-flex items-center gap-2 text-vault-green-500 dark:text-vault-green-400 font-semibold hover:underline transition-all"
+            >
+              Explore RIA Compliance Software
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </a>
+          </div>
+        </div>
       </div>
     </section>
   )

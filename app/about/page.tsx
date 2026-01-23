@@ -6,6 +6,9 @@ import Image from 'next/image'
 export const metadata: Metadata = {
   title: 'About Us | Comply Vault',
   description: 'Learn about the team and mission behind Comply Vault.',
+  alternates: {
+    canonical: 'https://www.complyvault.co/about',
+  },
 }
 
 const values = [

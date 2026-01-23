@@ -15,6 +15,8 @@ interface ButtonProps {
   className?: string
   disabled?: boolean
   fullWidth?: boolean
+  eventName?: string
+  eventParams?: Record<string, string>
 }
 
 export function Button({
@@ -26,6 +28,8 @@ export function Button({
   className,
   disabled = false,
   fullWidth = false,
+  eventName,
+  eventParams,
 }: ButtonProps) {
   const baseStyles = cn(
     'inline-flex items-center justify-center font-semibold rounded-xl transition-all duration-300',
@@ -61,16 +65,27 @@ export function Button({
 
   const combinedStyles = cn(baseStyles, variants[variant], sizes[size], className)
 
+  const handleClick = (e: React.MouseEvent) => {
+    // Track event in GA4 if eventName is provided
+    if (eventName && typeof window !== 'undefined' && (window as any).gtag) {
+      (window as any).gtag('event', eventName, eventParams || {})
+    }
+    // Call custom onClick if provided
+    if (onClick) {
+      onClick()
+    }
+  }
+
   if (href) {
     return (
-      <a href={href} className={combinedStyles}>
+      <a href={href} onClick={handleClick} className={combinedStyles}>
         {children}
       </a>
     )
   }
 
   return (
-    <button onClick={onClick} disabled={disabled} className={combinedStyles}>
+    <button onClick={handleClick} disabled={disabled} className={combinedStyles}>
       {children}
     </button>
   )

@@ -1,3 +1,4 @@
+import type { Metadata } from 'next'
 import {
   Navigation,
   Hero,
@@ -13,6 +14,12 @@ import {
   CTA,
   Footer,
 } from '@/components'
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: 'https://www.complyvault.co',
+  },
+}
 
 export default function Home() {
   return (

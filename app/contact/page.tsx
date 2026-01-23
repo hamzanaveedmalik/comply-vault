@@ -5,6 +5,9 @@ import Link from 'next/link'
 export const metadata: Metadata = {
   title: 'Contact Us | Comply Vault',
   description: 'Get in touch with the Comply Vault team.',
+  alternates: {
+    canonical: 'https://www.complyvault.co/contact',
+  },
 }
 
 const contactMethods = [
