@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 import { Navigation, Footer } from '@/components'
 import { Button } from '@/components/Button'
 import { 
@@ -22,16 +23,16 @@ import {
 import { cn } from '@/lib/utils'
 
 export const metadata: Metadata = {
-  title: 'RIA Compliance Software | Comply Vault',
-  description: 'SEC exam-ready compliance software for RIAs. Upload meeting recordings, generate audit trails with evidence-linked notes, CCO approval workflows, and complete export packs.',
-  keywords: ['RIA compliance software', 'SEC exam readiness', 'compliance audit trail', 'evidence-linked notes', 'CCO approval', 'investment advisor compliance'],
+  title: 'RIA Compliance Software for SEC Exam-Ready Records | Comply Vault',
+  description: 'RIA compliance software and platform with evidence-linked notes, audit trails, and CCO sign-off. Upload meeting recordings and export complete SEC exam-ready audit packs in under 10 minutes.',
+  keywords: ['RIA compliance software', 'RIA compliance platform', 'RIA compliance tool', 'SEC exam readiness', 'compliance audit trail', 'evidence-linked notes', 'CCO approval', 'investment advisor compliance'],
   authors: [{ name: 'Comply Vault' }],
   alternates: {
     canonical: 'https://www.complyvault.co/ria-compliance-software',
   },
   openGraph: {
-    title: 'RIA Compliance Software | Comply Vault',
-    description: 'SEC exam-ready compliance software for RIAs. Upload meeting recordings, generate audit trails with evidence-linked notes, CCO approval workflows, and complete export packs.',
+    title: 'RIA Compliance Software for SEC Exam-Ready Records | Comply Vault',
+    description: 'RIA compliance software and platform with evidence-linked notes, audit trails, and CCO sign-off. Upload meeting recordings and export complete SEC exam-ready audit packs.',
     url: 'https://www.complyvault.co/ria-compliance-software',
     type: 'website',
     locale: 'en_US',
@@ -39,8 +40,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'RIA Compliance Software | Comply Vault',
-    description: 'SEC exam-ready compliance software for RIAs. Upload meeting recordings, generate audit trails with evidence-linked notes, CCO approval workflows.',
+    title: 'RIA Compliance Software for SEC Exam-Ready Records | Comply Vault',
+    description: 'RIA compliance software and platform with evidence-linked notes, audit trails, and CCO sign-off workflows.',
   },
   robots: {
     index: true,
@@ -63,7 +64,7 @@ const faqs = [
   },
   {
     question: 'What export formats are available?',
-    answer: 'You can export individual files or a complete audit pack. Available formats include: PDF (structured compliance note with all extracted items), CSV (evidence map linking claims to timestamps), CSV (version history showing all edits), TXT (full transcript with timestamps and speaker labels), and ZIP (bundle of all files). Each export includes metadata like who finalized the record and when.',
+    answer: 'You can export individual files or a complete audit pack. Available formats include: PDF (structured compliance note with all extracted items), CSV (evidence map linking claims to timestamps), CSV (version history showing all edits), TXT (full transcript with timestamps and speaker labels), and ZIP (bundle of all files). Each export includes metadata like who finalized the record and when. See our sample audit pack page to view an example export.',
   },
   {
     question: 'Do you support Zoom recordings?',
@@ -473,7 +474,8 @@ export default function RIAComplianceSoftwarePage() {
               <p className="text-sm text-muted-foreground leading-relaxed">
                 <strong className="text-foreground">Important:</strong> Comply Vault does not claim WORM compliance or SOC 2 certification unless explicitly stated. 
                 Our infrastructure includes enterprise-grade encryption, role-based access control, comprehensive audit logging, and workspace isolation. 
-                Always consult your compliance counsel to ensure your documentation meets your firm's regulatory requirements.
+                Always consult your compliance counsel to ensure your documentation meets your firm's regulatory requirements. 
+                Learn more <Link href="/about" className="text-vault-green-500 hover:text-vault-green-600 underline">about our company</Link> and <Link href="/contact" className="text-vault-green-500 hover:text-vault-green-600 underline">security practices</Link>.
               </p>
             </div>
           </div>

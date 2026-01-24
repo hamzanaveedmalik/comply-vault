@@ -76,7 +76,7 @@ export function Hero() {
               <span className="text-muted-foreground/60">•</span>
               <span className="flex items-center gap-1.5">
                 <FileCheck className="w-4 h-4 text-vault-green-500 dark:text-vault-green-400" />
-                SOC 2 Type II compliant
+                SOC 2 controls
               </span>
             </div>
           </div>
