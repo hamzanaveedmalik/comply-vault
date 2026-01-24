@@ -73,12 +73,8 @@ export function middleware(request: NextRequest) {
         // Only redirect the naked domain to www, but exclude app subdomain
         if (hostname === 'complyvault.co') {
             url.host = CANONICAL_HOST
-
-            // Force HTTPS - if using Vercel/Cloudflare, this might be redundant
-            // as they already handle HTTPS. Consider checking x-forwarded-proto
-            // if you see issues in development/staging environments
-            url.protocol = 'https:'
-
+            
+            // Let Vercel handle the protocol (HTTPS) automatically
             return NextResponse.redirect(url, 301)
         }
     }
