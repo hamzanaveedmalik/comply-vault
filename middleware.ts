@@ -71,17 +71,17 @@ export function middleware(request: NextRequest) {
         // Remove port if present for comparison
         const hostnameWithoutPort = hostname.split(':')[0]
 
-    // Only redirect the naked domain to www, but exclude app subdomain
-    if (hostnameWithoutPort === 'complyvault.co') {
-      url.host = CANONICAL_HOST
-      
-      // Force HTTPS - if using Vercel/Cloudflare, this might be redundant
-      // as they already handle HTTPS. Consider checking x-forwarded-proto
-      // if you see issues in development/staging environments
-      url.protocol = 'https:'
-      
-      return NextResponse.redirect(url, 301)
-    }
+        // Only redirect the naked domain to www, but exclude app subdomain
+        if (hostnameWithoutPort === 'complyvault.co') {
+            url.host = CANONICAL_HOST
+
+            // Force HTTPS - if using Vercel/Cloudflare, this might be redundant
+            // as they already handle HTTPS. Consider checking x-forwarded-proto
+            // if you see issues in development/staging environments
+            url.protocol = 'https:'
+
+            return NextResponse.redirect(url, 301)
+        }
     }
 
     return NextResponse.next()
