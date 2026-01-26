@@ -132,7 +132,7 @@ export function Footer() {
         {/* Bottom Footer */}
         <div className="pt-10 flex flex-col md:flex-row justify-between items-center gap-5">
           <p className="text-sm text-gray-500">
-            © {new Date().getFullYear()} Comply Vault. All rights reserved.
+            © {new Date().getFullYear()} COMPLY VAULT LTD. Company No. 16889706. All rights reserved.
           </p>
 
           {/* Social Links */}

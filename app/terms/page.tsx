@@ -14,7 +14,7 @@ const sections = [
   {
     icon: FileText,
     title: '1. Acceptance of Terms',
-    content: `By accessing or using Comply Vault ("Service"), you agree to be bound by these Terms of Service ("Terms"). If you disagree with any part of these terms, you may not access the Service.
+    content: `By accessing or using the services provided by COMPLY VAULT LTD, Company No. 16889706 ("Service"), you agree to be bound by these Terms of Service ("Terms"). If you disagree with any part of these terms, you may not access the Service.
 
 These Terms apply to all visitors, users, and others who access or use the Service. By using the Service, you represent that you are at least 18 years old and have the legal authority to enter into these Terms.`,
   },
@@ -77,7 +77,7 @@ Price Changes: We may change our prices with 30 days' notice. Continued use of t
 const additionalSections = [
   {
     title: '6. Intellectual Property',
-    content: `The Service and its original content, features, and functionality are owned by Comply Vault and are protected by international copyright, trademark, and other intellectual property laws.
+    content: `The Service and its original content, features, and functionality are owned by COMPLY VAULT LTD (Company No. 16889706) and are protected by international copyright, trademark, and other intellectual property laws.
 
 You retain ownership of all content you upload to the Service. We do not claim any intellectual property rights over your content.`,
   },

@@ -140,8 +140,11 @@ export default function AboutPage() {
           <h3 className="text-2xl font-bold text-foreground mb-1">Hamza Malik</h3>
           <p className="text-vault-green-500 font-medium mb-4">Founder</p>
           <p className="text-muted-foreground max-w-md mx-auto leading-relaxed">
-            Building ComplyVault to solve the compliance documentation problem for RIA firms. 
+            Building COMPLY VAULT LTD to solve the compliance documentation problem for RIA firms. 
             Previously worked on enterprise software and AI applications.
+          </p>
+          <p className="text-sm text-muted-foreground mt-3">
+            COMPLY VAULT LTD is a registered company in the UK (Company No. 16889706).
           </p>
           <div className="flex justify-center gap-4 mt-6">
             <a 

@@ -113,7 +113,7 @@ export default function PrivacyPage() {
         {/* Introduction */}
         <div className="prose prose-lg dark:prose-invert max-w-none mb-16">
           <p className="text-muted-foreground text-lg leading-relaxed">
-            At Comply Vault, we take your privacy seriously. This Privacy Policy explains how we collect, 
+            At COMPLY VAULT LTD (Company No. 16889706), we take your privacy seriously. This Privacy Policy explains how we collect, 
             use, disclose, and safeguard your information when you use our compliance documentation platform. 
             We are committed to protecting the confidentiality of your data, especially given the sensitive 
             nature of financial compliance records.
