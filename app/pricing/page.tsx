@@ -30,7 +30,7 @@ const PAYMENT_LINKS = {
 const PLAN_FEATURES = {
   solo: [
     { name: 'Single-user access', included: true },
-    { name: 'Upload limit: 10 recordings/month', included: true },
+    { name: 'Meeting uploads: 10 per month', included: true },
     { name: 'Evidence-linked notes', included: true },
     { name: 'SEC-ready documentation', included: true },
     { name: 'Export: PDF + CSV', included: true },
@@ -42,7 +42,7 @@ const PLAN_FEATURES = {
   ],
   team: [
     { name: 'Up to 10 users', included: true },
-    { name: 'Upload limit: 50 recordings/month', included: true },
+    { name: 'Meeting uploads: 50 per month', included: true },
     { name: 'Evidence-linked notes', included: true },
     { name: 'SEC-ready documentation', included: true },
     { name: 'Export: PDF + CSV + ZIP bundles', included: true },
@@ -105,7 +105,7 @@ export default function PricingPage() {
                       <span className="text-4xl font-bold">£129</span>
                       <span className="text-muted-foreground mb-1">/month</span>
                     </div>
-                    <p className="text-sm text-muted-foreground mb-6">Billed annually (£1,548/year)</p>
+                    <p className="text-sm text-muted-foreground mb-6">Monthly billing</p>
                   </div>
                   
                   {/* Price - USD (hidden by default) */}
@@ -114,7 +114,7 @@ export default function PricingPage() {
                       <span className="text-4xl font-bold">$149</span>
                       <span className="text-muted-foreground mb-1">/month</span>
                     </div>
-                    <p className="text-sm text-muted-foreground mb-6">Billed annually ($1,788/year)</p>
+                    <p className="text-sm text-muted-foreground mb-6">Monthly billing</p>
                   </div>
 
                   <button 
@@ -155,7 +155,7 @@ export default function PricingPage() {
                       <span className="text-4xl font-bold">£299</span>
                       <span className="text-muted-foreground mb-1">/month</span>
                     </div>
-                    <p className="text-sm text-muted-foreground mb-6">Billed annually (£3,588/year)</p>
+                    <p className="text-sm text-muted-foreground mb-6">Monthly billing</p>
                   </div>
                   
                   {/* Price - USD (hidden by default) */}
@@ -164,7 +164,7 @@ export default function PricingPage() {
                       <span className="text-4xl font-bold">$349</span>
                       <span className="text-muted-foreground mb-1">/month</span>
                     </div>
-                    <p className="text-sm text-muted-foreground mb-6">Billed annually ($4,188/year)</p>
+                    <p className="text-sm text-muted-foreground mb-6">Monthly billing</p>
                   </div>
 
                   <button 
@@ -196,8 +196,8 @@ export default function PricingPage() {
               <div className="mt-8 text-center">
                 <p className="text-sm text-muted-foreground">
                   Optional onboarding: <span className="currency-gbp">£450</span><span className="currency-usd hidden">$499</span> 
-                  <button className="optional-onboarding-help inline-flex items-center justify-center cursor-pointer hover:text-vault-green-500 transition-colors">
-                    <HelpCircle className="w-4 h-4 ml-1" />
+                  <button id="onboarding-help" className="ml-2 text-xs px-2 py-0.5 bg-vault-green-500/10 hover:bg-vault-green-500/20 text-vault-green-500 rounded-full transition-colors">
+                    What's included?
                   </button>
                 </p>
               </div>
@@ -210,13 +210,17 @@ export default function PricingPage() {
           <h2 className="text-3xl font-bold text-center mb-10">Frequently Asked Questions</h2>
           <div className="space-y-6">
             {[
-              {
+                {
                 question: 'Do you offer a trial period?',
-                answer: 'Yes, we offer a 14-day free trial for both Solo and Team plans with no credit card required. This allows you to test all features before committing.'
+                answer: 'We offer a 7-day free trial. Card required to start. Cancel anytime.'
+              },
+                {
+                question: 'What happens if I need more uploads?',
+                answer: 'If you need more uploads, contact us - we will extend your limit or add an add-on. Unused uploads don\'t roll over to the next month.'
               },
               {
-                question: 'What happens if I need more uploads?',
-                answer: 'If you exceed your monthly upload limit, additional uploads are charged at £10/$15 per recording. Unused uploads don\'t roll over to the next month.'
+                question: 'What counts as a meeting upload?',
+                answer: 'A meeting upload is a single audio or video recording of a client interaction, regardless of duration. Supported formats include MP3, MP4, WAV, and M4A files up to 500MB per recording.'
               },
               {
                 question: 'Can I change plans later?',
@@ -294,7 +298,7 @@ export default function PricingPage() {
           const usdToggle = document.getElementById('usd-toggle');
           const soloButton = document.getElementById('solo-button');
           const teamButton = document.getElementById('team-button');
-          const onboardingHelpIcon = document.querySelector('.optional-onboarding-help');
+          const onboardingHelpButton = document.getElementById('onboarding-help');
           const gbpElements = document.querySelectorAll('.currency-gbp');
           const usdElements = document.querySelectorAll('.currency-usd');
           
@@ -341,12 +345,20 @@ export default function PricingPage() {
             soloButton.onclick = function() { window.location.href = PAYMENT_LINKS.solo[currentCurrency]; };
             teamButton.onclick = function() { window.location.href = PAYMENT_LINKS.team[currentCurrency]; };
             
-            // Setup onboarding tooltip if it exists
-            if (onboardingHelpIcon) {
-              onboardingHelpIcon.onclick = function(e) {
+            // Setup onboarding help button
+            if (onboardingHelpButton) {
+              onboardingHelpButton.onclick = function(e) {
                 e.preventDefault();
                 e.stopPropagation();
-                window.location.href = PAYMENT_LINKS.onboarding[currentCurrency];
+                // Find and scroll to the onboarding FAQ
+                const faqItems = document.querySelectorAll('details');
+                for (let i = 0; i < faqItems.length; i++) {
+                  if (faqItems[i].textContent.includes("What's included in the optional onboarding?")) {
+                    faqItems[i].scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    faqItems[i].setAttribute('open', 'true');
+                    break;
+                  }
+                }
               };
             }
           }
