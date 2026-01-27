@@ -11,15 +11,19 @@ export const metadata: Metadata = {
   },
 }
 
-// Links would be replaced with actual Stripe checkout links
+// Actual Stripe checkout links
 const PAYMENT_LINKS = {
   solo: {
-    gbp: 'https://buy.stripe.com/solo-gbp-link',
-    usd: 'https://buy.stripe.com/solo-usd-link'
+    gbp: 'https://buy.stripe.com/9AQbRb9ru28cvS9R601', // £129/month
+    usd: 'https://buy.stripe.com/14A7aNeO0dM2hp67J9R602' // $349/month
   },
   team: {
-    gbp: 'https://buy.stripe.com/team-gbp-link',
-    usd: 'https://buy.stripe.com/team-usd-link'
+    gbp: 'https://buy.stripe.com/14AaVf51seIQ09h9s19R603', // £299/month
+    usd: 'https://buy.stripe.com/aF28tbc91waNV0Nn8R600' // $499/month
+  },
+  onboarding: {
+    gbp: 'https://buy.stripe.com/6oEaFfbzAqZ67Xa00e604', // £450
+    usd: 'https://buy.stripe.com/8x2bRb9ruP8vF9T9R605' // $499
   }
 }
 
@@ -192,7 +196,9 @@ export default function PricingPage() {
               <div className="mt-8 text-center">
                 <p className="text-sm text-muted-foreground">
                   Optional onboarding: <span className="currency-gbp">£450</span><span className="currency-usd hidden">$499</span> 
-                  <HelpCircle className="inline-block w-4 h-4 ml-1 text-muted-foreground" />
+                  <button className="optional-onboarding-help inline-flex items-center justify-center cursor-pointer hover:text-vault-green-500 transition-colors">
+                    <HelpCircle className="w-4 h-4 ml-1" />
+                  </button>
                 </p>
               </div>
             </div>
@@ -288,18 +294,23 @@ export default function PricingPage() {
           const usdToggle = document.getElementById('usd-toggle');
           const soloButton = document.getElementById('solo-button');
           const teamButton = document.getElementById('team-button');
+          const onboardingHelpIcon = document.querySelector('.optional-onboarding-help');
           const gbpElements = document.querySelectorAll('.currency-gbp');
           const usdElements = document.querySelectorAll('.currency-usd');
           
-          // Payment links
+          // Payment links from server-side constants
           const PAYMENT_LINKS = {
             solo: {
-              gbp: 'https://buy.stripe.com/solo-gbp-link',
-              usd: 'https://buy.stripe.com/solo-usd-link'
+              gbp: 'https://buy.stripe.com/9AQbRb9ru28cvS9R601', // £129/month
+              usd: 'https://buy.stripe.com/14A7aNeO0dM2hp67J9R602' // $349/month
             },
             team: {
-              gbp: 'https://buy.stripe.com/team-gbp-link',
-              usd: 'https://buy.stripe.com/team-usd-link'
+              gbp: 'https://buy.stripe.com/14AaVf51seIQ09h9s19R603', // £299/month
+              usd: 'https://buy.stripe.com/aF28tbc91waNV0Nn8R600' // $499/month
+            },
+            onboarding: {
+              gbp: 'https://buy.stripe.com/6oEaFfbzAqZ67Xa00e604', // £450
+              usd: 'https://buy.stripe.com/8x2bRb9ruP8vF9T9R605' // $499
             }
           };
           
@@ -329,6 +340,15 @@ export default function PricingPage() {
             // Update button links
             soloButton.onclick = function() { window.location.href = PAYMENT_LINKS.solo[currentCurrency]; };
             teamButton.onclick = function() { window.location.href = PAYMENT_LINKS.team[currentCurrency]; };
+            
+            // Setup onboarding tooltip if it exists
+            if (onboardingHelpIcon) {
+              onboardingHelpIcon.onclick = function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                window.location.href = PAYMENT_LINKS.onboarding[currentCurrency];
+              };
+            }
           }
           
           // Add event listeners
