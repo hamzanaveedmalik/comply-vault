@@ -14,16 +14,16 @@ export const metadata: Metadata = {
 // Actual Stripe checkout links
 const PAYMENT_LINKS = {
   solo: {
-    gbp: 'https://buy.stripe.com/9AQ28tXadHM3i2Uv9R601', // £99/month
-    usd: 'https://buy.stripe.com/14A7aNeO0dM2hp67J9R602' // $349/month
+    gbp: 'https://buy.stripe.com/9B628t3XadhM3lt2Vv9R601', // £129/month
+    usd: 'https://buy.stripe.com/aFa28tbpC91waNV0Nn9R600' // $149/month
   },
   team: {
-    gbp: 'https://buy.stripe.com/14AaVf51seIQ09h9s19R603', // £299/month
-    usd: 'https://buy.stripe.com/aF28tbc91waNV0Nn8R600' // $499/month
+    gbp: 'https://buy.stripe.com/14AeVf51eelQ09hbs19R603', // £299/month
+    usd: 'https://buy.stripe.com/14A7sNeBOdhM2hp67H9R602' // $349/month
   },
   onboarding: {
-    gbp: 'https://buy.stripe.com/6oEaFfbzAqZ67Xa00e604', // £450
-    usd: 'https://buy.stripe.com/8x2bRb9ruP8vF9T9R605' // $499
+    gbp: 'https://buy.stripe.com/28E28t2T67Xse0753D9R604', // £450
+    usd: 'https://buy.stripe.com/8x2dRb9hu5Pk6xF9jT9R605' // $499
   }
 }
 
@@ -102,19 +102,19 @@ export default function PricingPage() {
                   {/* Price - GBP */}
                   <div className="currency-gbp">
                     <div className="flex items-end gap-2 mb-1">
-                      <span className="text-4xl font-bold">£99</span>
+                      <span className="text-4xl font-bold">£129</span>
                       <span className="text-muted-foreground mb-1">/month</span>
                     </div>
-                    <p className="text-sm text-muted-foreground mb-6">Billed annually (£1,188/year)</p>
+                    <p className="text-sm text-muted-foreground mb-6">Billed annually (£1,548/year)</p>
                   </div>
                   
                   {/* Price - USD (hidden by default) */}
                   <div className="currency-usd hidden">
                     <div className="flex items-end gap-2 mb-1">
-                      <span className="text-4xl font-bold">$349</span>
+                      <span className="text-4xl font-bold">$149</span>
                       <span className="text-muted-foreground mb-1">/month</span>
                     </div>
-                    <p className="text-sm text-muted-foreground mb-6">Billed annually ($4,188/year)</p>
+                    <p className="text-sm text-muted-foreground mb-6">Billed annually ($1,788/year)</p>
                   </div>
 
                   <button 
@@ -161,10 +161,10 @@ export default function PricingPage() {
                   {/* Price - USD (hidden by default) */}
                   <div className="currency-usd hidden">
                     <div className="flex items-end gap-2 mb-1">
-                      <span className="text-4xl font-bold">$499</span>
+                      <span className="text-4xl font-bold">$349</span>
                       <span className="text-muted-foreground mb-1">/month</span>
                     </div>
-                    <p className="text-sm text-muted-foreground mb-6">Billed annually ($5,988/year)</p>
+                    <p className="text-sm text-muted-foreground mb-6">Billed annually ($4,188/year)</p>
                   </div>
 
                   <button 
@@ -301,16 +301,16 @@ export default function PricingPage() {
           // Payment links from server-side constants
           const PAYMENT_LINKS = {
             solo: {
-              gbp: 'https://buy.stripe.com/9AQ28tXadHM3i2Uv9R601', // £99/month
-              usd: 'https://buy.stripe.com/14A7aNeO0dM2hp67J9R602' // $349/month
+              gbp: 'https://buy.stripe.com/9B628t3XadhM3lt2Vv9R601', // £129/month
+              usd: 'https://buy.stripe.com/aFa28tbpC91waNV0Nn9R600' // $149/month
             },
             team: {
-              gbp: 'https://buy.stripe.com/14AaVf51seIQ09h9s19R603', // £299/month
-              usd: 'https://buy.stripe.com/aF28tbc91waNV0Nn8R600' // $499/month
+              gbp: 'https://buy.stripe.com/14AeVf51eelQ09hbs19R603', // £299/month
+              usd: 'https://buy.stripe.com/14A7sNeBOdhM2hp67H9R602' // $349/month
             },
             onboarding: {
-              gbp: 'https://buy.stripe.com/6oEaFfbzAqZ67Xa00e604', // £450
-              usd: 'https://buy.stripe.com/8x2bRb9ruP8vF9T9R605' // $499
+              gbp: 'https://buy.stripe.com/28E28t2T67Xse0753D9R604', // £450
+              usd: 'https://buy.stripe.com/8x2dRb9hu5Pk6xF9jT9R605' // $499
             }
           };
           
