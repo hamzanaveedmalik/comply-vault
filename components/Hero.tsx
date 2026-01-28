@@ -23,7 +23,7 @@ export function Hero() {
             {/* Badge */}
             <div className="inline-flex items-center gap-2 bg-accent text-accent-foreground px-4 py-2 rounded-full text-sm font-medium mb-8 animate-fade-in border border-primary/20">
               <Scale className="w-4 h-4" />
-              <span>Built for SEC Rule 206(4)-7 & FCA SYSC 9</span>
+              <span>Built for SEC & state RIA exams</span>
             </div>
 
             {/* Headline */}

@@ -17,13 +17,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
             priority: 0.9,
         },
         {
+            url: `${baseUrl}/fca-compliance-software`,
+            lastModified: new Date('2026-01-27'),
+            changeFrequency: 'weekly',
+            priority: 0.8,
+        },
+        {
             url: `${baseUrl}/pricing`,
             lastModified: new Date('2026-01-27'),
             changeFrequency: 'weekly',
             priority: 0.9,
         },
         // Success page intentionally excluded from sitemap as it's not meant for direct navigation
-        
+
         {
             url: `${baseUrl}/sample-audit-pack`,
             lastModified: new Date('2026-01-23'),

@@ -152,6 +152,9 @@ export function Security() {
                   Request Security Documentation
                   <Shield className="w-4 h-4" />
                 </a>
+                <p className="text-sm text-gray-400 leading-relaxed mt-4">
+                  Also supports UK FCA supervision workflows.
+                </p>
               </div>
             </div>
           </div>
