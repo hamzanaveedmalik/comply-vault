@@ -1,6 +1,6 @@
 'use client'
 
-import { ArrowRight, Play, Shield, FileCheck, Clock, CheckCircle2, Scale, Users } from 'lucide-react'
+import { ArrowRight, Shield, FileCheck, Clock, CheckCircle2, Scale, Users } from 'lucide-react'
 import { Button } from './Button'
 
 export function Hero() {
@@ -28,26 +28,26 @@ export function Hero() {
 
             {/* Headline */}
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold font-display leading-tight mb-8 text-foreground animate-fade-in-up">
-              Turn Client Meetings Into{' '}
-              <span className="text-gradient">SEC-Ready Audit Documentation</span>{' '}
-              in Under 10 Minutes
+              Turn client meetings into{' '}
+              <span className="text-gradient">exam-ready audit documentation</span>{' '}
+              — in minutes.
             </h1>
 
             {/* Subheadline */}
             <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed mb-10 max-w-xl mx-auto lg:mx-0 animate-fade-in-up animation-delay-100">
-              Upload meeting recordings from Zoom, Teams, Google Meet, Webex, and more. Get timestamped supervision notes with evidence linking. 
-              Review, finalize, and export exam-ready documentation.
+              Upload recordings from Zoom, Teams, Google Meet, Webex, and more. Generate timestamped supervision notes with evidence links. 
+              Review, finalize, and export a defensible documentation pack.
             </p>
 
             {/* CTAs */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-12 animate-fade-in-up animation-delay-200">
-              <Button href="#cta" size="lg" className="group">
-                Book a Demo
+              <Button href="/sample-audit-pack" size="lg" className="group">
+                See a sample export pack
                 <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
               </Button>
-              <Button href="#how-it-works" variant="outline" size="lg" className="group">
-                <Play className="w-5 h-5 mr-2" />
-                See How It Works
+              <Button href="#cta" variant="outline" size="lg" className="group">
+                Book a demo
+                <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
               </Button>
             </div>
 
