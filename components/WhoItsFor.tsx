@@ -26,9 +26,9 @@ const bestFor = [
 ]
 
 const notIdealFor = [
-  'Solo practitioners under $100M AUM',
+  'Firms without advice conversations to document',
   'State-registered only (no SEC filing requirements)',
-  'Firms without regular client meeting documentation',
+  'Teams without compliance concerns or supervision needs',
   'Broker-dealers (FINRA vs RIA compliance workflows)',
 ]
 
@@ -47,7 +47,7 @@ export function WhoItsFor() {
             <span className="text-gradient">Your Firm?</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            We've built Comply Vault specifically for SEC-registered RIAs. 
+            We've built Comply Vault for firms that need defensible documentation and compliance trails.
             Here's how to know if we're a fit.
           </p>
         </div>
