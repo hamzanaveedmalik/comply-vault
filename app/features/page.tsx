@@ -5,7 +5,7 @@ import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Is ComplyVault Right for Your Firm? | Compliance Software for RIAs',
-  description: 'Built for RIAs who want meeting documentation that's consistent, evidence-linked, and reviewable — without adding compliance headcount.',
+  description: 'Built for RIAs who want meeting documentation that\'s consistent, evidence-linked, and reviewable - without adding compliance headcount.',
   alternates: {
     canonical: 'https://www.complyvault.co/features',
   },
