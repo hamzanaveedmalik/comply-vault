@@ -8,6 +8,9 @@ A beautiful, modern landing page for Comply Vault - the all-in-one compliance va
 # Install dependencies
 npm install
 
+# Create .env.local file (optional, for local development)
+# See Environment Variables section below
+
 # Start development server
 npm run dev
 
@@ -108,6 +111,23 @@ npm run build    # Production build
 npm run start    # Production server
 npm run lint     # Run ESLint
 ```
+
+## ⚙️ Environment Variables
+
+Create a `.env.local` file in the root directory to configure the app URL:
+
+```bash
+# App URL Configuration
+# - Development: http://localhost:8888 (or whatever port your app runs on)
+# - Production: https://app.complyvault.co (set in production environment)
+NEXT_PUBLIC_APP_URL=http://localhost:8888
+```
+
+**Note:** If `NEXT_PUBLIC_APP_URL` is not set:
+- **Development**: Defaults to `http://localhost:8888`
+- **Production**: Defaults to `https://app.complyvault.co`
+
+The marketing site (this repo) runs on port 3000, and the app runs on port 8888 locally. All CTAs on the pricing page will link to the app URL configured above.
 
 ## 📝 License
 

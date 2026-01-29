@@ -1,7 +1,8 @@
 import { Metadata } from 'next'
-import { CheckCircle2, XCircle, HelpCircle, CreditCard, ArrowRight } from 'lucide-react'
+import { headers } from 'next/headers'
+import { CreditCard, ArrowRight } from 'lucide-react'
 import Link from 'next/link'
-import { Navigation, Footer } from '@/components'
+import { Navigation, Footer, PricingCards, OnboardingPrice } from '@/components'
 
 export const metadata: Metadata = {
   title: 'Simple, Transparent Pricing | Comply Vault',
@@ -11,50 +12,37 @@ export const metadata: Metadata = {
   },
 }
 
-// Actual Stripe checkout links
-const PAYMENT_LINKS = {
-  solo: {
-    gbp: 'https://buy.stripe.com/9B628t3XadhM3lt2Vv9R601', // £129/month
-    usd: 'https://buy.stripe.com/aFa28tbpC91waNV0Nn9R600' // $149/month
-  },
-  team: {
-    gbp: 'https://buy.stripe.com/14AeVf51eelQ09hbs19R603', // £299/month
-    usd: 'https://buy.stripe.com/14A7sNeBOdhM2hp67H9R602' // $349/month
-  },
-  onboarding: {
-    gbp: 'https://buy.stripe.com/28E28t2T67Xse0753D9R604', // £450
-    usd: 'https://buy.stripe.com/8x2dRb9hu5Pk6xF9jT9R605' // $499
-  }
+// Detect user's country from headers
+async function getUserCountry(): Promise<'GB' | null> {
+  const headersList = await headers()
+  // Vercel provides country via x-vercel-ip-country header
+  // Also check Cloudflare's header and other common headers
+  const country = headersList.get('x-vercel-ip-country') || 
+                  headersList.get('cf-ipcountry') || 
+                  headersList.get('x-country-code') ||
+                  headersList.get('cloudfront-viewer-country') ||
+                  null
+  
+  // Log all available headers for debugging
+  console.log('Available headers:', {
+    'x-vercel-ip-country': headersList.get('x-vercel-ip-country'),
+    'cf-ipcountry': headersList.get('cf-ipcountry'),
+    'x-country-code': headersList.get('x-country-code'),
+    'cloudfront-viewer-country': headersList.get('cloudfront-viewer-country'),
+    'x-forwarded-for': headersList.get('x-forwarded-for'),
+  })
+  
+  // Only return GB for UK, everything else defaults to USD
+  if (country === 'GB') return 'GB'
+  return null
 }
 
-const PLAN_FEATURES = {
-  solo: [
-    { name: 'Single-user access', included: true },
-    { name: 'Meeting uploads: 10 per month', included: true },
-    { name: 'Evidence-linked notes', included: true },
-    { name: 'SEC-ready documentation', included: true },
-    { name: 'Export: PDF + CSV', included: true },
-    { name: 'Email support', included: true },
-    { name: 'API access', included: false },
-    { name: 'Team roles & permissions', included: false },
-    { name: 'Custom retention policies', included: false },
-    { name: 'Dedicated account manager', included: false },
-  ],
-  team: [
-    { name: 'Up to 10 users', included: true },
-    { name: 'Meeting uploads: 50 per month', included: true },
-    { name: 'Evidence-linked notes', included: true },
-    { name: 'SEC-ready documentation', included: true },
-    { name: 'Export: PDF + CSV + ZIP bundles', included: true },
-    { name: 'Priority support', included: true },
-    { name: 'API access', included: true },
-    { name: 'Team roles & permissions', included: true },
-    { name: 'Custom retention policies', included: true },
-    { name: 'Dedicated account manager', included: true },
-  ],
-}
+export default async function PricingPage() {
+  const userCountry = await getUserCountry()
+  
+  // Log country detection for debugging
+  console.log('Server Detected country:', userCountry || 'Not detected (will use client-side detection)')
 
-export default function PricingPage() {
   return (
     <>
       <Navigation />
@@ -72,137 +60,16 @@ export default function PricingPage() {
         </div>
 
         {/* Pricing Cards */}
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 -mt-12">
-          <div className="bg-card shadow-xl border border-border rounded-3xl overflow-hidden">
-            <div className="p-6 sm:p-10">
-              {/* Currency Toggle */}
-              <div className="flex justify-center mb-10">
-                <div className="bg-muted rounded-full p-1 flex items-center">
-                  <button 
-                    id="gbp-toggle" 
-                    className="px-6 py-2 rounded-full bg-primary text-primary-foreground font-medium text-sm"
-                  >
-                    UK (£)
-                  </button>
-                  <button 
-                    id="usd-toggle" 
-                    className="px-6 py-2 rounded-full font-medium text-sm text-muted-foreground hover:text-foreground transition-colors"
-                  >
-                    US ($)
-                  </button>
-                </div>
-              </div>
-
-              <div className="grid md:grid-cols-2 gap-8">
-                {/* Solo Plan */}
-                <div className="border border-border rounded-2xl p-8 hover:border-vault-green-500/50 transition-colors">
-                  <h3 className="text-2xl font-bold mb-2">Solo</h3>
-                  <p className="text-muted-foreground mb-6">Perfect for individual RIAs</p>
-                  
-                  {/* Price - GBP */}
-                  <div className="currency-gbp">
-                    <div className="flex items-end gap-2 mb-1">
-                      <span className="text-4xl font-bold">£129</span>
-                      <span className="text-muted-foreground mb-1">/month</span>
-                    </div>
-                    <p className="text-sm text-muted-foreground mb-6">Monthly billing</p>
-                  </div>
-                  
-                  {/* Price - USD (hidden by default) */}
-                  <div className="currency-usd hidden">
-                    <div className="flex items-end gap-2 mb-1">
-                      <span className="text-4xl font-bold">$149</span>
-                      <span className="text-muted-foreground mb-1">/month</span>
-                    </div>
-                    <p className="text-sm text-muted-foreground mb-6">Monthly billing</p>
-                  </div>
-
-                  <button 
-                    id="solo-button"
-                    className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-medium py-3 px-4 rounded-xl flex items-center justify-center gap-2 mb-8 transition-colors"
-                  >
-                    Start Solo
-                    <ArrowRight className="w-4 h-4" />
-                  </button>
-                  
-                  <div className="space-y-4">
-                    {PLAN_FEATURES.solo.map((feature, index) => (
-                      <div key={index} className="flex items-start gap-3">
-                        {feature.included ? (
-                          <CheckCircle2 className="w-5 h-5 text-vault-green-500 flex-shrink-0 mt-0.5" />
-                        ) : (
-                          <XCircle className="w-5 h-5 text-muted-foreground flex-shrink-0 mt-0.5" />
-                        )}
-                        <span className={feature.included ? 'text-foreground' : 'text-muted-foreground'}>
-                          {feature.name}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Team Plan */}
-                <div className="border border-primary bg-primary/5 rounded-2xl p-8 relative">
-                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-primary text-primary-foreground text-sm font-medium py-1 px-4 rounded-full">
-                    Most Popular
-                  </div>
-                  <h3 className="text-2xl font-bold mb-2">Team</h3>
-                  <p className="text-muted-foreground mb-6">For growing RIA practices</p>
-                  
-                  {/* Price - GBP */}
-                  <div className="currency-gbp">
-                    <div className="flex items-end gap-2 mb-1">
-                      <span className="text-4xl font-bold">£299</span>
-                      <span className="text-muted-foreground mb-1">/month</span>
-                    </div>
-                    <p className="text-sm text-muted-foreground mb-6">Monthly billing</p>
-                  </div>
-                  
-                  {/* Price - USD (hidden by default) */}
-                  <div className="currency-usd hidden">
-                    <div className="flex items-end gap-2 mb-1">
-                      <span className="text-4xl font-bold">$349</span>
-                      <span className="text-muted-foreground mb-1">/month</span>
-                    </div>
-                    <p className="text-sm text-muted-foreground mb-6">Monthly billing</p>
-                  </div>
-
-                  <button 
-                    id="team-button"
-                    className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-medium py-3 px-4 rounded-xl flex items-center justify-center gap-2 mb-8 transition-colors"
-                  >
-                    Start Team
-                    <ArrowRight className="w-4 h-4" />
-                  </button>
-                  
-                  <div className="space-y-4">
-                    {PLAN_FEATURES.team.map((feature, index) => (
-                      <div key={index} className="flex items-start gap-3">
-                        {feature.included ? (
-                          <CheckCircle2 className="w-5 h-5 text-vault-green-500 flex-shrink-0 mt-0.5" />
-                        ) : (
-                          <XCircle className="w-5 h-5 text-muted-foreground flex-shrink-0 mt-0.5" />
-                        )}
-                        <span className={feature.included ? 'text-foreground' : 'text-muted-foreground'}>
-                          {feature.name}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-              
-              {/* Optional Onboarding Note */}
-              <div className="mt-8 text-center">
-                <p className="text-sm text-muted-foreground">
-                  Optional onboarding: <span className="currency-gbp">£450</span><span className="currency-usd hidden">$499</span> 
-                  <button id="onboarding-help" className="ml-2 text-xs px-2 py-0.5 bg-vault-green-500/10 hover:bg-vault-green-500/20 text-vault-green-500 rounded-full transition-colors">
-                    What's included?
-                  </button>
-                </p>
-              </div>
-            </div>
-          </div>
+        <PricingCards serverCountry={userCountry} />
+        
+        {/* Optional Onboarding Note */}
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 text-center">
+          <p className="text-sm text-muted-foreground">
+            Optional onboarding: <OnboardingPrice serverCountry={userCountry} />
+            <button id="onboarding-help" className="ml-2 text-xs px-2 py-0.5 bg-vault-green-500/10 hover:bg-vault-green-500/20 text-vault-green-500 rounded-full transition-colors">
+              What's included?
+            </button>
+          </p>
         </div>
 
         {/* FAQ Section */}
@@ -210,13 +77,17 @@ export default function PricingPage() {
           <h2 className="text-3xl font-bold text-center mb-10">Frequently Asked Questions</h2>
           <div className="space-y-6">
             {[
-                {
+              {
                 question: 'Do you offer a trial period?',
-                answer: 'We offer a 7-day free trial. Card required to start. Cancel anytime.'
+                answer: 'Yes! We offer a 7-day free trial with 3 meeting uploads. Exports during the trial are watermarked. No credit card required to start. Upgrading to Solo or Team unlocks full limits and removes the watermark.'
               },
-                {
-                question: 'What happens if I need more uploads?',
-                answer: 'If you need more uploads, contact us - we will extend your limit or add an add-on. Unused uploads don\'t roll over to the next month.'
+              {
+                question: 'What happens when I upgrade from the trial?',
+                answer: 'Upgrading unlocks full plan limits (10 uploads/month for Solo, 50 uploads/month for Team) and removes the watermark from exports. You\'ll also get access to all plan features including team collaboration (Team plan), API access, and priority support.'
+              },
+              {
+                question: 'What\'s included in the Team plan?',
+                answer: 'The Team plan includes up to 10 users, 50 meeting uploads per month, ZIP bundle exports, API access, team roles & permissions, custom retention policies, and a dedicated account manager. Perfect for growing RIA practices.'
               },
               {
                 question: 'What counts as a meeting upload?',
@@ -227,12 +98,8 @@ export default function PricingPage() {
                 answer: 'Yes, you can upgrade or downgrade your plan at any time. When upgrading, the change takes effect immediately. When downgrading, the change will take effect at the end of your current billing period.'
               },
               {
-                question: 'What payment methods do you accept?',
-                answer: 'We accept all major credit cards (Visa, Mastercard, American Express) and direct debit/ACH for annual plans. We do not currently support PayPal or cryptocurrency payments.'
-              },
-              {
                 question: 'What\'s included in the optional onboarding?',
-                answer: 'Optional onboarding includes a personalized 90-minute setup session with our compliance specialists, custom workspace configuration, team training, and priority support for the first 30 days.'
+                answer: 'Optional onboarding (Standard or Premium) can be purchased during upgrade. It includes a personalized setup session with our compliance specialists, custom workspace configuration, team training, and priority support. Onboarding is completely optional—you can start using Comply Vault immediately without it.'
               },
             ].map((faq, index) => (
               <details 
@@ -290,98 +157,24 @@ export default function PricingPage() {
         </div>
       </main>
 
-      {/* Client-side JavaScript for toggling currency */}
+      {/* Onboarding help button handler */}
       <script dangerouslySetInnerHTML={{ __html: `
         document.addEventListener('DOMContentLoaded', function() {
-          // Get elements
-          const gbpToggle = document.getElementById('gbp-toggle');
-          const usdToggle = document.getElementById('usd-toggle');
-          const soloButton = document.getElementById('solo-button');
-          const teamButton = document.getElementById('team-button');
           const onboardingHelpButton = document.getElementById('onboarding-help');
-          const gbpElements = document.querySelectorAll('.currency-gbp');
-          const usdElements = document.querySelectorAll('.currency-usd');
-          
-          // Payment links from server-side constants
-          const PAYMENT_LINKS = {
-            solo: {
-              gbp: 'https://buy.stripe.com/9B628t3XadhM3lt2Vv9R601', // £129/month
-              usd: 'https://buy.stripe.com/aFa28tbpC91waNV0Nn9R600' // $149/month
-            },
-            team: {
-              gbp: 'https://buy.stripe.com/14AeVf51eelQ09hbs19R603', // £299/month
-              usd: 'https://buy.stripe.com/14A7sNeBOdhM2hp67H9R602' // $349/month
-            },
-            onboarding: {
-              gbp: 'https://buy.stripe.com/28E28t2T67Xse0753D9R604', // £450
-              usd: 'https://buy.stripe.com/8x2dRb9hu5Pk6xF9jT9R605' // $499
-            }
-          };
-          
-          // Set initial currency based on geolocation (simplified example - using browser language)
-          let currentCurrency = navigator.language.includes('en-US') ? 'usd' : 'gbp';
-          
-          // Update UI based on selected currency
-          function updateCurrencyDisplay() {
-            if (currentCurrency === 'gbp') {
-              gbpToggle.classList.add('bg-primary', 'text-primary-foreground');
-              gbpToggle.classList.remove('text-muted-foreground');
-              usdToggle.classList.remove('bg-primary', 'text-primary-foreground');
-              usdToggle.classList.add('text-muted-foreground');
-              
-              gbpElements.forEach(el => el.classList.remove('hidden'));
-              usdElements.forEach(el => el.classList.add('hidden'));
-            } else {
-              usdToggle.classList.add('bg-primary', 'text-primary-foreground');
-              usdToggle.classList.remove('text-muted-foreground');
-              gbpToggle.classList.remove('bg-primary', 'text-primary-foreground');
-              gbpToggle.classList.add('text-muted-foreground');
-              
-              usdElements.forEach(el => el.classList.remove('hidden'));
-              gbpElements.forEach(el => el.classList.add('hidden'));
-            }
-            
-            // Update button links
-            soloButton.onclick = function() { window.location.href = PAYMENT_LINKS.solo[currentCurrency]; };
-            teamButton.onclick = function() { window.location.href = PAYMENT_LINKS.team[currentCurrency]; };
-            
-            // Setup onboarding help button
-            if (onboardingHelpButton) {
-              onboardingHelpButton.onclick = function(e) {
-                e.preventDefault();
-                e.stopPropagation();
-                // Find and scroll to the onboarding FAQ
-                const faqItems = document.querySelectorAll('details');
-                for (let i = 0; i < faqItems.length; i++) {
-                  if (faqItems[i].textContent.includes("What's included in the optional onboarding?")) {
-                    faqItems[i].scrollIntoView({ behavior: 'smooth', block: 'center' });
-                    faqItems[i].setAttribute('open', 'true');
-                    break;
-                  }
+          if (onboardingHelpButton) {
+            onboardingHelpButton.onclick = function(e) {
+              e.preventDefault();
+              e.stopPropagation();
+              // Find and scroll to the onboarding FAQ
+              const faqItems = document.querySelectorAll('details');
+              for (let i = 0; i < faqItems.length; i++) {
+                if (faqItems[i].textContent.includes("What's included in the optional onboarding?")) {
+                  faqItems[i].scrollIntoView({ behavior: 'smooth', block: 'center' });
+                  faqItems[i].setAttribute('open', 'true');
+                  break;
                 }
-              };
-            }
-          }
-          
-          // Add event listeners
-          gbpToggle.addEventListener('click', function() {
-            currentCurrency = 'gbp';
-            updateCurrencyDisplay();
-          });
-          
-          usdToggle.addEventListener('click', function() {
-            currentCurrency = 'usd';
-            updateCurrencyDisplay();
-          });
-          
-          // Set initial state
-          updateCurrencyDisplay();
-          
-          // Default to USD for US visitors, GBP for everyone else
-          if (navigator.language.includes('en-US')) {
-            usdToggle.click();
-          } else {
-            gbpToggle.click();
+              }
+            };
           }
         });
       `}} />

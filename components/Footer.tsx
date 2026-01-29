@@ -98,9 +98,9 @@ export function Footer() {
             
             {/* Contact Info */}
             <div className="space-y-4 text-sm">
-              <a href="mailto:hamza@complyvault.co" className="flex items-center gap-3 hover:text-vault-green-400 transition-colors">
+              <a href="mailto:contact@complyvault.co" className="flex items-center gap-3 hover:text-vault-green-400 transition-colors">
                 <Mail className="w-4 h-4" />
-                hamza@complyvault.co
+                contact@complyvault.co
               </a>
               <a href="https://www.complyvault.co" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 hover:text-vault-green-400 transition-colors">
                 <MapPin className="w-4 h-4" />

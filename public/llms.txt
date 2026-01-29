@@ -29,7 +29,7 @@ Features:
 - Enterprise-grade encryption (AES-256) and workspace isolation
 
 # Contact
-Contact: hamza@complyvault.co
+Contact: contact@complyvault.co
 Company: Comply Vault
 
 # License & Usage

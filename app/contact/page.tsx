@@ -15,8 +15,8 @@ const contactMethods = [
     icon: Mail,
     title: 'Email Us',
     description: 'For general inquiries and support',
-    contact: 'hamza@complyvault.co',
-    href: 'mailto:hamza@complyvault.co',
+    contact: 'contact@complyvault.co',
+    href: 'mailto:contact@complyvault.co',
     action: 'Send Email',
   },
   {

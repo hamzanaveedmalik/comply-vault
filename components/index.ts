@@ -14,4 +14,7 @@ export { FAQ } from './FAQ'
 export { CTA } from './CTA'
 export { DemoForm } from './DemoForm'
 export { DemoModal } from './DemoModal'
+export { PricingDisplay } from './PricingDisplay'
 export { Footer } from './Footer'
+export { OnboardingPrice } from "./OnboardingPrice"
+export { PricingCards } from "./PricingCards"
