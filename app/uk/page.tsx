@@ -1,9 +1,23 @@
-import { Metadata } from 'next'
-import { redirect } from 'next/navigation'
+import type { Metadata } from 'next'
+import {
+  Navigation,
+  Hero,
+  TrustedBy,
+  PainPoints,
+  ROIStats,
+  Outputs,
+  Features,
+  WhoItsFor,
+  HowItWorks,
+  Security,
+  FAQ,
+  CTA,
+  Footer,
+} from '@/components'
 
 export const metadata: Metadata = {
   title: 'FCA Compliance Software for UK Financial Services | Comply Vault',
-  description: 'FCA compliance software for UK financial services firms. Generate file notes, supervision records, and advice suitability documentation with evidence linking and audit trails.',
+  description: 'FCA compliance software for UK financial services firms. Turn meeting recordings into FCA review-ready file notes with evidence linking, supervision workflows, and complete audit trails.',
   alternates: {
     canonical: 'https://www.complyvault.co/uk',
     languages: {
@@ -15,6 +29,21 @@ export const metadata: Metadata = {
 }
 
 export default function UKHomePage() {
-  // Redirect UK homepage to FCA compliance page
-  redirect('/uk/fca-compliance-software')
+  return (
+    <main className="relative">
+      <Navigation />
+      <Hero />
+      <TrustedBy />
+      <PainPoints />
+      <ROIStats />
+      <Outputs />
+      <Features />
+      <WhoItsFor />
+      <HowItWorks />
+      <Security />
+      <FAQ />
+      <CTA />
+      <Footer />
+    </main>
+  )
 }

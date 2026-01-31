@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import { usePathname } from 'next/navigation'
 import Image from 'next/image'
 import { useTheme } from 'next-themes'
 import { cn } from '@/lib/utils'
@@ -8,15 +9,18 @@ import { Menu, X } from 'lucide-react'
 import { ThemeToggle } from './ThemeToggle'
 import { DemoModal } from './DemoModal'
 
-const navLinks = [
-  { label: 'Solutions', href: '/ria-compliance-software' },
-  { label: 'Features', href: '#features' },
-  { label: 'How It Works', href: '#how-it-works' },
-  { label: 'Security', href: '#security' },
-  { label: 'Pricing', href: '/pricing' },
-]
-
 export function Navigation() {
+  const pathname = usePathname()
+  const isUK = pathname?.startsWith('/uk') ?? false
+  
+  const navLinks = [
+    { label: 'Solutions', href: isUK ? '/uk/fca-compliance-software' : '/ria-compliance-software' },
+    { label: 'Features', href: '#features' },
+    { label: 'How It Works', href: '#how-it-works' },
+    { label: 'Security', href: '#security' },
+    { label: 'Pricing', href: isUK ? '/uk/pricing' : '/pricing' },
+  ]
+  
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [isDemoModalOpen, setIsDemoModalOpen] = useState(false)
@@ -56,7 +60,7 @@ export function Navigation() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
             {/* Logo */}
-            <a href="/" className="flex items-center gap-3 group">
+            <a href={isUK ? "/uk" : "/"} className="flex items-center gap-3 group">
               <div className="w-10 h-10 relative">
                 <Image
                   src={logoSrc}

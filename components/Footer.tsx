@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import { usePathname } from 'next/navigation'
 import Image from 'next/image'
 import { useTheme } from 'next-themes'
 import { Mail, MapPin, Linkedin } from 'lucide-react'
@@ -19,48 +20,51 @@ function XIcon({ className }: { className?: string }) {
   )
 }
 
-const footerLinks = {
-  product: {
-    title: 'Product',
-    links: [
-      { label: 'Features', href: '/#features' },
-      { label: 'Pricing', href: '/#pricing' },
-      { label: 'Security', href: '/#security' },
-      { label: 'How It Works', href: '/#how-it-works' },
-    ],
-  },
-  solutions: {
-    title: 'Solutions',
-    links: [
-      { label: 'RIA Compliance Software', href: '/ria-compliance-software' },
-      { label: 'Sample Audit Pack', href: '/sample-audit-pack' },
-    ],
-  },
-  company: {
-    title: 'Company',
-    links: [
-      { label: 'About Us', href: '/about' },
-      { label: 'Contact', href: '/contact' },
-    ],
-  },
-  resources: {
-    title: 'Resources',
-    links: [
-      { label: 'FAQ', href: '/#faq' },
-      { label: 'Book a Demo', href: '/#cta' },
-    ],
-  },
-  legal: {
-    title: 'Legal',
-    links: [
-      { label: 'Privacy Policy', href: '/privacy' },
-      { label: 'Terms of Service', href: '/terms' },
-      { label: 'Security', href: '/#security' },
-    ],
-  },
-}
-
 export function Footer() {
+  const pathname = usePathname()
+  const isUK = pathname?.startsWith('/uk') ?? false
+  
+  const footerLinks = {
+    product: {
+      title: 'Product',
+      links: [
+        { label: 'Features', href: isUK ? '/uk#features' : '/#features' },
+        { label: 'Pricing', href: isUK ? '/uk/pricing' : '/pricing' },
+        { label: 'Security', href: isUK ? '/uk#security' : '/#security' },
+        { label: 'How It Works', href: isUK ? '/uk#how-it-works' : '/#how-it-works' },
+      ],
+    },
+    solutions: {
+      title: 'Solutions',
+      links: [
+        { label: isUK ? 'FCA Compliance Software' : 'RIA Compliance Software', href: isUK ? '/uk/fca-compliance-software' : '/ria-compliance-software' },
+        { label: 'Sample Audit Pack', href: '/sample-audit-pack' },
+      ],
+    },
+    company: {
+      title: 'Company',
+      links: [
+        { label: 'About Us', href: isUK ? '/uk/about' : '/about' },
+        { label: 'Contact', href: isUK ? '/uk/contact' : '/contact' },
+      ],
+    },
+    resources: {
+      title: 'Resources',
+      links: [
+        { label: 'FAQ', href: isUK ? '/uk#faq' : '/#faq' },
+        { label: 'Book a Demo', href: isUK ? '/uk#cta' : '/#cta' },
+      ],
+    },
+    legal: {
+      title: 'Legal',
+      links: [
+        { label: 'Privacy Policy', href: '/privacy' },
+        { label: 'Terms of Service', href: '/terms' },
+        { label: 'Security', href: isUK ? '/uk#security' : '/#security' },
+      ],
+    },
+  }
+  
   const [mounted, setMounted] = useState(false)
   const { resolvedTheme } = useTheme()
 
@@ -78,7 +82,7 @@ export function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-7 gap-10 pb-14 border-b border-gray-800 dark:border-white/10">
           {/* Brand Column */}
           <div className="col-span-2 md:col-span-2">
-            <a href="#" className="flex items-center gap-3 mb-5">
+            <a href={isUK ? "/uk" : "/"} className="flex items-center gap-3 mb-5">
               <div className="w-11 h-11 relative">
                 <Image
                   src={logoSrc}
