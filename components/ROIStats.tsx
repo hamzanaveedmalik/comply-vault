@@ -1,5 +1,6 @@
 'use client'
 
+import { usePathname } from 'next/navigation'
 import { Clock, DollarSign, TrendingUp, Shield, Info } from 'lucide-react'
 
 const stats = [
@@ -27,6 +28,13 @@ const stats = [
 ]
 
 export function ROIStats() {
+  const pathname = usePathname()
+  const isUK = pathname?.startsWith('/uk') ?? false
+  
+  const description = isUK
+    ? 'Results from UK financial services firms using Comply Vault for FCA supervision and monitoring documentation.'
+    : 'Results from SEC-registered RIAs using Comply Vault for supervision documentation and exam preparation.'
+  
   return (
     <section className="py-28 lg:py-36 bg-gradient-to-br from-vault-green-600 via-vault-green-500 to-vault-green-700 dark:from-vault-green-700 dark:via-vault-green-600 dark:to-vault-green-800 relative overflow-hidden">
       {/* Background Pattern */}
@@ -49,8 +57,7 @@ export function ROIStats() {
             The ROI of Proactive Compliance
           </h2>
           <p className="text-lg text-white/85 max-w-2xl mx-auto leading-relaxed">
-            Results from SEC-registered RIAs using Comply Vault for supervision 
-            documentation and exam preparation.
+            {description}
           </p>
         </div>
 

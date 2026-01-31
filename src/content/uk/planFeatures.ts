@@ -1,0 +1,28 @@
+export const ukPlanFeatures = {
+  solo: [
+    { name: 'Single-user access', included: true },
+    { name: 'Meeting uploads: 10 per month', included: true },
+    { name: 'Evidence-linked notes', included: true },
+    { name: 'FCA review-ready documentation', included: true },
+    { name: 'Export: PDF + CSV', included: true },
+    { name: 'Email support', included: true },
+    { name: 'API access', included: false },
+    { name: 'Team roles & permissions', included: false },
+    { name: 'Custom retention policies', included: false },
+    { name: 'Dedicated account manager', included: false },
+  ],
+  team: [
+    { name: 'Up to 10 users', included: true },
+    { name: 'Meeting uploads: 50 per month', included: true },
+    { name: 'Evidence-linked notes', included: true },
+    { name: 'FCA review-ready documentation', included: true },
+    { name: 'Export: PDF + CSV + ZIP bundles', included: true },
+    { name: 'Priority support', included: true },
+    { name: 'API access', included: true },
+    { name: 'Team roles & permissions', included: true },
+    { name: 'Custom retention policies', included: true },
+    { name: 'Dedicated account manager', included: true },
+  ],
+  soloDescription: 'Perfect for individual UK financial advisers',
+  teamDescription: 'For growing UK financial services firms',
+}

@@ -28,6 +28,30 @@ export default function sitemap(): MetadataRoute.Sitemap {
             changeFrequency: 'weekly',
             priority: 0.9,
         },
+        {
+            url: `${baseUrl}/uk`,
+            lastModified: new Date('2026-01-27'),
+            changeFrequency: 'weekly',
+            priority: 0.9,
+        },
+        {
+            url: `${baseUrl}/uk/fca-compliance-software`,
+            lastModified: new Date('2026-01-27'),
+            changeFrequency: 'weekly',
+            priority: 0.9,
+        },
+        {
+            url: `${baseUrl}/uk/pricing`,
+            lastModified: new Date('2026-01-27'),
+            changeFrequency: 'weekly',
+            priority: 0.9,
+        },
+        {
+            url: `${baseUrl}/uk/fca-compliance-software`,
+            lastModified: new Date('2026-01-27'),
+            changeFrequency: 'weekly',
+            priority: 0.8,
+        },
         // Success page intentionally excluded from sitemap as it's not meant for direct navigation
 
         {

@@ -1,9 +1,17 @@
 'use client'
 
+import { usePathname } from 'next/navigation'
 import { ArrowRight, Shield, FileCheck, Clock, CheckCircle2, Scale, Users } from 'lucide-react'
 import { Button } from './Button'
 
 export function Hero() {
+  const pathname = usePathname()
+  const isUK = pathname?.startsWith('/uk') ?? false
+  
+  const badgeText = isUK 
+    ? 'Built for FCA SYSC 9 supervision & monitoring'
+    : 'Built for SEC & state RIA exams'
+  
   return (
     <section className="relative min-h-screen pt-28 pb-20 overflow-hidden noise-texture">
       {/* Background Elements */}
@@ -23,7 +31,7 @@ export function Hero() {
             {/* Badge */}
             <div className="inline-flex items-center gap-2 bg-accent text-accent-foreground px-4 py-2 rounded-full text-sm font-medium mb-8 animate-fade-in border border-primary/20">
               <Scale className="w-4 h-4" />
-              <span>Built for SEC & state RIA exams</span>
+              <span>{badgeText}</span>
             </div>
 
             {/* Headline */}

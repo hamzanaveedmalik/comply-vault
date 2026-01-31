@@ -1,24 +1,24 @@
 import { Metadata } from 'next'
-import { CreditCard, ArrowRight } from 'lucide-react'
+import { CreditCard, ArrowRight, AlertTriangle } from 'lucide-react'
 import Link from 'next/link'
 import { Navigation, Footer, PricingCards, OnboardingPrice } from '@/components'
-import { usPricingContent } from '@/src/content/us/pricing'
+import { ukPricingContent } from '@/src/content/uk/pricing'
 
 export const metadata: Metadata = {
-  title: 'Simple, Transparent Pricing | Comply Vault',
-  description: 'Choose the plan that fits your RIA firm. Solo for individual advisors and Team plans for growing practices.',
+  title: 'Simple, Transparent Pricing for UK Financial Services | Comply Vault',
+  description: 'Choose the plan that fits your UK financial services firm. FCA-compliant documentation workflows. Solo for individual advisers and Team plans for growing firms.',
   alternates: {
-    canonical: 'https://www.complyvault.co/pricing',
+    canonical: 'https://www.complyvault.co/uk/pricing',
     languages: {
-      'en-US': 'https://www.complyvault.co/pricing',
       'en-GB': 'https://www.complyvault.co/uk/pricing',
+      'en-US': 'https://www.complyvault.co/pricing',
       'x-default': 'https://www.complyvault.co/pricing',
     },
   },
 }
 
-export default async function PricingPage() {
-  const content = usPricingContent
+export default async function UKPricingPage() {
+  const content = ukPricingContent
 
   return (
     <>
@@ -37,16 +37,31 @@ export default async function PricingPage() {
         </div>
 
         {/* Pricing Cards */}
-        <PricingCards defaultCurrency="usd" market="us" />
+        <PricingCards defaultCurrency="gbp" market="uk" />
         
         {/* Optional Onboarding Note */}
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 text-center">
           <p className="text-sm text-muted-foreground">
-            Optional onboarding: <OnboardingPrice defaultCurrency="usd" />
+            Optional onboarding: <OnboardingPrice defaultCurrency="gbp" />
             <button id="onboarding-help" className="ml-2 text-xs px-2 py-0.5 bg-vault-green-500/10 hover:bg-vault-green-500/20 text-vault-green-500 rounded-full transition-colors">
               What's included?
             </button>
           </p>
+        </div>
+
+        {/* FCA Disclaimer */}
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-8">
+          <div className="bg-amber-50 dark:bg-amber-950/20 border border-amber-200 dark:border-amber-900 rounded-xl p-6">
+            <div className="flex items-start gap-4">
+              <AlertTriangle className="w-5 h-5 text-amber-600 dark:text-amber-500 flex-shrink-0 mt-0.5" />
+              <div>
+                <h3 className="font-semibold text-amber-900 dark:text-amber-100 mb-2">Important Regulatory Notice</h3>
+                <p className="text-sm text-amber-800 dark:text-amber-200 leading-relaxed">
+                  {content.disclaimer.text}
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* FAQ Section */}
@@ -84,7 +99,7 @@ export default async function PricingPage() {
               </div>
               <div className="md:w-5/12 flex justify-end">
                 <Link
-                  href="/contact"
+                  href="/uk/contact"
                   className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-xl hover:bg-primary/90 transition-colors"
                 >
                   Contact Sales

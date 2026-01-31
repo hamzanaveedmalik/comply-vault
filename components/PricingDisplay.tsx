@@ -1,48 +1,14 @@
 'use client'
 
-import { useEffect, useState } from 'react'
 import { ArrowRight } from 'lucide-react'
 
 interface PricingDisplayProps {
-  serverCountry: 'GB' | null
   plan: 'solo' | 'team'
   currency: 'gbp' | 'usd'
-  onCurrencyChange: (currency: 'gbp' | 'usd') => void
+  isDetecting?: boolean
 }
 
-export function PricingDisplay({ serverCountry, plan, currency, onCurrencyChange }: PricingDisplayProps) {
-  const [isDetecting, setIsDetecting] = useState(true)
-
-  useEffect(() => {
-    // If server detected GB, use GBP immediately
-    if (serverCountry === 'GB') {
-      onCurrencyChange('gbp')
-      setIsDetecting(false)
-      return
-    }
-
-    // Otherwise, try client-side detection via our API route
-    fetch('/api/geolocation')
-      .then(response => response.json())
-      .then(data => {
-        console.log('Client-side detection:', {
-          country: data.country_code,
-          countryName: data.country_name,
-        })
-        
-        if (data.country_code === 'GB') {
-          onCurrencyChange('gbp')
-        } else {
-          onCurrencyChange('usd')
-        }
-        setIsDetecting(false)
-      })
-      .catch(err => {
-        console.log('Client-side detection failed:', err)
-        onCurrencyChange('usd')
-        setIsDetecting(false)
-      })
-  }, [serverCountry, onCurrencyChange])
+export function PricingDisplay({ plan, currency, isDetecting = false }: PricingDisplayProps) {
 
   const prices = {
     solo: { gbp: '£129', usd: '$149' },

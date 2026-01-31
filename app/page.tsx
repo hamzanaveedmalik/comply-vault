@@ -18,6 +18,11 @@ import {
 export const metadata: Metadata = {
   alternates: {
     canonical: 'https://www.complyvault.co',
+    languages: {
+      'en-US': 'https://www.complyvault.co',
+      'en-GB': 'https://www.complyvault.co/uk',
+      'x-default': 'https://www.complyvault.co',
+    },
   },
 }
 

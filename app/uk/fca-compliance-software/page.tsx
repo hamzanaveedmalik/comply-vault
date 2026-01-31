@@ -20,33 +20,32 @@ import {
   Scale,
   ChevronDown
 } from 'lucide-react'
-import { cn } from '@/lib/utils'
 
 export const metadata: Metadata = {
-  title: 'RIA Compliance Software for SEC Exam-Ready Records | Comply Vault',
-  description: 'RIA compliance software and platform with evidence-linked notes, audit trails, and CCO sign-off. Upload meeting recordings and export complete SEC exam-ready audit packs in under 10 minutes.',
-  keywords: ['RIA compliance software', 'RIA compliance platform', 'RIA compliance tool', 'SEC exam readiness', 'compliance audit trail', 'evidence-linked notes', 'CCO approval', 'investment advisor compliance'],
+  title: 'FCA Compliance Software for SYSC 9 Supervision & Monitoring | Comply Vault',
+  description: 'FCA compliance software for UK financial services firms. Generate file notes, supervision records, and advice suitability documentation with evidence linking and audit trails. FCA SYSC 9 compliant workflows.',
+  keywords: ['FCA compliance software', 'FCA SYSC 9', 'supervision software', 'monitoring software', 'file notes', 'advice suitability', 'UK compliance', 'FCA supervision'],
   authors: [{ name: 'Comply Vault' }],
   alternates: {
-    canonical: 'https://www.complyvault.co/ria-compliance-software',
+    canonical: 'https://www.complyvault.co/uk/fca-compliance-software',
     languages: {
-      'en-US': 'https://www.complyvault.co/ria-compliance-software',
       'en-GB': 'https://www.complyvault.co/uk/fca-compliance-software',
+      'en-US': 'https://www.complyvault.co/ria-compliance-software',
       'x-default': 'https://www.complyvault.co/ria-compliance-software',
     },
   },
   openGraph: {
-    title: 'RIA Compliance Software for SEC Exam-Ready Records | Comply Vault',
-    description: 'RIA compliance software and platform with evidence-linked notes, audit trails, and CCO sign-off. Upload meeting recordings and export complete SEC exam-ready audit packs.',
-    url: 'https://www.complyvault.co/ria-compliance-software',
+    title: 'FCA Compliance Software for SYSC 9 Supervision & Monitoring | Comply Vault',
+    description: 'FCA compliance software for UK financial services firms. Generate file notes, supervision records, and advice suitability documentation.',
+    url: 'https://www.complyvault.co/uk/fca-compliance-software',
     type: 'website',
-    locale: 'en_US',
+    locale: 'en_GB',
     siteName: 'Comply Vault',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'RIA Compliance Software for SEC Exam-Ready Records | Comply Vault',
-    description: 'RIA compliance software and platform with evidence-linked notes, audit trails, and CCO sign-off workflows.',
+    title: 'FCA Compliance Software for SYSC 9 Supervision & Monitoring | Comply Vault',
+    description: 'FCA compliance software with evidence-linked file notes, supervision workflows, and audit trails.',
   },
   robots: {
     index: true,
@@ -56,44 +55,44 @@ export const metadata: Metadata = {
 
 const faqs = [
   {
-    question: 'What does an SEC examiner expect to see in client interaction records?',
-    answer: 'SEC examiners look for documentation that proves you provided suitable advice and followed your fiduciary duty. This includes: clear evidence of what was discussed, recommendations made, disclosures provided, client decisions, and follow-up actions. The documentation must be contemporaneous, accurate, and verifiable. Comply Vault creates structured records with direct evidence linking—every claim in your compliance note links back to the exact timestamp and transcript snippet where it occurred.',
+    question: 'What does FCA SYSC 9 require for supervision and monitoring?',
+    answer: 'FCA SYSC 9 requires firms to establish and maintain systems and controls for effective supervision and monitoring of staff. This includes documenting advice conversations, maintaining file notes with evidence of suitability assessments, and demonstrating that supervision processes are working effectively. Comply Vault helps you create structured file notes with evidence linking, supervision sign-off workflows, and complete audit trails that support your SYSC 9 obligations.',
   },
   {
-    question: 'Can we edit notes before approval?',
-    answer: 'Yes. After the AI generates a draft compliance note, anyone in your workspace can review and edit it. You can add context, correct any extraction errors, or remove items that aren\'t relevant. All edits are tracked in version history. Once you\'re satisfied, a CCO or owner finalizes the record, which locks it from further editing and creates the official audit trail.',
+    question: 'What are file notes and how does Comply Vault help?',
+    answer: 'File notes are contemporaneous records of client interactions, advice given, and suitability assessments. Comply Vault turns meeting recordings into structured file notes with timestamped evidence, topics discussed, recommendations made, and suitability considerations. Every claim in your file note links back to the exact moment in the recording, providing full traceability for FCA reviews.',
+  },
+  {
+    question: 'How does advice suitability documentation work?',
+    answer: 'Comply Vault extracts key information from client meetings including client circumstances, objectives, risk tolerance, and recommendations made. The system structures this into a suitability assessment format with evidence links. Your compliance team can review and finalize these records, ensuring they demonstrate that advice was suitable for the client\'s circumstances and objectives.',
+  },
+  {
+    question: 'Can we edit file notes before approval?',
+    answer: 'Yes. After the AI generates a draft file note, anyone in your workspace can review and edit it. You can add context, correct any extraction errors, or enhance suitability assessments. All edits are tracked in version history. Once satisfied, a supervisor or compliance officer finalizes the record, which locks it from further editing and creates the official audit trail.',
   },
   {
     question: 'How does supervision sign-off work?',
-    answer: 'Comply Vault enforces role-based access control. Only users with the CCO or Owner role can finalize a compliance record. When a record is finalized, the system logs who approved it and when. This creates a clear supervision boundary—draft work is separated from officially approved records. All finalization actions are recorded in the audit trail.',
+    answer: 'Comply Vault enforces role-based access control. Only users with supervisor or compliance officer roles can finalize a file note. When a record is finalized, the system logs who approved it and when. This creates a clear supervision boundary—draft work is separated from officially approved records. All finalization actions are recorded in the audit trail, demonstrating effective supervision processes.',
   },
   {
     question: 'What export formats are available?',
-    answer: 'You can export individual files or a complete audit pack. Available formats include: PDF (structured compliance note with all extracted items), CSV (evidence map linking claims to timestamps), CSV (version history showing all edits), TXT (full transcript with timestamps and speaker labels), and ZIP (bundle of all files). Each export includes metadata like who finalized the record and when. See our sample audit pack page to view an example export.',
+    answer: 'You can export individual files or a complete documentation pack. Available formats include: PDF (structured file note with all extracted items), CSV (evidence map linking claims to timestamps), CSV (version history showing all edits), TXT (full transcript with timestamps and speaker labels), and ZIP (bundle of all files). Each export includes metadata like who finalized the record and when.',
   },
   {
-    question: 'Do you support Zoom recordings?',
-    answer: 'Yes. Comply Vault supports recordings from Zoom, Microsoft Teams, Google Meet, Webex, and any other platform that can export audio or video files. We accept MP3, MP4, WAV, and M4A formats up to 500MB. The system automatically transcribes with speaker separation, timestamps, and extracts compliance-relevant information.',
+    question: 'Do you support UK meeting platforms?',
+    answer: 'Yes. Comply Vault supports recordings from Zoom, Microsoft Teams, Google Meet, Webex, and any other platform that can export audio or video files. We accept MP3, MP4, WAV, and M4A formats up to 500MB. The system automatically transcribes with speaker separation, timestamps, and extracts compliance-relevant information for UK financial services firms.',
   },
   {
     question: 'How long does it take per meeting?',
-    answer: 'Processing time depends on recording length, but most meetings are ready for review in 5-10 minutes. Transcription happens first (usually 1-2 minutes per hour of audio), then AI extraction takes another few minutes. Once the draft is ready, CCO review typically takes 5-10 minutes depending on meeting complexity. Total time from upload to finalized record is usually under 15 minutes.',
-  },
-  {
-    question: 'Is the system WORM-compliant or SOC2 certified?',
-    answer: 'We do not claim WORM compliance or SOC 2 certification unless explicitly stated. Comply Vault provides audit trail logging, evidence linking, role-based approvals, and exportable audit packs.',
+    answer: 'Processing time depends on recording length, but most meetings are ready for review in 5-10 minutes. Transcription happens first (usually 1-2 minutes per hour of audio), then AI extraction takes another few minutes. Once the draft is ready, supervisor review typically takes 5-10 minutes depending on meeting complexity. Total time from upload to finalized file note is usually under 15 minutes.',
   },
   {
     question: 'What if the AI makes a mistake in extraction?',
     answer: 'AI extraction is not perfect, which is why we require human review before finalization. Every extracted item includes a link to the exact transcript moment where it was found, so you can verify accuracy. If the AI missed something or extracted incorrectly, you can edit the draft before finalizing. The evidence map ensures you can always trace back to the source recording.',
   },
   {
-    question: 'Can we use this for annual compliance reviews?',
-    answer: 'Yes. Comply Vault is designed to support ongoing books-and-records obligations, including annual reviews. Once records are finalized, they\'re stored in a searchable archive with full audit trails. You can export compliance reports, review version histories, and demonstrate your supervision process to examiners. The system maintains metadata on all records, making it easy to pull documentation for specific time periods or clients.',
-  },
-  {
     question: 'Do you provide legal or compliance advice?',
-    answer: 'No. Comply Vault is a documentation tool, not a compliance advisory service. We help you create structured, evidence-linked records with complete audit trails, but we do not make compliance determinations or provide legal advice. You and your CCO are responsible for ensuring your documentation meets your firm\'s regulatory requirements. Always consult with your compliance counsel for specific regulatory questions.',
+    answer: 'No. Comply Vault is a documentation tool, not a compliance advisory service. We help you create structured, evidence-linked file notes with complete audit trails, but we do not make compliance determinations or provide legal advice. You and your compliance team are responsible for ensuring your documentation meets your firm\'s regulatory requirements. Always consult with your compliance counsel for specific regulatory questions.',
   },
 ]
 
@@ -106,7 +105,7 @@ function FAQSection() {
             Frequently Asked <span className="text-gradient">Questions</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Common questions about RIA compliance software and exam readiness
+            Common questions about FCA compliance software and SYSC 9 supervision
           </p>
         </div>
 
@@ -133,7 +132,7 @@ function FAQSection() {
   )
 }
 
-export default function RIAComplianceSoftwarePage() {
+export default function FCAComplianceSoftwarePage() {
   return (
     <main className="relative">
       {/* JSON-LD Schema */}
@@ -149,9 +148,9 @@ export default function RIAComplianceSoftwarePage() {
             offers: {
               '@type': 'Offer',
               price: '0',
-              priceCurrency: 'USD',
+              priceCurrency: 'GBP',
             },
-            description: 'SEC exam-ready compliance software for RIAs. Upload meeting recordings, generate audit trails with evidence-linked notes, CCO approval workflows, and complete export packs.',
+            description: 'FCA compliance software for UK financial services firms. Generate file notes, supervision records, and advice suitability documentation with evidence linking and audit trails.',
           }),
         }}
       />
@@ -186,20 +185,20 @@ export default function RIAComplianceSoftwarePage() {
             {/* Badge */}
             <div className="inline-flex items-center gap-2 bg-accent text-accent-foreground px-4 py-2 rounded-full text-sm font-medium mb-8 border border-primary/20">
               <Scale className="w-4 h-4" />
-              <span>SEC Rule 206(4)-7 Documentation</span>
+              <span>FCA SYSC 9 Supervision & Monitoring</span>
             </div>
 
             {/* H1 */}
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold font-display leading-tight mb-8 text-foreground">
-              RIA Compliance Software for{' '}
-              <span className="text-gradient">SEC Exam-Ready Records</span>
+              FCA Compliance Software for{' '}
+              <span className="text-gradient">Supervision & File Notes</span>
             </h1>
 
             {/* Value Prop */}
             <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed mb-10 max-w-3xl mx-auto">
-              Upload meeting recordings, get AI-drafted compliance notes with evidence timestamps, 
-              CCO approval workflows, and complete audit packs. Turn every client interaction into 
-              defensible documentation with full audit trails and evidence linking.
+              Upload meeting recordings, get AI-drafted file notes with evidence timestamps, 
+              supervision workflows, and complete documentation packs. Turn every client interaction into 
+              defensible file notes with full audit trails and evidence linking for FCA SYSC 9 compliance.
             </p>
 
             {/* CTAs */}
@@ -208,8 +207,6 @@ export default function RIAComplianceSoftwarePage() {
                 href="#cta" 
                 size="lg" 
                 className="group"
-                eventName="book_demo_click"
-                eventParams={{ location: 'ria_page_hero' }}
               >
                 Book a Demo
                 <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
@@ -218,10 +215,8 @@ export default function RIAComplianceSoftwarePage() {
                 href="/sample-audit-pack" 
                 variant="outline" 
                 size="lg"
-                eventName="sample_audit_pack_click"
-                eventParams={{ location: 'ria_page_hero' }}
               >
-                See Sample Audit Pack
+                See Sample Export Pack
               </Button>
             </div>
 
@@ -237,7 +232,7 @@ export default function RIAComplianceSoftwarePage() {
               </div>
               <div className="flex items-center gap-2">
                 <Users className="w-5 h-5 text-vault-green-500" />
-                <span>CCO-only finalization</span>
+                <span>Supervision sign-off</span>
               </div>
             </div>
           </div>
@@ -249,10 +244,10 @@ export default function RIAComplianceSoftwarePage() {
         <section className="py-20 lg:py-28">
           <div className="text-center mb-14">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-display text-foreground mb-6">
-              Built for <span className="text-vault-green-500">RIA Compliance Teams</span>
+              Built for <span className="text-vault-green-500">UK Financial Services</span>
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Whether you're a solo RIA or managing compliance for a growing firm
+              Whether you're an independent financial adviser or managing compliance for a larger firm
             </p>
           </div>
 
@@ -260,13 +255,13 @@ export default function RIAComplianceSoftwarePage() {
             {[
               {
                 icon: Users,
-                title: 'Solo RIAs',
-                description: 'Handle your own compliance documentation efficiently without hiring a full-time CCO',
+                title: 'Independent Financial Advisers',
+                description: 'Handle your own file notes and supervision documentation efficiently',
               },
               {
                 icon: Shield,
-                title: 'Small Teams',
-                description: 'Collaborate on draft records with clear supervision boundaries and approval workflows',
+                title: 'Small Firms',
+                description: 'Collaborate on draft file notes with clear supervision boundaries and approval workflows',
               },
               {
                 icon: FileCheck,
@@ -275,8 +270,8 @@ export default function RIAComplianceSoftwarePage() {
               },
               {
                 icon: Scale,
-                title: 'Outsourced CCOs',
-                description: 'Manage multiple clients with centralized compliance documentation and audit trails',
+                title: 'Outsourced Compliance',
+                description: 'Manage multiple clients with centralized file notes and audit trails',
               },
             ].map((item, index) => (
               <div
@@ -300,7 +295,7 @@ export default function RIAComplianceSoftwarePage() {
               How It <span className="text-gradient">Works</span>
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              From recording to exam-ready documentation in 5 simple steps
+              From recording to supervision-ready file notes in 5 simple steps
             </p>
           </div>
 
@@ -321,20 +316,20 @@ export default function RIAComplianceSoftwarePage() {
               {
                 number: '03',
                 icon: FileText,
-                title: 'Draft Compliance Note',
-                description: 'AI extracts topics discussed, recommendations made, disclosures provided, client decisions, and follow-up actions into a structured compliance note.',
+                title: 'Draft File Note',
+                description: 'AI extracts client circumstances, objectives, risk tolerance, recommendations made, advice suitability considerations, and follow-up actions into a structured file note.',
               },
               {
                 number: '04',
                 icon: Link2,
                 title: 'Evidence Mapping',
-                description: 'Every claim in the compliance note links to the exact timestamp and transcript snippet where it occurred. Full traceability from note to recording.',
+                description: 'Every claim in the file note links to the exact timestamp and transcript snippet where it occurred. Full traceability from note to recording.',
               },
               {
                 number: '05',
                 icon: CheckCircle2,
-                title: 'CCO Review/Approve + Export',
-                description: 'Review and edit the draft, then finalize with CCO approval. Export complete audit pack with PDF note, CSV evidence map, version history, and transcript.',
+                title: 'Supervision Review/Approve + Export',
+                description: 'Review and edit the draft, then finalize with supervisor approval. Export complete documentation pack with PDF file note, CSV evidence map, version history, and transcript.',
               },
             ].map((step, index) => (
               <div
@@ -364,10 +359,10 @@ export default function RIAComplianceSoftwarePage() {
         <section className="py-20 lg:py-28">
           <div className="text-center mb-14">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-display text-foreground mb-6">
-              Complete <span className="text-vault-coral-500">Audit Documentation</span>
+              Complete <span className="text-vault-coral-500">Documentation</span>
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Everything an SEC examiner expects to see in your books and records
+              Everything needed for FCA supervision and monitoring requirements
             </p>
           </div>
 
@@ -376,7 +371,7 @@ export default function RIAComplianceSoftwarePage() {
               {
                 icon: Link2,
                 title: 'Evidence Map',
-                description: 'CSV file linking every claim in your compliance note to exact timestamps and transcript snippets',
+                description: 'CSV file linking every claim in your file note to exact timestamps and transcript snippets',
               },
               {
                 icon: History,
@@ -385,13 +380,13 @@ export default function RIAComplianceSoftwarePage() {
               },
               {
                 icon: CheckCircle2,
-                title: 'Reviewer Sign-Off',
-                description: 'CCO approval metadata showing who finalized the record and when it was approved',
+                title: 'Supervisor Sign-Off',
+                description: 'Supervision approval metadata showing who finalized the record and when it was approved',
               },
               {
                 icon: Download,
                 title: 'Export Formats',
-                description: 'PDF structured note, CSV evidence map, CSV version history, TXT transcript, or ZIP bundle of all files',
+                description: 'PDF structured file note, CSV evidence map, CSV version history, TXT transcript, or ZIP bundle of all files',
               },
               {
                 icon: Search,
@@ -418,39 +413,44 @@ export default function RIAComplianceSoftwarePage() {
           </div>
         </section>
 
-        {/* Why It Matters for SEC Exams */}
+        {/* Why It Matters for FCA Compliance */}
         <section className="py-20 lg:py-28 bg-muted/30 dark:bg-white/[0.02] rounded-3xl">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-14">
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-display text-foreground mb-6">
-                Why It Matters for <span className="text-gradient">SEC Exams</span>
+                Why It Matters for <span className="text-gradient">FCA Compliance</span>
               </h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                SEC examiners focus on defensibility, accuracy, and supervision
+                FCA supervision focuses on defensibility, accuracy, and effective monitoring
               </p>
             </div>
 
             <div className="space-y-6">
               {[
                 {
-                  title: 'Accuracy & Contemporaneous Documentation',
+                  title: 'Accuracy & Contemporaneous File Notes',
                   description: 'Records created within days of the meeting with timestamped evidence. No relying on memory weeks later.',
                   icon: Clock,
                 },
                 {
                   title: 'Provenance & Metadata',
-                  description: 'Complete audit trail showing who created, edited, and finalized each record. File hashes prove document integrity.',
+                  description: 'Complete audit trail showing who created, edited, and finalized each file note. File hashes prove document integrity.',
                   icon: Database,
                 },
                 {
                   title: 'Supervision Sign-Off',
-                  description: 'Clear compliance boundary with CCO-only finalization. Examiners can see that records were reviewed and approved by qualified personnel.',
+                  description: 'Clear compliance boundary with supervisor-only finalization. FCA can see that records were reviewed and approved by qualified personnel.',
                   icon: Shield,
                 },
                 {
                   title: 'Evidence Traceability',
-                  description: 'Every claim in your compliance note links back to the exact moment in the recording where it occurred. No unsupported assertions.',
+                  description: 'Every claim in your file note links back to the exact moment in the recording where it occurred. No unsupported assertions.',
                   icon: Link2,
+                },
+                {
+                  title: 'Advice Suitability Documentation',
+                  description: 'Structured records demonstrating that advice was suitable for client circumstances, objectives, and risk tolerance.',
+                  icon: FileCheck,
                 },
                 {
                   title: 'Audit Trail',
@@ -477,10 +477,11 @@ export default function RIAComplianceSoftwarePage() {
 
             <div className="mt-10 p-6 bg-card dark:bg-[hsl(160_35%_10%)] rounded-2xl border border-border dark:border-white/10">
               <p className="text-sm text-muted-foreground leading-relaxed">
-                <strong className="text-foreground">Important:</strong> Comply Vault does not claim WORM compliance or SOC 2 certification unless explicitly stated. 
-                Our infrastructure includes enterprise-grade encryption, role-based access control, comprehensive audit logging, and workspace isolation. 
-                Always consult your compliance counsel to ensure your documentation meets your firm's regulatory requirements. 
-                Learn more <Link href="/about" className="text-vault-green-500 hover:text-vault-green-600 underline">about our company</Link> and <Link href="/contact" className="text-vault-green-500 hover:text-vault-green-600 underline">security practices</Link>.
+                <strong className="text-foreground">Important:</strong> Comply Vault helps you create structured file notes and supervision records that support your FCA SYSC 9 obligations. 
+                However, we do not make compliance determinations or provide legal advice. 
+                You and your compliance team are responsible for ensuring your documentation meets your firm's regulatory requirements. 
+                Always consult with your compliance counsel for specific regulatory questions. 
+                Learn more <Link href="/about" className="text-vault-green-500 hover:text-vault-green-600 underline">about our company</Link> and <Link href="/contact" className="text-vault-green-500 hover:text-vault-green-600 underline">contact us</Link>.
               </p>
             </div>
           </div>
@@ -503,8 +504,6 @@ export default function RIAComplianceSoftwarePage() {
                 href="#cta" 
                 size="lg" 
                 className="group"
-                eventName="book_demo_click"
-                eventParams={{ location: 'ria_page_bottom' }}
               >
                 Book a Demo
                 <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
@@ -513,10 +512,8 @@ export default function RIAComplianceSoftwarePage() {
                 href="/sample-audit-pack" 
                 variant="outline" 
                 size="lg"
-                eventName="sample_audit_pack_click"
-                eventParams={{ location: 'ria_page_bottom' }}
               >
-                See Sample Audit Pack
+                See Sample Export Pack
               </Button>
             </div>
           </div>

@@ -1,16 +1,20 @@
 'use client'
 
+import { usePathname } from 'next/navigation'
 import { CheckCircle2, Shield, Clock, FileCheck, Users } from 'lucide-react'
 import { DemoForm } from './DemoForm'
 
-const benefits = [
-  { icon: Clock, text: 'Finalize records in <10 minutes' },
-  { icon: FileCheck, text: 'Evidence-linked audit packs' },
-  { icon: Users, text: 'CCO-only finalization controls' },
-  { icon: Shield, text: 'SEC Rule 204-2 ready' },
-]
-
 export function CTA() {
+  const pathname = usePathname()
+  const isUK = pathname?.startsWith('/uk') ?? false
+  
+  const benefits = [
+    { icon: Clock, text: 'Finalize records in <10 minutes' },
+    { icon: FileCheck, text: 'Evidence-linked audit packs' },
+    { icon: Users, text: isUK ? 'Supervisor-only finalization controls' : 'CCO-only finalization controls' },
+    { icon: Shield, text: isUK ? 'FCA SYSC 9 ready' : 'SEC Rule 204-2 ready' },
+  ]
+  
   return (
     <section id="cta" className="py-28 lg:py-36 relative overflow-hidden">
       {/* Background - gradient from dark to green */}
