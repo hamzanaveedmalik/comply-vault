@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { usePathname } from 'next/navigation'
+import Link from 'next/link'
 import Image from 'next/image'
 import { useTheme } from 'next-themes'
 import { cn } from '@/lib/utils'
@@ -12,12 +13,19 @@ import { DemoModal } from './DemoModal'
 export function Navigation() {
   const pathname = usePathname()
   const isUK = pathname?.startsWith('/uk') ?? false
+  const isHomepage = pathname === '/' || pathname === '/uk'
+  
+  // For anchor links, if not on homepage, link to homepage with anchor
+  const getAnchorLink = (anchor: string) => {
+    if (isHomepage) return anchor
+    return isUK ? `/uk${anchor}` : anchor
+  }
   
   const navLinks = [
     { label: 'Solutions', href: isUK ? '/uk/fca-compliance-software' : '/ria-compliance-software' },
-    { label: 'Features', href: '#features' },
-    { label: 'How It Works', href: '#how-it-works' },
-    { label: 'Security', href: '#security' },
+    { label: 'Features', href: getAnchorLink('#features') },
+    { label: 'How It Works', href: getAnchorLink('#how-it-works') },
+    { label: 'Security', href: getAnchorLink('#security') },
     { label: 'Pricing', href: isUK ? '/uk/pricing' : '/pricing' },
   ]
   
@@ -60,7 +68,7 @@ export function Navigation() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
             {/* Logo */}
-            <a href={isUK ? "/uk" : "/"} className="flex items-center gap-3 group">
+            <Link href={isUK ? "/uk" : "/"} className="flex items-center gap-3 group">
               <div className="w-10 h-10 relative">
                 <Image
                   src={logoSrc}
@@ -73,20 +81,28 @@ export function Navigation() {
               <span className="text-xl font-bold font-display text-foreground">
                 Comply<span className="text-vault-green-500 dark:text-vault-green-400">Vault</span>
               </span>
-            </a>
+            </Link>
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center gap-8">
-              {navLinks.map((link) => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  className="text-muted-foreground hover:text-primary font-medium transition-colors relative group"
-                >
-                  {link.label}
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
-                </a>
-              ))}
+              {navLinks.map((link) => {
+                const isAnchor = link.href.startsWith('#')
+                const Component = isAnchor ? 'a' : Link
+                const props = isAnchor 
+                  ? { href: link.href }
+                  : { href: link.href as string }
+                
+                return (
+                  <Component
+                    key={link.label}
+                    {...props}
+                    className="text-muted-foreground hover:text-primary font-medium transition-colors relative group"
+                  >
+                    {link.label}
+                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
+                  </Component>
+                )
+              })}
             </div>
 
             {/* Desktop CTAs */}
@@ -120,16 +136,24 @@ export function Navigation() {
             )}
           >
             <div className="bg-card rounded-2xl shadow-xl shadow-foreground/5 p-4 space-y-4 border border-border">
-              {navLinks.map((link) => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="block py-2 text-muted-foreground hover:text-primary font-medium transition-colors"
-                >
-                  {link.label}
-                </a>
-              ))}
+              {navLinks.map((link) => {
+                const isAnchor = link.href.startsWith('#')
+                const Component = isAnchor ? 'a' : Link
+                const props = isAnchor 
+                  ? { href: link.href }
+                  : { href: link.href as string }
+                
+                return (
+                  <Component
+                    key={link.label}
+                    {...props}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="block py-2 text-muted-foreground hover:text-primary font-medium transition-colors"
+                  >
+                    {link.label}
+                  </Component>
+                )
+              })}
               <hr className="border-border" />
               <button
                 onClick={openDemoModal}
