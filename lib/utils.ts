@@ -8,15 +8,20 @@ export function cn(...inputs: ClassValue[]) {
 /**
  * Get the app URL based on environment
  * - Production: https://app.complyvault.co
- * - Development: http://localhost:8888 (or NEXT_PUBLIC_APP_URL env var)
+ * - Staging: https://app-staging.complyvault.co
+ * - Development: http://localhost:8888
+ * 
+ * Set NEXT_PUBLIC_APP_URL in Vercel environment variables for each environment:
+ * - Production: NEXT_PUBLIC_APP_URL=https://app.complyvault.co
+ * - Staging: NEXT_PUBLIC_APP_URL=https://app-staging.complyvault.co
  */
 export function getAppUrl(): string {
-  // Allow override via environment variable
+  // Allow override via environment variable (set in Vercel for each environment)
   if (process.env.NEXT_PUBLIC_APP_URL) {
     return process.env.NEXT_PUBLIC_APP_URL
   }
   
-  // In production, use the app subdomain
+  // Fallback: In production, use the app subdomain
   if (process.env.NODE_ENV === 'production') {
     return 'https://app.complyvault.co'
   }
