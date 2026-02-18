@@ -40,22 +40,32 @@ export default function SampleAuditPackPage() {
           <div className="max-w-4xl mx-auto text-center">
             <div className="inline-flex items-center gap-2 bg-accent text-accent-foreground px-4 py-2 rounded-full text-sm font-medium mb-8 border border-primary/20">
               <FileCheck className="w-4 h-4" />
-              <span>Redacted Example</span>
+              <span>Illustrative Sample</span>
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold font-display leading-tight mb-8 text-foreground">
               Sample <span className="text-gradient">Audit Pack</span>
             </h1>
 
-            <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed mb-10 max-w-3xl mx-auto">
-              See exactly what you get with Comply Vault: structured compliance notes with evidence linking, 
-              version history, reviewer sign-off, and complete audit trails. This is a redacted example 
-              of a real client interaction record.
+            <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed mb-6 max-w-3xl mx-auto">
+              See exactly what ComplyVault produces from a single client meeting recording. This is an illustrative sample 
+              with fictional data — showing the precise format, structure, and output you get from day one.
             </p>
 
-            <Button href="/ria-compliance-software" variant="outline" size="lg">
-              Learn More About RIA Compliance Software
-            </Button>
+            <ul className="text-left text-muted-foreground space-y-2 max-w-2xl mx-auto mb-10">
+              <li className="flex items-start gap-2">
+                <span className="w-1.5 h-1.5 bg-vault-green-500 rounded-full mt-1.5 flex-shrink-0" />
+                <span>Timestamped evidence links — every claim sourced to the transcript</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="w-1.5 h-1.5 bg-vault-green-500 rounded-full mt-1.5 flex-shrink-0" />
+                <span>Reviewer sign-off page with full certification block</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="w-1.5 h-1.5 bg-vault-green-500 rounded-full mt-1.5 flex-shrink-0" />
+                <span>Exportable audit trail — version history from upload to finalization</span>
+              </li>
+            </ul>
           </div>
         </div>
       </section>
@@ -68,7 +78,7 @@ export default function SampleAuditPackPage() {
               What's Included in an <span className="text-vault-green-500">Audit Pack</span>
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Each audit pack contains everything an SEC examiner expects to see
+              Designed to support RIA supervision and exam documentation workflows — everything an SEC or state examiner typically asks for.
             </p>
           </div>
 
@@ -84,6 +94,7 @@ export default function SampleAuditPackPage() {
                 icon: Link2,
                 title: 'Evidence Map (CSV)',
                 description: 'Links every claim in the compliance note to exact timestamps and transcript snippets',
+                disclaimer: 'All values shown in the Evidence Map — including amounts, percentages, and figures — are illustrative placeholders only.',
                 included: ['Claim text', 'Timestamp', 'Speaker', 'Transcript snippet', 'Confidence score'],
               },
               {
@@ -109,6 +120,11 @@ export default function SampleAuditPackPage() {
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-foreground mb-2">{item.title}</h3>
+                    {'disclaimer' in item && (
+                      <p className="text-xs italic text-muted-foreground mb-2 -mt-1">
+                        {item.disclaimer}
+                      </p>
+                    )}
                     <p className="text-sm text-muted-foreground mb-4">{item.description}</p>
                   </div>
                 </div>
@@ -136,8 +152,8 @@ export default function SampleAuditPackPage() {
                 Download Sample Audit Pack
               </h2>
               <p className="text-muted-foreground mb-8">
-                This is a redacted example showing the structure and format of a complete audit pack. 
-                All client information and specific details have been removed for privacy.
+                An illustrative sample showing the structure and format of a complete audit pack. 
+                All figures, names, and client details are entirely fictional.
               </p>
               
               <div className="flex flex-col items-center">
