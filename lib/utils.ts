@@ -29,3 +29,11 @@ export function getAppUrl(): string {
   // In development, default to localhost:8888
   return 'http://localhost:8888'
 }
+
+/**
+ * Get the demo booking link for the marketing site
+ * Links to #cta section (DemoForm) on homepage
+ */
+export function getDemoLink(market: 'us' | 'uk' = 'us'): string {
+  return market === 'uk' ? '/uk#cta' : '/#cta'
+}

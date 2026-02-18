@@ -44,8 +44,8 @@ const faqs = [
     answer: 'You can book a demo today and be onboarded within a week. Our pilot program includes hands-on setup support.',
   },
   {
-    question: 'Is there a free trial?',
-    answer: 'Yes! We offer a 60-day free trial for new customers. No credit card required to start.',
+    question: 'How do I get started?',
+    answer: 'Book a demo and we\'ll give you a personalized walkthrough of the platform. After the demo, we can get you set up on the plan that fits your firm.',
   },
   {
     question: 'What kind of support do you offer?',

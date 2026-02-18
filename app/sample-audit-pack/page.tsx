@@ -8,8 +8,8 @@ import {
   FileCheck,
   Link2,
   History,
-  Clock,
-  Shield
+  FileStack,
+  UserCheck
 } from 'lucide-react'
 
 export const metadata: Metadata = {
@@ -140,20 +140,39 @@ export default function SampleAuditPackPage() {
                 All client information and specific details have been removed for privacy.
               </p>
               
-              {/* TODO: Add actual link to sample PDF when available */}
-              <div className="inline-block">
-                <div className="px-8 py-4 bg-muted dark:bg-white/5 rounded-xl border border-border dark:border-white/10 text-muted-foreground">
-                  <p className="text-sm font-medium mb-2">Sample Audit Pack Coming Soon</p>
-                  <p className="text-xs">We're preparing a comprehensive redacted example for you to review</p>
-                </div>
+              <div className="flex flex-col items-center">
+                <Button href="/downloads/ComplyVault_Sample_Audit_Pack.zip" size="lg" className="group">
+                  <Download className="w-5 h-5 mr-2" />
+                  Download Sample Pack (ZIP)
+                </Button>
+                <p className="text-sm text-muted-foreground mt-4">
+                  Includes: Compliance Note PDF · Evidence Map CSV · Version History · Full Transcript
+                </p>
+                <p className="text-xs text-muted-foreground mt-4">
+                  All uploads encrypted · Exportable audit log · Configurable retention policies
+                </p>
               </div>
+
+              <div className="mt-8 text-center space-y-2">
+                <p className="text-foreground">
+                  Upload a recording → get this output in minutes.
+                </p>
+                <p className="text-muted-foreground">
+                  Want a sample pack from your own anonymised transcript?{' '}
+                  <a href="/#cta" className="text-vault-green-500 hover:underline font-medium">
+                    Book a demo
+                  </a>
+                  {' '}and we&apos;ll generate one for you in 24 hours.
+                </p>
+              </div>
+
             </div>
 
-            <div className="grid md:grid-cols-3 gap-4 mt-8">
+            <div className="grid md:grid-cols-3 gap-4 mt-12">
               <div className="text-center p-4 bg-muted/50 dark:bg-white/5 rounded-xl">
-                <Clock className="w-6 h-6 text-vault-green-500 mx-auto mb-2" />
-                <p className="text-sm font-medium text-foreground">45 min meeting</p>
-                <p className="text-xs text-muted-foreground">Typical portfolio review</p>
+                <FileStack className="w-6 h-6 text-vault-green-500 mx-auto mb-2" />
+                <p className="text-sm font-medium text-foreground">4 file formats</p>
+                <p className="text-xs text-muted-foreground">PDF · CSV · TXT · ZIP</p>
               </div>
               <div className="text-center p-4 bg-muted/50 dark:bg-white/5 rounded-xl">
                 <Link2 className="w-6 h-6 text-vault-green-500 mx-auto mb-2" />
@@ -161,9 +180,9 @@ export default function SampleAuditPackPage() {
                 <p className="text-xs text-muted-foreground">Every claim timestamped</p>
               </div>
               <div className="text-center p-4 bg-muted/50 dark:bg-white/5 rounded-xl">
-                <Shield className="w-6 h-6 text-vault-green-500 mx-auto mb-2" />
-                <p className="text-sm font-medium text-foreground">CCO approved</p>
-                <p className="text-xs text-muted-foreground">Complete audit trail</p>
+                <UserCheck className="w-6 h-6 text-vault-green-500 mx-auto mb-2" />
+                <p className="text-sm font-medium text-foreground">Advisor sign-off included</p>
+                <p className="text-xs text-muted-foreground">Reviewer approval</p>
               </div>
             </div>
           </div>

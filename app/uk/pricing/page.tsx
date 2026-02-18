@@ -1,12 +1,12 @@
 import { Metadata } from 'next'
-import { CreditCard, ArrowRight, AlertTriangle } from 'lucide-react'
+import { ArrowRight, AlertTriangle } from 'lucide-react'
 import Link from 'next/link'
-import { Navigation, Footer, PricingCards, OnboardingPrice } from '@/components'
+import { Navigation, Footer, PricingCards } from '@/components'
 import { ukPricingContent } from '@/src/content/uk/pricing'
 
 export const metadata: Metadata = {
-  title: 'Simple, Transparent Pricing for UK Financial Services | Comply Vault',
-  description: 'Choose the plan that fits your UK financial services firm. FCA-compliant documentation workflows. Solo for individual advisers and Team plans for growing firms.',
+  title: 'Pricing | Comply Vault - UK FCA Compliance Software',
+  description: 'Flexible plans for UK financial services firms of every size. Essentials, Professional, and Enterprise tiers. No hidden fees.',
   alternates: {
     canonical: 'https://www.complyvault.co/uk/pricing',
     languages: {
@@ -38,16 +38,6 @@ export default async function UKPricingPage() {
 
         {/* Pricing Cards */}
         <PricingCards defaultCurrency="gbp" market="uk" />
-        
-        {/* Optional Onboarding Note */}
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 text-center">
-          <p className="text-sm text-muted-foreground">
-            Optional onboarding: <OnboardingPrice defaultCurrency="gbp" />
-            <button id="onboarding-help" className="ml-2 text-xs px-2 py-0.5 bg-vault-green-500/10 hover:bg-vault-green-500/20 text-vault-green-500 rounded-full transition-colors">
-              What's included?
-            </button>
-          </p>
-        </div>
 
         {/* FCA Disclaimer */}
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-8">
@@ -109,42 +99,7 @@ export default async function UKPricingPage() {
             </div>
           </div>
         </div>
-
-        {/* Money Back Guarantee */}
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
-          <div className="bg-card rounded-2xl p-8 border border-border">
-            <div className="w-16 h-16 bg-vault-green-500/10 rounded-xl flex items-center justify-center mx-auto mb-6">
-              <CreditCard className="w-8 h-8 text-vault-green-500" />
-            </div>
-            <h2 className="text-2xl font-bold mb-2">{content.guarantee.title}</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              {content.guarantee.description}
-            </p>
-          </div>
-        </div>
       </main>
-
-      {/* Onboarding help button handler */}
-      <script dangerouslySetInnerHTML={{ __html: `
-        document.addEventListener('DOMContentLoaded', function() {
-          const onboardingHelpButton = document.getElementById('onboarding-help');
-          if (onboardingHelpButton) {
-            onboardingHelpButton.onclick = function(e) {
-              e.preventDefault();
-              e.stopPropagation();
-              // Find and scroll to the onboarding FAQ
-              const faqItems = document.querySelectorAll('details');
-              for (let i = 0; i < faqItems.length; i++) {
-                if (faqItems[i].textContent.includes("What's included in the optional onboarding?")) {
-                  faqItems[i].scrollIntoView({ behavior: 'smooth', block: 'center' });
-                  faqItems[i].setAttribute('open', 'true');
-                  break;
-                }
-              }
-            };
-          }
-        });
-      `}} />
 
       <Footer />
     </>

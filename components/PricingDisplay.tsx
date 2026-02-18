@@ -1,37 +1,45 @@
 'use client'
 
+import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
+import { getDemoLink } from '@/lib/utils'
 
 interface PricingDisplayProps {
-  plan: 'solo' | 'team'
+  plan: 'essentials' | 'professional' | 'enterprise'
   currency: 'gbp' | 'usd'
+  market?: 'us' | 'uk'
   isDetecting?: boolean
 }
 
-export function PricingDisplay({ plan, currency, isDetecting = false }: PricingDisplayProps) {
+export function PricingDisplay({ plan, currency, market = 'us', isDetecting = false }: PricingDisplayProps) {
+  const demoLink = getDemoLink(market)
+  const contactLink = market === 'uk' ? '/uk/contact' : '/contact'
 
-  const prices = {
-    solo: { gbp: '£129', usd: '$149' },
-    team: { gbp: '£299', usd: '$349' },
+  const prices: Record<'essentials' | 'professional', Record<'gbp' | 'usd', string>> = {
+    essentials: { gbp: '£249', usd: '$299' },
+    professional: { gbp: '£649', usd: '$799' },
   }
 
-  // Stripe payment links - these redirect to app after successful payment
-  const STRIPE_LINKS = {
-    solo: {
-      gbp: 'https://buy.stripe.com/9B628t3XadhM3lt2Vv9R601', // £129/month
-      usd: 'https://buy.stripe.com/aFa28tbpC91waNV0Nn9R600' // $149/month
-    },
-    team: {
-      gbp: 'https://buy.stripe.com/14AeVf51eelQ09hbs19R603', // £299/month
-      usd: 'https://buy.stripe.com/14A7sNeBOdhM2hp67H9R602' // $349/month
-    },
+  if (plan === 'enterprise') {
+    return (
+      <>
+        <div className="flex items-end gap-2 mb-1">
+          <span className="text-4xl font-bold">Custom</span>
+        </div>
+        <p className="text-sm text-muted-foreground mb-6">Contact us for pricing</p>
+        <Link
+          href={contactLink}
+          className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-medium py-3 px-4 rounded-xl flex items-center justify-center gap-2 mb-8 transition-colors"
+        >
+          Contact Us
+          <ArrowRight className="w-4 h-4" />
+        </Link>
+      </>
+    )
   }
 
-  const stripeLink = STRIPE_LINKS[plan][currency]
   const price = prices[plan][currency]
-  const buttonText = plan === 'solo' ? 'Start Solo' : 'Start Team'
 
-  // Show loading state during detection to avoid hydration mismatch
   if (isDetecting) {
     return (
       <>
@@ -54,14 +62,14 @@ export function PricingDisplay({ plan, currency, isDetecting = false }: PricingD
         <span className="text-muted-foreground mb-1">/month</span>
       </div>
       <p className="text-sm text-muted-foreground mb-6">Monthly billing</p>
-      <a 
-        href={stripeLink}
+      <Link
+        href={demoLink}
         className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-medium py-3 px-4 rounded-xl flex items-center justify-center gap-2 mb-8 transition-colors"
         data-link={plan}
       >
-        {buttonText}
+        Book a Demo
         <ArrowRight className="w-4 h-4" />
-      </a>
+      </Link>
     </>
   )
 }

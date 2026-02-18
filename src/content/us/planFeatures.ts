@@ -1,5 +1,5 @@
 export const usPlanFeatures = {
-  solo: [
+  essentials: [
     { name: 'Single-user access', included: true },
     { name: 'Meeting uploads: 10 per month', included: true },
     { name: 'Evidence-linked notes', included: true },
@@ -11,7 +11,7 @@ export const usPlanFeatures = {
     { name: 'Custom retention policies', included: false },
     { name: 'Dedicated account manager', included: false },
   ],
-  team: [
+  professional: [
     { name: 'Up to 10 users', included: true },
     { name: 'Meeting uploads: 50 per month', included: true },
     { name: 'Evidence-linked notes', included: true },
@@ -23,6 +23,15 @@ export const usPlanFeatures = {
     { name: 'Custom retention policies', included: true },
     { name: 'Dedicated account manager', included: true },
   ],
-  soloDescription: 'Perfect for individual RIAs',
-  teamDescription: 'For growing RIA practices',
+  enterprise: [
+    { name: 'Everything in Professional', included: true },
+    { name: 'CRM integration (Wealthbox/Redtail/Salesforce)', included: true },
+    { name: 'SSO', included: true },
+    { name: 'Multi-branch supervision workflows', included: true },
+    { name: 'Custom retention mappings', included: true },
+    { name: 'Dedicated onboarding', included: true },
+  ],
+  essentialsDescription: 'For individual RIA advisors',
+  professionalDescription: 'For growing RIA practices',
+  enterpriseDescription: 'For multi-branch RIA firms',
 }

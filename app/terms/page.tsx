@@ -68,7 +68,7 @@ We reserve the right to modify, suspend, or discontinue the Service at any time 
 
 Billing: Subscriptions are billed monthly or annually, as selected. Payment is due at the beginning of each billing period.
 
-Refunds: We offer a 60-day free trial for new customers. After the trial, fees are generally non-refundable, except as required by law.
+Refunds: Fees are generally non-refundable after purchase, except as required by law.
 
 Price Changes: We may change our prices with 30 days' notice. Continued use of the Service after price changes constitutes acceptance of the new prices.`,
   },
