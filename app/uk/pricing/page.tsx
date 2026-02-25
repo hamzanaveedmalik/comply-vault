@@ -3,16 +3,17 @@ import { ArrowRight, AlertTriangle } from 'lucide-react'
 import Link from 'next/link'
 import { Navigation, Footer, PricingCards } from '@/components'
 import { ukPricingContent } from '@/src/content/uk/pricing'
+import { SITE_URL } from '@/lib/site'
 
 export const metadata: Metadata = {
   title: 'Pricing | Comply Vault - UK FCA Compliance Software',
   description: 'Flexible plans for UK financial services firms of every size. Essentials, Professional, and Enterprise tiers. No hidden fees.',
   alternates: {
-    canonical: 'https://www.complyvault.co/uk/pricing',
+    canonical: `${SITE_URL}/uk/pricing`,
     languages: {
-      'en-GB': 'https://www.complyvault.co/uk/pricing',
-      'en-US': 'https://www.complyvault.co/pricing',
-      'x-default': 'https://www.complyvault.co/pricing',
+      'en-GB': `${SITE_URL}/uk/pricing`,
+      'en-US': `${SITE_URL}/pricing`,
+      'x-default': `${SITE_URL}/pricing`,
     },
   },
 }

@@ -2,12 +2,13 @@ import { Metadata } from 'next'
 import { Target, Heart, Zap, Shield, Users, ArrowRight } from 'lucide-react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { SITE_URL } from '@/lib/site'
 
 export const metadata: Metadata = {
   title: 'About Us | Comply Vault',
   description: 'Learn about the team and mission behind Comply Vault.',
   alternates: {
-    canonical: 'https://www.complyvault.co/about',
+    canonical: `${SITE_URL}/about`,
   },
 }
 

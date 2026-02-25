@@ -324,7 +324,7 @@ export function DemoForm() {
         {/* Privacy Note */}
         <p className="text-white/50 text-xs text-center">
           By submitting, you agree to our{' '}
-          <a href="#" className="underline hover:text-white/70">Privacy Policy</a>
+          <a href="/privacy" className="underline hover:text-white/70">Privacy Policy</a>
           . We'll never share your information.
         </p>
       </div>

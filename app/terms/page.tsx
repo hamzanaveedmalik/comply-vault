@@ -1,12 +1,13 @@
 import { Metadata } from 'next'
 import { FileText, Scale, AlertTriangle, CreditCard, Shield, Mail } from 'lucide-react'
 import Link from 'next/link'
+import { SITE_URL } from '@/lib/site'
 
 export const metadata: Metadata = {
   title: 'Terms of Service | Comply Vault',
   description: 'Read the terms and conditions for using Comply Vault.',
   alternates: {
-    canonical: 'https://www.complyvault.co/terms',
+    canonical: `${SITE_URL}/terms`,
   },
 }
 

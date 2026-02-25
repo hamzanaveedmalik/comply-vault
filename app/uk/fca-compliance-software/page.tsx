@@ -20,6 +20,7 @@ import {
   Scale,
   ChevronDown
 } from 'lucide-react'
+import { SITE_URL } from '@/lib/site'
 
 export const metadata: Metadata = {
   title: 'FCA Compliance Software for SYSC 9 Supervision & Monitoring | Comply Vault',
@@ -27,17 +28,17 @@ export const metadata: Metadata = {
   keywords: ['FCA compliance software', 'FCA SYSC 9', 'supervision software', 'monitoring software', 'file notes', 'advice suitability', 'UK compliance', 'FCA supervision'],
   authors: [{ name: 'Comply Vault' }],
   alternates: {
-    canonical: 'https://www.complyvault.co/uk/fca-compliance-software',
+    canonical: `${SITE_URL}/uk/fca-compliance-software`,
     languages: {
-      'en-GB': 'https://www.complyvault.co/uk/fca-compliance-software',
-      'en-US': 'https://www.complyvault.co/ria-compliance-software',
-      'x-default': 'https://www.complyvault.co/ria-compliance-software',
+      'en-GB': `${SITE_URL}/uk/fca-compliance-software`,
+      'en-US': `${SITE_URL}/ria-compliance-software`,
+      'x-default': `${SITE_URL}/ria-compliance-software`,
     },
   },
   openGraph: {
     title: 'FCA Compliance Software for SYSC 9 Supervision & Monitoring | Comply Vault',
     description: 'FCA compliance software for UK financial services firms. Generate file notes, supervision records, and advice suitability documentation.',
-    url: 'https://www.complyvault.co/uk/fca-compliance-software',
+    url: `${SITE_URL}/uk/fca-compliance-software`,
     type: 'website',
     locale: 'en_GB',
     siteName: 'Comply Vault',

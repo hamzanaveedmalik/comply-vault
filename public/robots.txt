@@ -11,4 +11,4 @@ Disallow: /admin/
 # Block other Next.js internal paths (but allow static assets above)
 Disallow: /_next/
 
-Sitemap: https://www.complyvault.co/sitemap.xml
+Sitemap: https://complyvault.co/sitemap.xml

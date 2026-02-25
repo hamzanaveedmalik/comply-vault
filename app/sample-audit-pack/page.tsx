@@ -11,6 +11,7 @@ import {
   FileStack,
   UserCheck
 } from 'lucide-react'
+import { SITE_URL } from '@/lib/site'
 
 export const metadata: Metadata = {
   title: 'Sample Audit Pack | Comply Vault',
@@ -18,7 +19,7 @@ export const metadata: Metadata = {
   keywords: ['audit pack example', 'compliance documentation sample', 'RIA audit trail', 'SEC exam documentation'],
   authors: [{ name: 'Comply Vault' }],
   alternates: {
-    canonical: 'https://www.complyvault.co/sample-audit-pack',
+    canonical: `${SITE_URL}/sample-audit-pack`,
   },
   robots: {
     index: true,

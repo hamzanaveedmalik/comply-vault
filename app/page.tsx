@@ -14,14 +14,15 @@ import {
   CTA,
   Footer,
 } from '@/components'
+import { SITE_URL } from '@/lib/site'
 
 export const metadata: Metadata = {
   alternates: {
-    canonical: 'https://www.complyvault.co',
+    canonical: SITE_URL,
     languages: {
-      'en-US': 'https://www.complyvault.co',
-      'en-GB': 'https://www.complyvault.co/uk',
-      'x-default': 'https://www.complyvault.co',
+      'en-US': SITE_URL,
+      'en-GB': `${SITE_URL}/uk`,
+      'x-default': SITE_URL,
     },
   },
 }

@@ -1,85 +1,84 @@
 import { MetadataRoute } from 'next'
+import { SITE_URL } from '@/lib/site'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-    const baseUrl = 'https://www.complyvault.co'
-
     return [
         {
-            url: baseUrl,
+            url: SITE_URL,
             lastModified: new Date('2026-01-22'),
             changeFrequency: 'weekly',
             priority: 1,
         },
         {
-            url: `${baseUrl}/ria-compliance-software`,
+            url: `${SITE_URL}/ria-compliance-software`,
             lastModified: new Date('2026-01-23'),
             changeFrequency: 'weekly',
             priority: 0.9,
         },
         {
-            url: `${baseUrl}/fca-compliance-software`,
+            url: `${SITE_URL}/fca-compliance-software`,
             lastModified: new Date('2026-01-27'),
             changeFrequency: 'weekly',
             priority: 0.8,
         },
         {
-            url: `${baseUrl}/pricing`,
+            url: `${SITE_URL}/pricing`,
             lastModified: new Date('2026-01-27'),
             changeFrequency: 'weekly',
             priority: 0.9,
         },
         {
-            url: `${baseUrl}/uk`,
+            url: `${SITE_URL}/uk`,
             lastModified: new Date('2026-01-27'),
             changeFrequency: 'weekly',
             priority: 0.9,
         },
         {
-            url: `${baseUrl}/uk/fca-compliance-software`,
-            lastModified: new Date('2026-01-27'),
-            changeFrequency: 'weekly',
-            priority: 0.9,
-        },
-        {
-            url: `${baseUrl}/uk/pricing`,
-            lastModified: new Date('2026-01-27'),
-            changeFrequency: 'weekly',
-            priority: 0.9,
-        },
-        {
-            url: `${baseUrl}/uk/fca-compliance-software`,
+            url: `${SITE_URL}/uk/fca-compliance-software`,
             lastModified: new Date('2026-01-27'),
             changeFrequency: 'weekly',
             priority: 0.8,
+        },
+        {
+            url: `${SITE_URL}/uk/pricing`,
+            lastModified: new Date('2026-01-27'),
+            changeFrequency: 'weekly',
+            priority: 0.9,
         },
         // Success page intentionally excluded from sitemap as it's not meant for direct navigation
 
         {
-            url: `${baseUrl}/sample-audit-pack`,
+            url: `${SITE_URL}/features`,
+            lastModified: new Date('2026-01-27'),
+            changeFrequency: 'monthly',
+            priority: 0.8,
+        },
+        {
+            url: `${SITE_URL}/sample-audit-pack`,
             lastModified: new Date('2026-01-23'),
             changeFrequency: 'monthly',
             priority: 0.7,
         },
         {
-            url: `${baseUrl}/about`,
+            url: `${SITE_URL}/about`,
             lastModified: new Date('2026-01-22'),
             changeFrequency: 'monthly',
             priority: 0.8,
         },
         {
-            url: `${baseUrl}/contact`,
+            url: `${SITE_URL}/contact`,
             lastModified: new Date('2026-01-22'),
             changeFrequency: 'monthly',
             priority: 0.8,
         },
         {
-            url: `${baseUrl}/privacy`,
+            url: `${SITE_URL}/privacy`,
             lastModified: new Date('2026-01-22'),
             changeFrequency: 'yearly',
             priority: 0.3,
         },
         {
-            url: `${baseUrl}/terms`,
+            url: `${SITE_URL}/terms`,
             lastModified: new Date('2026-01-22'),
             changeFrequency: 'yearly',
             priority: 0.3,

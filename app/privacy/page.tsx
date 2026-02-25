@@ -1,12 +1,13 @@
 import { Metadata } from 'next'
 import { Shield, Lock, Eye, Server, Clock, Mail } from 'lucide-react'
 import Link from 'next/link'
+import { SITE_URL } from '@/lib/site'
 
 export const metadata: Metadata = {
   title: 'Privacy Policy | Comply Vault',
   description: 'Learn how Comply Vault protects your data and respects your privacy.',
   alternates: {
-    canonical: 'https://www.complyvault.co/privacy',
+    canonical: `${SITE_URL}/privacy`,
   },
 }
 

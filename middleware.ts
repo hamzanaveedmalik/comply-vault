@@ -73,6 +73,16 @@ function getUKPath(pathname: string): string {
 
 export function middleware(request: NextRequest) {
     const { pathname, searchParams } = request.nextUrl
+
+    // 0) www → non-www 301 redirect (canonical domain: complyvault.co)
+    const host = request.headers.get('host') ?? ''
+    if (host.toLowerCase().startsWith('www.')) {
+        const canonicalUrl = new URL(
+            pathname + (request.nextUrl.search || ''),
+            'https://complyvault.co'
+        )
+        return NextResponse.redirect(canonicalUrl.toString(), 301)
+    }
     
     // 1) Block WP admin paths
     if (

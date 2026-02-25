@@ -1,12 +1,13 @@
 import { Metadata } from 'next'
 import { Mail, MessageSquare, Clock, Linkedin } from 'lucide-react'
 import Link from 'next/link'
+import { SITE_URL } from '@/lib/site'
 
 export const metadata: Metadata = {
   title: 'Contact Us | Comply Vault',
   description: 'Get in touch with the Comply Vault team.',
   alternates: {
-    canonical: 'https://www.complyvault.co/contact',
+    canonical: `${SITE_URL}/contact`,
   },
 }
 

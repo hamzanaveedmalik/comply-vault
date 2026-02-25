@@ -44,8 +44,8 @@ export function Footer() {
     company: {
       title: 'Company',
       links: [
-        { label: 'About Us', href: isUK ? '/uk/about' : '/about' },
-        { label: 'Contact', href: isUK ? '/uk/contact' : '/contact' },
+        { label: 'About Us', href: '/about' },
+        { label: 'Contact', href: '/contact' },
       ],
     },
     resources: {
@@ -106,9 +106,9 @@ export function Footer() {
                 <Mail className="w-4 h-4" />
                 contact@complyvault.co
               </a>
-              <a href="https://www.complyvault.co" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 hover:text-vault-green-400 transition-colors">
+              <a href="/" className="flex items-center gap-3 hover:text-vault-green-400 transition-colors">
                 <MapPin className="w-4 h-4" />
-                www.complyvault.co
+                complyvault.co
               </a>
             </div>
           </div>

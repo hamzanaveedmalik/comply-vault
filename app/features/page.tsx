@@ -2,12 +2,13 @@ import type { Metadata } from 'next'
 import { Navigation, Footer } from '@/components'
 import { CheckCircle, XCircle, ArrowRight, Users, FileCheck, Scale, TrendingUp } from 'lucide-react'
 import Link from 'next/link'
+import { SITE_URL } from '@/lib/site'
 
 export const metadata: Metadata = {
   title: 'Is ComplyVault Right for Your Firm? | Compliance Software for RIAs',
   description: 'Built for RIAs who want meeting documentation that\'s consistent, evidence-linked, and reviewable - without adding compliance headcount.',
   alternates: {
-    canonical: 'https://www.complyvault.co/features',
+    canonical: `${SITE_URL}/features`,
   },
 }
 

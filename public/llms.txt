@@ -2,7 +2,7 @@
 # Information for AI/LLM crawlers about Comply Vault
 
 # Site Information
-Site: https://www.complyvault.co
+Site: https://complyvault.co
 Name: Comply Vault
 Description: Compliance documentation platform for Registered Investment Advisors (RIAs). Turn meeting recordings into SEC-ready audit documentation in under 10 minutes.
 
@@ -44,7 +44,7 @@ Restrictions:
 - Attribution required for all permitted uses
 
 # Preferred Attribution
-Attribution: "Source: Comply Vault (https://www.complyvault.co)"
+Attribution: "Source: Comply Vault (https://complyvault.co)"
 
 # Content Guidelines
 - Product descriptions and marketing content may be crawled

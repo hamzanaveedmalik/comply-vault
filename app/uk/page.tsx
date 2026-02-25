@@ -14,16 +14,17 @@ import {
   CTA,
   Footer,
 } from '@/components'
+import { SITE_URL } from '@/lib/site'
 
 export const metadata: Metadata = {
   title: 'FCA Compliance Software for UK Financial Services | Comply Vault',
   description: 'FCA compliance software for UK financial services firms. Turn meeting recordings into FCA review-ready file notes with evidence linking, supervision workflows, and complete audit trails.',
   alternates: {
-    canonical: 'https://www.complyvault.co/uk',
+    canonical: `${SITE_URL}/uk`,
     languages: {
-      'en-GB': 'https://www.complyvault.co/uk',
-      'en-US': 'https://www.complyvault.co',
-      'x-default': 'https://www.complyvault.co',
+      'en-GB': `${SITE_URL}/uk`,
+      'en-US': SITE_URL,
+      'x-default': SITE_URL,
     },
   },
 }

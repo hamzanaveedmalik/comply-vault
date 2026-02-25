@@ -3,16 +3,17 @@ import { ArrowRight } from 'lucide-react'
 import Link from 'next/link'
 import { Navigation, Footer, PricingCards } from '@/components'
 import { usPricingContent } from '@/src/content/us/pricing'
+import { SITE_URL } from '@/lib/site'
 
 export const metadata: Metadata = {
   title: 'Pricing | Comply Vault - RIA Compliance Software',
   description: 'Flexible plans for RIA firms of every size. Essentials, Professional, and Enterprise tiers. No hidden fees.',
   alternates: {
-    canonical: 'https://www.complyvault.co/pricing',
+    canonical: `${SITE_URL}/pricing`,
     languages: {
-      'en-US': 'https://www.complyvault.co/pricing',
-      'en-GB': 'https://www.complyvault.co/uk/pricing',
-      'x-default': 'https://www.complyvault.co/pricing',
+      'en-US': `${SITE_URL}/pricing`,
+      'en-GB': `${SITE_URL}/uk/pricing`,
+      'x-default': `${SITE_URL}/pricing`,
     },
   },
 }

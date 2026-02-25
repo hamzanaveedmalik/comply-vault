@@ -21,6 +21,7 @@ import {
   ChevronDown
 } from 'lucide-react'
 import { cn } from '@/lib/utils'
+import { SITE_URL } from '@/lib/site'
 
 export const metadata: Metadata = {
   title: 'RIA Compliance Software for SEC Exam-Ready Records | Comply Vault',
@@ -28,17 +29,17 @@ export const metadata: Metadata = {
   keywords: ['RIA compliance software', 'RIA compliance platform', 'RIA compliance tool', 'SEC exam readiness', 'compliance audit trail', 'evidence-linked notes', 'CCO approval', 'investment advisor compliance'],
   authors: [{ name: 'Comply Vault' }],
   alternates: {
-    canonical: 'https://www.complyvault.co/ria-compliance-software',
+    canonical: `${SITE_URL}/ria-compliance-software`,
     languages: {
-      'en-US': 'https://www.complyvault.co/ria-compliance-software',
-      'en-GB': 'https://www.complyvault.co/uk/fca-compliance-software',
-      'x-default': 'https://www.complyvault.co/ria-compliance-software',
+      'en-US': `${SITE_URL}/ria-compliance-software`,
+      'en-GB': `${SITE_URL}/uk/fca-compliance-software`,
+      'x-default': `${SITE_URL}/ria-compliance-software`,
     },
   },
   openGraph: {
     title: 'RIA Compliance Software for SEC Exam-Ready Records | Comply Vault',
     description: 'RIA compliance software and platform with evidence-linked notes, audit trails, and CCO sign-off. Upload meeting recordings and export complete SEC exam-ready audit packs.',
-    url: 'https://www.complyvault.co/ria-compliance-software',
+    url: `${SITE_URL}/ria-compliance-software`,
     type: 'website',
     locale: 'en_US',
     siteName: 'Comply Vault',

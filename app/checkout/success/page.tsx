@@ -2,10 +2,14 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { Navigation, Footer } from '@/components'
 import { CheckCircle2, ArrowRight, CheckCheck, Mail, CalendarClock, FileText } from 'lucide-react'
+import { SITE_URL } from '@/lib/site'
 
 export const metadata: Metadata = {
   title: 'Payment Successful! | Comply Vault',
   description: 'Your payment has been successfully processed. Welcome to Comply Vault!',
+  alternates: {
+    canonical: `${SITE_URL}/checkout/success`,
+  },
   robots: {
     index: false,
     follow: false,

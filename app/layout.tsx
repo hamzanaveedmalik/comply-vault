@@ -1,9 +1,11 @@
 import type { Metadata } from 'next'
 import Script from 'next/script'
 import { ThemeProvider } from '@/components/theme-provider'
+import { SITE_URL } from '@/lib/site'
 import './globals.css'
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: 'Comply Vault | RIA Compliance Made Simple',
   description: 'The all-in-one compliance vault for Registered Investment Advisors. Automate compliance workflows, manage documentation, and stay audit-ready with ease.',
   keywords: ['RIA compliance', 'investment advisor', 'compliance management', 'SEC compliance', 'regulatory compliance', 'compliance software'],
