@@ -54,6 +54,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
             priority: 0.8,
         },
         {
+            url: `${SITE_URL}/features/configurable-compliance-framework`,
+            lastModified: new Date('2026-05-06'),
+            changeFrequency: 'monthly',
+            priority: 0.75,
+        },
+        {
             url: `${SITE_URL}/sample-audit-pack`,
             lastModified: new Date('2026-01-23'),
             changeFrequency: 'monthly',

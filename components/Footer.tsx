@@ -28,7 +28,7 @@ export function Footer() {
     product: {
       title: 'Product',
       links: [
-        { label: 'Features', href: isUK ? '/uk#features' : '/#features' },
+        { label: 'Features', href: '/features' },
         { label: 'Pricing', href: isUK ? '/uk/pricing' : '/pricing' },
         { label: 'Security', href: isUK ? '/uk#security' : '/#security' },
         { label: 'How It Works', href: isUK ? '/uk#how-it-works' : '/#how-it-works' },

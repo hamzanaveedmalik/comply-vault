@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { Navigation, Footer } from '@/components'
-import { CheckCircle, XCircle, ArrowRight, Users, FileCheck, Scale, TrendingUp } from 'lucide-react'
+import { CheckCircle, XCircle, ArrowRight, Users, FileCheck, Scale, TrendingUp, SlidersHorizontal } from 'lucide-react'
 import Link from 'next/link'
 import { SITE_URL } from '@/lib/site'
 
@@ -144,6 +144,27 @@ export default function FeaturesPage() {
                 Everything you need to create compliant, evidence-linked client meeting documentation
               </p>
             </div>
+
+            <Link
+              href="/features/configurable-compliance-framework"
+              className="flex flex-col sm:flex-row sm:items-center gap-6 rounded-2xl border border-vault-green-500/25 bg-vault-green-500/5 dark:bg-vault-green-500/10 px-8 py-6 mb-10 hover:border-vault-green-500/40 transition-colors group text-left"
+            >
+              <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-vault-green-500/15">
+                <SlidersHorizontal className="h-7 w-7 text-vault-green-500" aria-hidden />
+              </div>
+              <div className="min-w-0 flex-1">
+                <h3 className="text-xl font-semibold font-display text-foreground mb-2">
+                  Configurable Compliance Framework
+                </h3>
+                <p className="text-muted-foreground leading-relaxed mb-3">
+                  Define what should be captured from adviser-client meetings, meeting types, disclosure categories and review expectations. AI drafts against your framework with transcript evidence for human review.
+                </p>
+                <span className="inline-flex items-center gap-2 text-sm font-semibold text-vault-green-600 dark:text-vault-green-400">
+                  Learn how it works
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </span>
+              </div>
+            </Link>
             
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {[

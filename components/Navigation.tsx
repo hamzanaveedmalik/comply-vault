@@ -23,7 +23,7 @@ export function Navigation() {
   
   const navLinks = [
     { label: 'Solutions', href: isUK ? '/uk/fca-compliance-software' : '/ria-compliance-software' },
-    { label: 'Features', href: getAnchorLink('#features') },
+    { label: 'Features', href: '/features' },
     { label: 'How It Works', href: getAnchorLink('#how-it-works') },
     { label: 'Security', href: getAnchorLink('#security') },
     { label: 'Pricing', href: isUK ? '/uk/pricing' : '/pricing' },
