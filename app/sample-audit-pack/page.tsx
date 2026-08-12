@@ -14,10 +14,10 @@ import {
 import { SITE_URL } from '@/lib/site'
 
 export const metadata: Metadata = {
-  title: 'Sample Audit Pack | Comply Vault',
-  description: 'See a real example of Comply Vault\'s SEC exam-ready audit pack including structured compliance notes, evidence maps, version history, and full transcripts.',
+  title: 'Sample Audit Pack | ComplyVault',
+  description: 'See a real example of ComplyVault\'s SEC exam-ready audit pack including structured compliance notes, evidence maps, version history, and full transcripts.',
   keywords: ['audit pack example', 'compliance documentation sample', 'RIA audit trail', 'SEC exam documentation'],
-  authors: [{ name: 'Comply Vault' }],
+  authors: [{ name: 'ComplyVault' }],
   alternates: {
     canonical: `${SITE_URL}/sample-audit-pack`,
   },
@@ -50,13 +50,13 @@ export default function SampleAuditPackPage() {
 
             <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed mb-6 max-w-3xl mx-auto">
               See exactly what ComplyVault produces from a single client meeting recording. This is an illustrative sample 
-              with fictional data — showing the precise format, structure, and output you get from day one.
+              with fictional data , showing the precise format, structure, and output you get from day one.
             </p>
 
             <ul className="text-left text-muted-foreground space-y-2 max-w-2xl mx-auto mb-10">
               <li className="flex items-start gap-2">
                 <span className="w-1.5 h-1.5 bg-vault-green-500 rounded-full mt-1.5 flex-shrink-0" />
-                <span>Timestamped evidence links — every claim sourced to the transcript</span>
+                <span>Timestamped evidence links , every claim sourced to the transcript</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="w-1.5 h-1.5 bg-vault-green-500 rounded-full mt-1.5 flex-shrink-0" />
@@ -64,7 +64,7 @@ export default function SampleAuditPackPage() {
               </li>
               <li className="flex items-start gap-2">
                 <span className="w-1.5 h-1.5 bg-vault-green-500 rounded-full mt-1.5 flex-shrink-0" />
-                <span>Exportable audit trail — version history from upload to finalization</span>
+                <span>Exportable audit trail , version history from upload to finalization</span>
               </li>
             </ul>
           </div>
@@ -79,7 +79,7 @@ export default function SampleAuditPackPage() {
               What's Included in an <span className="text-vault-green-500">Audit Pack</span>
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Designed to support RIA supervision and exam documentation workflows — everything an SEC or state examiner typically asks for.
+              Designed to support RIA supervision and exam documentation workflows: everything an SEC or state examiner typically asks for.
             </p>
           </div>
 
@@ -87,28 +87,46 @@ export default function SampleAuditPackPage() {
             {[
               {
                 icon: FileText,
-                title: 'Structured Compliance Note (PDF)',
-                description: 'Organized sections for topics discussed, recommendations made, disclosures provided, client decisions, and follow-up actions',
-                included: ['Client & meeting details', 'Topics discussed', 'Recommendations', 'Disclosures', 'Decisions', 'Follow-ups'],
+                title: '01_Compliance_Note.pdf',
+                description: 'Structured note covering topics, recommendations, disclosures, decisions, and follow-ups.',
+                included: ['Client and meeting details', 'Topics', 'Recommendations', 'Disclosures', 'Decisions', 'Follow-ups'],
               },
               {
                 icon: Link2,
-                title: 'Evidence Map (CSV)',
-                description: 'Links every claim in the compliance note to exact timestamps and transcript snippets',
-                disclaimer: 'All values shown in the Evidence Map — including amounts, percentages, and figures — are illustrative placeholders only.',
+                title: '02_Evidence_Map.csv',
+                description: 'Links every claim to timestamps and transcript snippets.',
+                disclaimer: 'All values shown in the Evidence Map, including amounts, percentages, and figures, are illustrative placeholders only.',
                 included: ['Claim text', 'Timestamp', 'Speaker', 'Transcript snippet', 'Confidence score'],
               },
               {
                 icon: History,
-                title: 'Version History (CSV)',
-                description: 'Complete audit trail of all edits made before finalization',
+                title: '03_Version_History.csv',
+                description: 'Edit trail across advisor, compliance manager, and CCO gates.',
                 included: ['Edit timestamp', 'User', 'Field changed', 'Old value', 'New value', 'Action type'],
               },
               {
                 icon: FileCheck,
-                title: 'Full Transcript (TXT)',
-                description: 'Complete meeting transcript with timestamps and speaker labels',
+                title: '04_Transcript.txt',
+                description: 'Full transcript with timestamps and speaker labels.',
                 included: ['Speaker labels', 'Timestamps', 'Full conversation', 'File metadata'],
+              },
+              {
+                icon: FileStack,
+                title: '05_Email_Correspondence.csv',
+                description: 'Linked email threads with custody hashes when mailbox ingest is connected.',
+                included: ['Thread IDs', 'SHA-256 hashes', 'Custody manifest fields', 'Meeting links'],
+              },
+              {
+                icon: History,
+                title: '06_Supersession_Chain.txt',
+                description: 'Successor links when a sealed record is corrected without erasure.',
+                included: ['Prior seal IDs', 'Successor links', 'Reason codes'],
+              },
+              {
+                icon: FileText,
+                title: 'README.txt',
+                description: 'Pack inventory, seal identifiers, and digest verification notes.',
+                included: ['Seal ID', 'Content digest', 'File inventory'],
               },
             ].map((item, index) => (
               <div
@@ -163,7 +181,7 @@ export default function SampleAuditPackPage() {
                   Download Sample Pack (ZIP)
                 </Button>
                 <p className="text-sm text-muted-foreground mt-4">
-                  Includes: Compliance Note PDF · Evidence Map CSV · Version History · Full Transcript
+                  Includes all seven pack files: compliance note, evidence map, version history, transcript, email correspondence, supersession chain, and README.
                 </p>
                 <p className="text-xs text-muted-foreground mt-4">
                   All uploads encrypted · Exportable audit log · Configurable retention policies
@@ -172,7 +190,7 @@ export default function SampleAuditPackPage() {
 
               <div className="mt-8 text-center space-y-2">
                 <p className="text-foreground">
-                  Upload a recording → get this output in minutes.
+                  Upload a recording and export a sealed seven-file audit pack.
                 </p>
                 <p className="text-muted-foreground">
                   Want a sample pack from your own anonymised transcript?{' '}
@@ -188,8 +206,8 @@ export default function SampleAuditPackPage() {
             <div className="grid md:grid-cols-3 gap-4 mt-12">
               <div className="text-center p-4 bg-muted/50 dark:bg-white/5 rounded-xl">
                 <FileStack className="w-6 h-6 text-vault-green-500 mx-auto mb-2" />
-                <p className="text-sm font-medium text-foreground">4 file formats</p>
-                <p className="text-xs text-muted-foreground">PDF · CSV · TXT · ZIP</p>
+                <p className="text-sm font-medium text-foreground">7 pack files</p>
+                <p className="text-xs text-muted-foreground">PDF · CSV · TXT · sealed ZIP</p>
               </div>
               <div className="text-center p-4 bg-muted/50 dark:bg-white/5 rounded-xl">
                 <Link2 className="w-6 h-6 text-vault-green-500 mx-auto mb-2" />

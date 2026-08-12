@@ -1,165 +1,114 @@
-'use client'
+import { CheckCircle2, Clock, Lock, Server, Shield } from 'lucide-react'
+import {
+  MarketingContainer,
+  MarketingSection,
+  SectionKicker,
+} from './marketing'
 
-import { Shield, Lock, Eye, Server, CheckCircle2, Clock } from 'lucide-react'
-
-const currentFeatures = [
-  { name: 'AES-256 Encryption', description: 'Data encrypted at rest and in transit' },
-  { name: 'Role-Based Access', description: 'CCO-only finalization workflow' },
-  { name: 'Audit Trail', description: 'Complete interaction logging' },
-  { name: 'Workspace Isolation', description: 'Strict tenant separation' },
+const implemented = [
+  { name: 'AES-256 encryption', description: 'At rest and in transit' },
+  { name: 'Role-based access', description: 'Advisor, CM, and CCO gates' },
+  { name: 'Audit trail', description: 'Append-only action history' },
+  { name: 'Workspace isolation', description: 'Strict tenant separation' },
+  { name: 'WORM retention', description: 'Object Lock seal layer shipped' },
+  { name: 'SOC 2', description: 'Not started' },
 ]
 
-const roadmapFeatures = [
-  { name: 'SOC 2 Type II', status: 'In Progress' },
-  { name: 'WORM Retention', status: 'Planned' },
-]
-
-const securityFeatures = [
+const features = [
   {
     icon: Lock,
-    title: 'Encryption Everywhere',
-    description: 'TLS 1.2+ in transit, AES-256 at rest for all recordings and documents.',
+    title: 'Encryption everywhere',
+    description: 'TLS in transit and AES-256 at rest for recordings, packs, and correspondence.',
   },
   {
-    icon: Eye,
-    title: 'Role-Based Access Control',
-    description: 'Only CCO/Owner roles can finalize records. Members can upload and edit drafts.',
+    icon: Shield,
+    title: 'Role-gated supervision',
+    description: 'Advisor certification, compliance manager review, and CCO sign-off are separate roles.',
   },
   {
     icon: Server,
-    title: 'Workspace Isolation',
-    description: 'Each firm\'s data is completely isolated. No cross-tenant access possible.',
+    title: 'Workspace isolation',
+    description: 'Each firm workspace is isolated. Cross-tenant access is not possible.',
   },
 ]
 
 export function Security() {
   return (
-    <section id="security" className="py-28 lg:py-36 bg-gray-900 dark:bg-[hsl(160_55%_4%)] relative overflow-hidden section-divider-top">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute inset-0 bg-grid" style={{ backgroundSize: '40px 40px' }} />
-      </div>
-      
-      {/* Glow Effects */}
-      <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-vault-green-500/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-vault-coral-500/5 rounded-full blur-3xl" />
-
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-          {/* Left Column - Content */}
+    <MarketingSection tone="ink" id="security">
+      <MarketingContainer>
+        <div className="grid gap-14 lg:grid-cols-2 lg:items-start">
           <div>
-            {/* Badge */}
-            <div className="inline-flex items-center gap-2 bg-vault-green-500/20 text-vault-green-400 px-5 py-2.5 rounded-full text-sm font-medium mb-8 border border-vault-green-500/30">
-              <Shield className="w-4 h-4" />
-              <span>Security-First Architecture</span>
-            </div>
-
-            {/* Headline */}
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-display text-white mb-8">
-              Built for{' '}
-              <span className="text-vault-green-400">Sensitive Data</span>
+            <SectionKicker onInk>Trust</SectionKicker>
+            <h2 className="font-editorial mt-5 text-display-section font-normal">
+              Built for sensitive meeting evidence.
             </h2>
-
-            {/* Description */}
-            <p className="text-lg text-gray-300 leading-relaxed mb-10">
-              Client meeting recordings contain sensitive information. We've built 
-              Comply Vault with security as a foundation, not an afterthought.
+            <p className="mt-7 text-lg leading-8 text-white/55">
+              Client recordings and correspondence stay inside a sealed evidence
+              posture with human review gates.
             </p>
 
-            {/* Security Features */}
-            <div className="space-y-8">
-              {securityFeatures.map((feature, index) => (
-                <div key={index} className="flex items-start gap-5">
-                  <div className="w-14 h-14 bg-vault-green-500/20 rounded-xl flex items-center justify-center flex-shrink-0 border border-vault-green-500/30">
-                    <feature.icon className="w-7 h-7 text-vault-green-400" />
+            <div className="mt-10 space-y-8">
+              {features.map((feature) => {
+                const Icon = feature.icon
+                return (
+                  <div key={feature.title} className="flex items-start gap-5">
+                    <span className="grid h-12 w-12 shrink-0 place-items-center rounded-full border border-white/15 bg-white/5">
+                      <Icon className="h-5 w-5 text-primary" aria-hidden />
+                    </span>
+                    <div>
+                      <h3 className="font-editorial text-2xl font-normal tracking-[-0.02em]">
+                        {feature.title}
+                      </h3>
+                      <p className="mt-2 leading-7 text-white/52">
+                        {feature.description}
+                      </p>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="text-lg font-semibold text-white mb-2">
-                      {feature.title}
-                    </h3>
-                    <p className="text-gray-400 leading-relaxed">
-                      {feature.description}
-                    </p>
+                )
+              })}
+            </div>
+          </div>
+
+          <div className="rounded-marketing border border-white/12 bg-white/[0.04] p-8 sm:p-10">
+            <h3 className="flex items-center gap-3 text-lg font-medium text-white">
+              <Shield className="h-5 w-5 text-primary" aria-hidden />
+              Security status
+            </h3>
+
+            <div className="mt-8 grid gap-3 sm:grid-cols-2">
+              {implemented.map((item) => (
+                <div
+                  key={item.name}
+                  className="rounded-xl border border-white/10 bg-white/[0.03] p-4"
+                >
+                  <div className="mb-2 flex items-center gap-2">
+                    {item.name === 'SOC 2' ? (
+                      <Clock className="h-4 w-4 text-white/45" aria-hidden />
+                    ) : (
+                      <CheckCircle2 className="h-4 w-4 text-positive-soft" aria-hidden />
+                    )}
+                    <span className="text-sm font-medium text-white">{item.name}</span>
                   </div>
+                  <p className="text-xs text-white/45">{item.description}</p>
                 </div>
               ))}
             </div>
-          </div>
 
-          {/* Right Column - Security Status */}
-          <div className="relative">
-            {/* Main Card */}
-            <div className="bg-gray-800/60 dark:bg-white/5 backdrop-blur-sm rounded-3xl p-10 border border-gray-700/50 dark:border-white/10">
-              <h3 className="text-xl font-semibold text-white mb-8 flex items-center gap-3">
-                <Shield className="w-6 h-6 text-vault-green-400" />
-                Security Status
-              </h3>
-
-              {/* Current Features */}
-              <div className="mb-8">
-                <h4 className="text-sm font-medium text-gray-400 uppercase tracking-wider mb-4">
-                  Currently Implemented
-                </h4>
-                <div className="grid grid-cols-2 gap-4">
-                  {currentFeatures.map((feature, index) => (
-                    <div
-                      key={index}
-                      className="bg-gray-700/40 dark:bg-white/5 rounded-xl p-4 border border-gray-600/40 dark:border-white/10"
-                    >
-                      <div className="flex items-center gap-2 mb-2">
-                        <CheckCircle2 className="w-5 h-5 text-vault-green-400" />
-                        <span className="font-semibold text-white text-sm">{feature.name}</span>
-                      </div>
-                      <p className="text-xs text-gray-400">{feature.description}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Roadmap */}
-              <div>
-                <h4 className="text-sm font-medium text-gray-400 uppercase tracking-wider mb-4">
-                  On Our Roadmap
-                </h4>
-                <div className="space-y-3">
-                  {roadmapFeatures.map((feature, index) => (
-                    <div
-                      key={index}
-                      className="flex items-center justify-between bg-gray-700/20 dark:bg-white/3 rounded-lg p-3 border border-gray-600/20 dark:border-white/5"
-                    >
-                      <div className="flex items-center gap-2">
-                        <Clock className="w-4 h-4 text-gray-500" />
-                        <span className="text-gray-300 text-sm">{feature.name}</span>
-                      </div>
-                      <span className="text-xs text-vault-coral-400 bg-vault-coral-500/10 px-2 py-1 rounded">
-                        {feature.status}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Transparency Note */}
-              <div className="mt-8 pt-6 border-t border-gray-700/50 dark:border-white/10">
-                <p className="text-sm text-gray-400 leading-relaxed">
-                  We're actively working toward SOC 2 Type II certification. 
-                  Contact us for our current security documentation and subprocessor list.
-                </p>
-                <a
-                  href="#"
-                  className="inline-flex items-center gap-2 text-vault-green-400 font-medium mt-4 hover:text-vault-green-300 transition-colors text-sm"
-                >
-                  Request Security Documentation
-                  <Shield className="w-4 h-4" />
-                </a>
-                <p className="text-sm text-gray-400 leading-relaxed mt-4">
-                  Also supports UK FCA supervision workflows.
-                </p>
-              </div>
-            </div>
+            <p className="mt-8 border-t border-white/10 pt-6 text-sm leading-6 text-white/55">
+              SOC 2 status: Not started. Download the ungated security overview
+              from the trust page when available, or request a walkthrough of
+              current controls.
+            </p>
+            <a
+              href="/trust"
+              className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-primary hover:text-primary/80"
+            >
+              Security documentation
+              <Shield className="h-4 w-4" aria-hidden />
+            </a>
           </div>
         </div>
-      </div>
-    </section>
+      </MarketingContainer>
+    </MarketingSection>
   )
 }

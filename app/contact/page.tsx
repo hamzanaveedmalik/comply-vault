@@ -4,8 +4,8 @@ import Link from 'next/link'
 import { SITE_URL } from '@/lib/site'
 
 export const metadata: Metadata = {
-  title: 'Contact Us | Comply Vault',
-  description: 'Get in touch with the Comply Vault team.',
+  title: 'Contact Us | ComplyVault',
+  description: 'Get in touch with the ComplyVault team.',
   alternates: {
     canonical: `${SITE_URL}/contact`,
   },
@@ -32,7 +32,7 @@ const contactMethods = [
     icon: Linkedin,
     title: 'Connect on LinkedIn',
     description: 'Follow for updates and insights',
-    contact: 'Comply Vault',
+    contact: 'ComplyVault',
     href: 'https://www.linkedin.com/company/complyvault',
     action: 'Follow Us',
     external: true,

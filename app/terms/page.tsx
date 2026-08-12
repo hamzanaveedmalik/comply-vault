@@ -4,8 +4,8 @@ import Link from 'next/link'
 import { SITE_URL } from '@/lib/site'
 
 export const metadata: Metadata = {
-  title: 'Terms of Service | Comply Vault',
-  description: 'Read the terms and conditions for using Comply Vault.',
+  title: 'Terms of Service | ComplyVault',
+  description: 'Read the terms and conditions for using ComplyVault.',
   alternates: {
     canonical: `${SITE_URL}/terms`,
   },
@@ -15,14 +15,14 @@ const sections = [
   {
     icon: FileText,
     title: '1. Acceptance of Terms',
-    content: `By accessing or using the services provided by COMPLY VAULT LTD, Company No. 16889706 ("Service"), you agree to be bound by these Terms of Service ("Terms"). If you disagree with any part of these terms, you may not access the Service.
+    content: `By accessing or using the services provided by COMPLY VAULT LTD, Company No. 16989706 ("Service"), you agree to be bound by these Terms of Service ("Terms"). If you disagree with any part of these terms, you may not access the Service.
 
 These Terms apply to all visitors, users, and others who access or use the Service. By using the Service, you represent that you are at least 18 years old and have the legal authority to enter into these Terms.`,
   },
   {
     icon: Scale,
     title: '2. Description of Service',
-    content: `Comply Vault provides a compliance documentation platform that helps Registered Investment Advisors (RIAs) create exam-ready client interaction records from meeting recordings.
+    content: `ComplyVault provides a compliance documentation platform that helps Registered Investment Advisors (RIAs) create exam-ready client interaction records from meeting recordings.
 
 The Service includes:
 • Audio transcription and processing
@@ -78,13 +78,13 @@ Price Changes: We may change our prices with 30 days' notice. Continued use of t
 const additionalSections = [
   {
     title: '6. Intellectual Property',
-    content: `The Service and its original content, features, and functionality are owned by COMPLY VAULT LTD (Company No. 16889706) and are protected by international copyright, trademark, and other intellectual property laws.
+    content: `The Service and its original content, features, and functionality are owned by COMPLY VAULT LTD (Company No. 16989706) and are protected by international copyright, trademark, and other intellectual property laws.
 
 You retain ownership of all content you upload to the Service. We do not claim any intellectual property rights over your content.`,
   },
   {
     title: '7. Limitation of Liability',
-    content: `To the maximum extent permitted by law, Comply Vault shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including loss of profits, data, or other intangible losses.
+    content: `To the maximum extent permitted by law, ComplyVault shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including loss of profits, data, or other intangible losses.
 
 Our total liability for any claims arising from the Service shall not exceed the amount you paid us in the twelve (12) months preceding the claim.
 
@@ -92,7 +92,7 @@ The Service is provided "as is" without warranties of any kind, either express o
   },
   {
     title: '8. Disclaimer',
-    content: `Comply Vault is a documentation tool, not a legal or compliance advisor. The Service:
+    content: `ComplyVault is a documentation tool, not a legal or compliance advisor. The Service:
 
 • Does not provide legal advice
 • Does not make compliance determinations

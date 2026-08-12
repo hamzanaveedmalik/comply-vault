@@ -4,8 +4,8 @@ import Link from 'next/link'
 import { SITE_URL } from '@/lib/site'
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy | Comply Vault',
-  description: 'Learn how Comply Vault protects your data and respects your privacy.',
+  title: 'Privacy Policy | ComplyVault',
+  description: 'Learn how ComplyVault protects your data and respects your privacy.',
   alternates: {
     canonical: `${SITE_URL}/privacy`,
   },
@@ -114,7 +114,7 @@ export default function PrivacyPage() {
         {/* Introduction */}
         <div className="prose prose-lg dark:prose-invert max-w-none mb-16">
           <p className="text-muted-foreground text-lg leading-relaxed">
-            At COMPLY VAULT LTD (Company No. 16889706), we take your privacy seriously. This Privacy Policy explains how we collect, 
+            At COMPLY VAULT LTD (Company No. 16989706), we take your privacy seriously. This Privacy Policy explains how we collect, 
             use, disclose, and safeguard your information when you use our compliance documentation platform. 
             We are committed to protecting the confidentiality of your data, especially given the sensitive 
             nature of financial compliance records.

@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     'audit pack configuration',
     'evidence-linked compliance notes',
   ],
-  authors: [{ name: 'Comply Vault' }],
+  authors: [{ name: 'ComplyVault' }],
   alternates: {
     canonical: `${SITE_URL}/features/configurable-compliance-framework`,
     languages: {
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     url: `${SITE_URL}/features/configurable-compliance-framework`,
     type: 'website',
     locale: 'en_US',
-    siteName: 'Comply Vault',
+    siteName: 'ComplyVault',
   },
   twitter: {
     card: 'summary_large_image',
@@ -118,7 +118,7 @@ export default function ConfigurableComplianceFrameworkPage(): JSX.Element {
             url: `${SITE_URL}/features/configurable-compliance-framework`,
             isPartOf: {
               '@type': 'WebSite',
-              name: 'Comply Vault',
+              name: 'ComplyVault',
               url: SITE_URL,
             },
           }),

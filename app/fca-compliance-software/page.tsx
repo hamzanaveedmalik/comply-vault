@@ -23,24 +23,24 @@ import {
 import { SITE_URL } from '@/lib/site'
 
 export const metadata: Metadata = {
-  title: 'FCA Compliance Software for SYSC 9 Supervision & Monitoring | Comply Vault',
+  title: 'FCA Compliance Software for SYSC 9 Supervision & Monitoring | ComplyVault',
   description: 'FCA compliance software for UK financial services firms. Generate file notes, supervision records, and advice suitability documentation with evidence linking and audit trails. FCA SYSC 9 compliant workflows.',
   keywords: ['FCA compliance software', 'FCA SYSC 9', 'supervision software', 'monitoring software', 'file notes', 'advice suitability', 'UK compliance', 'FCA supervision'],
-  authors: [{ name: 'Comply Vault' }],
+  authors: [{ name: 'ComplyVault' }],
   alternates: {
     canonical: `${SITE_URL}/fca-compliance-software`,
   },
   openGraph: {
-    title: 'FCA Compliance Software for SYSC 9 Supervision & Monitoring | Comply Vault',
+    title: 'FCA Compliance Software for SYSC 9 Supervision & Monitoring | ComplyVault',
     description: 'FCA compliance software for UK financial services firms. Generate file notes, supervision records, and advice suitability documentation.',
     url: `${SITE_URL}/fca-compliance-software`,
     type: 'website',
     locale: 'en_GB',
-    siteName: 'Comply Vault',
+    siteName: 'ComplyVault',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'FCA Compliance Software for SYSC 9 Supervision & Monitoring | Comply Vault',
+    title: 'FCA Compliance Software for SYSC 9 Supervision & Monitoring | ComplyVault',
     description: 'FCA compliance software with evidence-linked file notes, supervision workflows, and audit trails.',
   },
   robots: {
@@ -52,15 +52,15 @@ export const metadata: Metadata = {
 const faqs = [
   {
     question: 'What does FCA SYSC 9 require for supervision and monitoring?',
-    answer: 'FCA SYSC 9 requires firms to establish and maintain systems and controls for effective supervision and monitoring of staff. This includes documenting advice conversations, maintaining file notes with evidence of suitability assessments, and demonstrating that supervision processes are working effectively. Comply Vault helps you create structured file notes with evidence linking, supervision sign-off workflows, and complete audit trails that support your SYSC 9 obligations.',
+    answer: 'FCA SYSC 9 requires firms to establish and maintain systems and controls for effective supervision and monitoring of staff. This includes documenting advice conversations, maintaining file notes with evidence of suitability assessments, and demonstrating that supervision processes are working effectively. ComplyVault helps you create structured file notes with evidence linking, supervision sign-off workflows, and complete audit trails that support your SYSC 9 obligations.',
   },
   {
-    question: 'What are file notes and how does Comply Vault help?',
-    answer: 'File notes are contemporaneous records of client interactions, advice given, and suitability assessments. Comply Vault turns meeting recordings into structured file notes with timestamped evidence, topics discussed, recommendations made, and suitability considerations. Every claim in your file note links back to the exact moment in the recording, providing full traceability for FCA reviews.',
+    question: 'What are file notes and how does ComplyVault help?',
+    answer: 'File notes are contemporaneous records of client interactions, advice given, and suitability assessments. ComplyVault turns meeting recordings into structured file notes with timestamped evidence, topics discussed, recommendations made, and suitability considerations. Every claim in your file note links back to the exact moment in the recording, providing full traceability for FCA reviews.',
   },
   {
     question: 'How does advice suitability documentation work?',
-    answer: 'Comply Vault extracts key information from client meetings including client circumstances, objectives, risk tolerance, and recommendations made. The system structures this into a suitability assessment format with evidence links. Your compliance team can review and finalize these records, ensuring they demonstrate that advice was suitable for the client\'s circumstances and objectives.',
+    answer: 'ComplyVault extracts key information from client meetings including client circumstances, objectives, risk tolerance, and recommendations made. The system structures this into a suitability assessment format with evidence links. Your compliance team can review and finalize these records, ensuring they demonstrate that advice was suitable for the client\'s circumstances and objectives.',
   },
   {
     question: 'Can we edit file notes before approval?',
@@ -68,7 +68,7 @@ const faqs = [
   },
   {
     question: 'How does supervision sign-off work?',
-    answer: 'Comply Vault enforces role-based access control. Only users with supervisor or compliance officer roles can finalize a file note. When a record is finalized, the system logs who approved it and when. This creates a clear supervision boundary—draft work is separated from officially approved records. All finalization actions are recorded in the audit trail, demonstrating effective supervision processes.',
+    answer: 'ComplyVault enforces role-based access control. Only users with supervisor or compliance officer roles can finalize a file note. When a record is finalized, the system logs who approved it and when. This creates a clear supervision boundary,draft work is separated from officially approved records. All finalization actions are recorded in the audit trail, demonstrating effective supervision processes.',
   },
   {
     question: 'What export formats are available?',
@@ -76,7 +76,7 @@ const faqs = [
   },
   {
     question: 'Do you support UK meeting platforms?',
-    answer: 'Yes. Comply Vault supports recordings from Zoom, Microsoft Teams, Google Meet, Webex, and any other platform that can export audio or video files. We accept MP3, MP4, WAV, and M4A formats up to 500MB. The system automatically transcribes with speaker separation, timestamps, and extracts compliance-relevant information for UK financial services firms.',
+    answer: 'Yes. ComplyVault supports recordings from Zoom, Microsoft Teams, any other platform that can export audio or video files. We accept MP3, MP4, WAV, and M4A formats up to 500MB. The system automatically transcribes with speaker separation, timestamps, and extracts compliance-relevant information for UK financial services firms.',
   },
   {
     question: 'How long does it take per meeting?',
@@ -88,7 +88,7 @@ const faqs = [
   },
   {
     question: 'Do you provide legal or compliance advice?',
-    answer: 'No. Comply Vault is a documentation tool, not a compliance advisory service. We help you create structured, evidence-linked file notes with complete audit trails, but we do not make compliance determinations or provide legal advice. You and your compliance team are responsible for ensuring your documentation meets your firm\'s regulatory requirements. Always consult with your compliance counsel for specific regulatory questions.',
+    answer: 'No. ComplyVault is a documentation tool, not a compliance advisory service. We help you create structured, evidence-linked file notes with complete audit trails, but we do not make compliance determinations or provide legal advice. You and your compliance team are responsible for ensuring your documentation meets your firm\'s regulatory requirements. Always consult with your compliance counsel for specific regulatory questions.',
   },
 ]
 
@@ -138,7 +138,7 @@ export default function FCAComplianceSoftwarePage() {
           __html: JSON.stringify({
             '@context': 'https://schema.org',
             '@type': 'SoftwareApplication',
-            name: 'Comply Vault',
+            name: 'ComplyVault',
             applicationCategory: 'BusinessApplication',
             operatingSystem: 'Web',
             offers: {
@@ -301,7 +301,7 @@ export default function FCAComplianceSoftwarePage() {
                 number: '01',
                 icon: Upload,
                 title: 'Upload Recording',
-                description: 'Upload your meeting recording from Zoom, Teams, Google Meet, or any platform. Supports MP3, MP4, WAV, and M4A formats up to 500MB.',
+                description: 'Upload your meeting recording from Zoom or any platform via file upload. Supports MP3, MP4, WAV, and M4A formats up to 500MB.',
               },
               {
                 number: '02',
@@ -473,7 +473,7 @@ export default function FCAComplianceSoftwarePage() {
 
             <div className="mt-10 p-6 bg-card dark:bg-[hsl(160_35%_10%)] rounded-2xl border border-border dark:border-white/10">
               <p className="text-sm text-muted-foreground leading-relaxed">
-                <strong className="text-foreground">Important:</strong> Comply Vault helps you create structured file notes and supervision records that support your FCA SYSC 9 obligations. 
+                <strong className="text-foreground">Important:</strong> ComplyVault helps you create structured file notes and supervision records that support your FCA SYSC 9 obligations. 
                 However, we do not make compliance determinations or provide legal advice. 
                 You and your compliance team are responsible for ensuring your documentation meets your firm's regulatory requirements. 
                 Always consult with your compliance counsel for specific regulatory questions. 

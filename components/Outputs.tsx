@@ -1,129 +1,86 @@
-'use client'
+import { Archive, FileText, History, Link2, Mail, MessageSquare } from 'lucide-react'
+import {
+  MarketingContainer,
+  MarketingSection,
+  SectionKicker,
+} from './marketing'
 
-import { FileText, Archive, MessageSquare, Table, Download, ArrowRight } from 'lucide-react'
-
-const outputs = [
+const packFiles = [
   {
     icon: FileText,
-    title: 'Structured Compliance Note',
-    formats: ['PDF'],
-    description: 'Topics, recommendations, disclosures discussed, decisions, and follow-ups—all extracted and formatted.',
-    features: ['Evidence links', 'Sign-off recorded', 'Version history'],
+    name: '01_Compliance_Note.pdf',
+    description: 'Structured note covering topics, recommendations, disclosures, decisions, and follow-ups.',
   },
   {
-    icon: Table,
-    title: 'Evidence Map',
-    formats: ['CSV'],
-    description: 'Each claim linked to timestamp, transcript snippet, confidence score, and edit status.',
-    features: ['Timestamp links', 'Confidence scores', 'Edit tracking'],
+    icon: Link2,
+    name: '02_Evidence_Map.csv',
+    description: 'Each claim linked to timestamp, speaker, and transcript snippet.',
+  },
+  {
+    icon: History,
+    name: '03_Version_History.csv',
+    description: 'Edit trail from draft through advisor, CM, and CCO gates.',
   },
   {
     icon: MessageSquare,
-    title: 'Full Transcript',
-    formats: ['TXT'],
-    description: 'Complete meeting transcript with timestamps and speaker labels for reference.',
-    features: ['Speaker diarization', 'Timestamp markers', 'Searchable text'],
+    name: '04_Transcript.txt',
+    description: 'Full transcript with timestamps and speaker labels.',
+  },
+  {
+    icon: Mail,
+    name: '05_Email_Correspondence.csv',
+    description: 'Linked email threads with custody hashes where ingested.',
   },
   {
     icon: Archive,
-    title: 'Complete Audit Pack',
-    formats: ['ZIP'],
-    description: 'All files bundled: PDF note, CSV evidence map, CSV version history, TXT transcript, interaction log.',
-    features: ['One-click download', 'Exam-ready format', 'Complete bundle'],
+    name: '06_Supersession_Chain.txt',
+    description: 'Successor links when a sealed record is corrected without erasure.',
+  },
+  {
+    icon: FileText,
+    name: 'README.txt',
+    description: 'Pack inventory, seal identifiers, and how to verify digests.',
   },
 ]
 
 export function Outputs() {
   return (
-    <section id="outputs" className="py-28 lg:py-36 bg-background relative overflow-hidden noise-texture section-divider-top">
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="text-center mb-20">
-          <div className="inline-flex items-center gap-2 bg-accent text-accent-foreground px-5 py-2.5 rounded-full text-sm font-medium mb-8 border border-primary/20">
-            <FileText className="w-4 h-4" />
-            <span>What You Get</span>
-          </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-display text-foreground mb-6">
-            Exam-Ready Export Pack,{' '}
-            <span className="text-gradient">One Click</span>
+    <MarketingSection tone="grey" id="outputs">
+      <MarketingContainer>
+        <div className="max-w-3xl">
+          <SectionKicker>Audit pack</SectionKicker>
+          <h2 className="font-editorial mt-5 text-display-section font-normal">
+            Seven files. One sealed pack.
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Every finalized meeting generates a complete documentation bundle 
-            you can file directly into your compliance system.
+          <p className="mt-6 max-w-2xl text-lg leading-8 text-body-muted">
+            The export is an audit pack, not a meeting summary. Capture is Zoom
+            auto-ingest or a manual upload of MP3, MP4, WAV, or M4A.
           </p>
         </div>
 
-        {/* Outputs Grid */}
-        <div className="grid md:grid-cols-2 gap-8 lg:gap-10">
-          {outputs.map((output, index) => (
-            <div
-              key={index}
-              className="group bg-card dark:bg-[hsl(160_35%_10%)] rounded-2xl p-8 lg:p-10 border border-border dark:border-white/10 shadow-sm hover:shadow-xl dark:hover:shadow-black/20 hover:border-primary/30 transition-all duration-300"
-            >
-              <div className="flex items-start gap-6">
-                {/* Icon */}
-                <div className="w-16 h-16 bg-vault-green-100 dark:bg-vault-green-800/30 rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:bg-vault-green-500 transition-colors">
-                  <output.icon className="w-8 h-8 text-vault-green-500 dark:text-vault-green-400 group-hover:text-white transition-colors" />
-                </div>
-
-                <div className="flex-1">
-                  {/* Title & Formats */}
-                  <div className="flex items-center gap-3 mb-3">
-                    <h3 className="text-xl font-semibold text-card-foreground">
-                      {output.title}
+        <div className="mt-14 grid gap-px overflow-hidden rounded-marketing border border-black/10 bg-black/10 md:grid-cols-2">
+          {packFiles.map((file) => {
+            const Icon = file.icon
+            return (
+              <article key={file.name} className="bg-grey p-7 sm:p-8">
+                <div className="flex items-start gap-4">
+                  <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full border border-black/10 bg-white">
+                    <Icon className="h-5 w-5 text-primary" aria-hidden />
+                  </span>
+                  <div>
+                    <h3 className="font-editorial text-xl font-normal tracking-[-0.02em]">
+                      {file.name}
                     </h3>
-                    <div className="flex gap-1.5">
-                      {output.formats.map((format) => (
-                        <span
-                          key={format}
-                          className="text-xs font-medium px-2 py-0.5 bg-muted dark:bg-white/5 text-muted-foreground rounded border border-border dark:border-white/10"
-                        >
-                          {format}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Description */}
-                  <p className="text-muted-foreground mb-4 leading-relaxed">
-                    {output.description}
-                  </p>
-
-                  {/* Features */}
-                  <div className="flex flex-wrap gap-2">
-                    {output.features.map((feature) => (
-                      <span
-                        key={feature}
-                        className="text-xs font-medium px-3 py-1.5 bg-vault-green-500/10 dark:bg-vault-green-500/15 text-vault-green-700 dark:text-vault-green-400 rounded-full border border-vault-green-500/20"
-                      >
-                        {feature}
-                      </span>
-                    ))}
+                    <p className="mt-3 text-sm leading-6 text-body-muted">
+                      {file.description}
+                    </p>
                   </div>
                 </div>
-              </div>
-            </div>
-          ))}
+              </article>
+            )
+          })}
         </div>
-
-        {/* Supported File Types Note */}
-        <div className="mt-12 text-center">
-          <p className="text-sm text-muted-foreground mb-4">
-            <strong>Supported uploads:</strong> MP3, MP4, WAV, M4A (from Zoom, Teams, Google Meet, Webex, and more)
-          </p>
-        </div>
-
-        {/* CTA */}
-        <div className="mt-8 text-center">
-          <a
-            href="#how-it-works"
-            className="inline-flex items-center gap-3 bg-vault-green-500 text-white font-semibold px-8 py-4 rounded-xl hover:bg-vault-green-600 dark:hover:bg-vault-green-400 transition-colors shadow-lg shadow-vault-green-500/25 hover:shadow-xl group"
-          >
-            See the Workflow
-            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-          </a>
-        </div>
-      </div>
-    </section>
+      </MarketingContainer>
+    </MarketingSection>
   )
 }

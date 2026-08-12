@@ -24,10 +24,10 @@ import { cn } from '@/lib/utils'
 import { SITE_URL } from '@/lib/site'
 
 export const metadata: Metadata = {
-  title: 'RIA Compliance Software for SEC Exam-Ready Records | Comply Vault',
-  description: 'RIA compliance software and platform with evidence-linked notes, audit trails, and CCO sign-off. Upload meeting recordings and export complete SEC exam-ready audit packs in under 10 minutes.',
+  title: 'RIA Compliance Software for SEC Exam-Ready Records | ComplyVault',
+  description: 'RIA compliance software and platform with evidence-linked notes, audit trails, and CCO sign-off. Upload meeting recordings and export complete SEC exam-ready audit packs with a recorded supervision trail.',
   keywords: ['RIA compliance software', 'RIA compliance platform', 'RIA compliance tool', 'SEC exam readiness', 'compliance audit trail', 'evidence-linked notes', 'CCO approval', 'investment advisor compliance'],
-  authors: [{ name: 'Comply Vault' }],
+  authors: [{ name: 'ComplyVault' }],
   alternates: {
     canonical: `${SITE_URL}/ria-compliance-software`,
     languages: {
@@ -37,16 +37,16 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: 'RIA Compliance Software for SEC Exam-Ready Records | Comply Vault',
+    title: 'RIA Compliance Software for SEC Exam-Ready Records | ComplyVault',
     description: 'RIA compliance software and platform with evidence-linked notes, audit trails, and CCO sign-off. Upload meeting recordings and export complete SEC exam-ready audit packs.',
     url: `${SITE_URL}/ria-compliance-software`,
     type: 'website',
     locale: 'en_US',
-    siteName: 'Comply Vault',
+    siteName: 'ComplyVault',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'RIA Compliance Software for SEC Exam-Ready Records | Comply Vault',
+    title: 'RIA Compliance Software for SEC Exam-Ready Records | ComplyVault',
     description: 'RIA compliance software and platform with evidence-linked notes, audit trails, and CCO sign-off workflows.',
   },
   robots: {
@@ -58,7 +58,7 @@ export const metadata: Metadata = {
 const faqs = [
   {
     question: 'What does an SEC examiner expect to see in client interaction records?',
-    answer: 'SEC examiners look for documentation that proves you provided suitable advice and followed your fiduciary duty. This includes: clear evidence of what was discussed, recommendations made, disclosures provided, client decisions, and follow-up actions. The documentation must be contemporaneous, accurate, and verifiable. Comply Vault creates structured records with direct evidence linking—every claim in your compliance note links back to the exact timestamp and transcript snippet where it occurred.',
+    answer: 'SEC examiners look for documentation that proves you provided suitable advice and followed your fiduciary duty. This includes: clear evidence of what was discussed, recommendations made, disclosures provided, client decisions, and follow-up actions. The documentation must be contemporaneous, accurate, and verifiable. ComplyVault creates structured records with direct evidence linking,every claim in your compliance note links back to the exact timestamp and transcript snippet where it occurred.',
   },
   {
     question: 'Can we edit notes before approval?',
@@ -66,7 +66,7 @@ const faqs = [
   },
   {
     question: 'How does supervision sign-off work?',
-    answer: 'Comply Vault enforces role-based access control. Only users with the CCO or Owner role can finalize a compliance record. When a record is finalized, the system logs who approved it and when. This creates a clear supervision boundary—draft work is separated from officially approved records. All finalization actions are recorded in the audit trail.',
+    answer: 'ComplyVault enforces role-based access control. Only users with the CCO or Owner role can finalize a compliance record. When a record is finalized, the system logs who approved it and when. This creates a clear supervision boundary,draft work is separated from officially approved records. All finalization actions are recorded in the audit trail.',
   },
   {
     question: 'What export formats are available?',
@@ -74,15 +74,15 @@ const faqs = [
   },
   {
     question: 'Do you support Zoom recordings?',
-    answer: 'Yes. Comply Vault supports recordings from Zoom, Microsoft Teams, Google Meet, Webex, and any other platform that can export audio or video files. We accept MP3, MP4, WAV, and M4A formats up to 500MB. The system automatically transcribes with speaker separation, timestamps, and extracts compliance-relevant information.',
+    answer: 'Yes. ComplyVault supports recordings from Zoom, Microsoft Teams, any other platform that can export audio or video files. We accept MP3, MP4, WAV, and M4A formats up to 500MB. The system automatically transcribes with speaker separation, timestamps, and extracts compliance-relevant information.',
   },
   {
     question: 'How long does it take per meeting?',
     answer: 'Processing time depends on recording length, but most meetings are ready for review in 5-10 minutes. Transcription happens first (usually 1-2 minutes per hour of audio), then AI extraction takes another few minutes. Once the draft is ready, CCO review typically takes 5-10 minutes depending on meeting complexity. Total time from upload to finalized record is usually under 15 minutes.',
   },
   {
-    question: 'Is the system WORM-compliant or SOC2 certified?',
-    answer: 'We do not claim WORM compliance or SOC 2 certification unless explicitly stated. Comply Vault provides audit trail logging, evidence linking, role-based approvals, and exportable audit packs.',
+    question: 'Is the system WORM-compliant or SOC 2 certified?',
+    answer: 'Object Lock WORM retention and the RecordSeal ledger are implemented. SOC 2 status is Not started. ComplyVault also provides audit trail logging, evidence linking, role-based approvals, and exportable sealed audit packs.',
   },
   {
     question: 'What if the AI makes a mistake in extraction?',
@@ -90,11 +90,11 @@ const faqs = [
   },
   {
     question: 'Can we use this for annual compliance reviews?',
-    answer: 'Yes. Comply Vault is designed to support ongoing books-and-records obligations, including annual reviews. Once records are finalized, they\'re stored in a searchable archive with full audit trails. You can export compliance reports, review version histories, and demonstrate your supervision process to examiners. The system maintains metadata on all records, making it easy to pull documentation for specific time periods or clients.',
+    answer: 'Yes. ComplyVault is designed to support ongoing books-and-records obligations, including annual reviews. Once records are finalized, they\'re stored in a searchable archive with full audit trails. You can export compliance reports, review version histories, and demonstrate your supervision process to examiners. The system maintains metadata on all records, making it easy to pull documentation for specific time periods or clients.',
   },
   {
     question: 'Do you provide legal or compliance advice?',
-    answer: 'No. Comply Vault is a documentation tool, not a compliance advisory service. We help you create structured, evidence-linked records with complete audit trails, but we do not make compliance determinations or provide legal advice. You and your CCO are responsible for ensuring your documentation meets your firm\'s regulatory requirements. Always consult with your compliance counsel for specific regulatory questions.',
+    answer: 'No. ComplyVault is a documentation tool, not a compliance advisory service. We help you create structured, evidence-linked records with complete audit trails, but we do not make compliance determinations or provide legal advice. You and your CCO are responsible for ensuring your documentation meets your firm\'s regulatory requirements. Always consult with your compliance counsel for specific regulatory questions.',
   },
 ]
 
@@ -144,7 +144,7 @@ export default function RIAComplianceSoftwarePage() {
           __html: JSON.stringify({
             '@context': 'https://schema.org',
             '@type': 'SoftwareApplication',
-            name: 'Comply Vault',
+            name: 'ComplyVault',
             applicationCategory: 'BusinessApplication',
             operatingSystem: 'Web',
             offers: {
@@ -311,7 +311,7 @@ export default function RIAComplianceSoftwarePage() {
                 number: '01',
                 icon: Upload,
                 title: 'Upload Recording',
-                description: 'Upload your meeting recording from Zoom, Teams, Google Meet, or any platform. Supports MP3, MP4, WAV, and M4A formats up to 500MB.',
+                description: 'Upload your meeting recording from Zoom or any platform via file upload. Supports MP3, MP4, WAV, and M4A formats up to 500MB.',
               },
               {
                 number: '02',
@@ -478,7 +478,7 @@ export default function RIAComplianceSoftwarePage() {
 
             <div className="mt-10 p-6 bg-card dark:bg-[hsl(160_35%_10%)] rounded-2xl border border-border dark:border-white/10">
               <p className="text-sm text-muted-foreground leading-relaxed">
-                <strong className="text-foreground">Important:</strong> Comply Vault does not claim WORM compliance or SOC 2 certification unless explicitly stated. 
+                <strong className="text-foreground">Important:</strong> Object Lock WORM retention is implemented. SOC 2 status is Not started. 
                 Our infrastructure includes enterprise-grade encryption, role-based access control, comprehensive audit logging, and workspace isolation. 
                 Always consult your compliance counsel to ensure your documentation meets your firm's regulatory requirements. 
                 Learn more <Link href="/about" className="text-vault-green-500 hover:text-vault-green-600 underline">about our company</Link> and <Link href="/contact" className="text-vault-green-500 hover:text-vault-green-600 underline">security practices</Link>.

@@ -6,7 +6,7 @@ import { ukPricingContent } from '@/src/content/uk/pricing'
 import { SITE_URL } from '@/lib/site'
 
 export const metadata: Metadata = {
-  title: 'Pricing | Comply Vault - UK FCA Compliance Software',
+  title: 'Pricing | ComplyVault - UK FCA Compliance Software',
   description: 'Flexible plans for UK financial services firms of every size. Essentials, Professional, and Enterprise tiers. No hidden fees.',
   alternates: {
     canonical: `${SITE_URL}/uk/pricing`,

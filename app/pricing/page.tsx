@@ -6,7 +6,7 @@ import { usPricingContent } from '@/src/content/us/pricing'
 import { SITE_URL } from '@/lib/site'
 
 export const metadata: Metadata = {
-  title: 'Pricing | Comply Vault - RIA Compliance Software',
+  title: 'Pricing | ComplyVault - RIA Compliance Software',
   description: 'Flexible plans for RIA firms of every size. Essentials, Professional, and Enterprise tiers. No hidden fees.',
   alternates: {
     canonical: `${SITE_URL}/pricing`,

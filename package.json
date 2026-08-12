@@ -6,10 +6,18 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "studio": "npm run dev --prefix studio",
+    "studio:deploy": "npm run deploy --prefix studio"
   },
   "dependencies": {
     "@marsidev/react-turnstile": "^1.4.1",
+    "@portabletext/react": "^5.0.0",
+    "@portabletext/types": "^4.0.2",
+    "@sanity/client": "^7.26.2",
+    "@sanity/image-url": "^2.1.1",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "lucide-react": "^0.456.0",
@@ -17,7 +25,8 @@
     "next-themes": "^0.4.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "tailwind-merge": "^2.5.4"
+    "tailwind-merge": "^2.5.4",
+    "zod": "^4.4.3"
   },
   "devDependencies": {
     "@types/node": "^20.17.0",
@@ -29,6 +38,7 @@
     "postcss": "^8.4.47",
     "tailwindcss": "^3.4.14",
     "tailwindcss-animate": "^1.0.7",
-    "typescript": "^5.6.3"
+    "typescript": "^5.6.3",
+    "vitest": "^3.2.7"
   }
 }

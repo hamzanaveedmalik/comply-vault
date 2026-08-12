@@ -1,176 +1,149 @@
 'use client'
 
-import { usePathname } from 'next/navigation'
-import { ArrowRight, Shield, FileCheck, Clock, CheckCircle2, Scale, Users } from 'lucide-react'
+import { ArrowRight, FileCheck, Lock, Shield, Users } from 'lucide-react'
 import { Button } from './Button'
+import {
+  HeroHeadline,
+  MarketingButton,
+  ProductMockShell,
+  StatusPill,
+} from './marketing'
 
 export function Hero() {
-  const pathname = usePathname()
-  const isUK = pathname?.startsWith('/uk') ?? false
-  
-  const badgeText = isUK 
-    ? 'Built for FCA SYSC 9 supervision & monitoring'
-    : 'Built for SEC & state RIA exams'
-  
   return (
-    <section className="relative min-h-screen pt-28 pb-20 overflow-hidden noise-texture">
-      {/* Background Elements */}
-      <div className="absolute inset-0 bg-grid opacity-50" />
-      <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-gradient-radial from-vault-green-500/10 via-transparent to-transparent dark:from-vault-green-500/8" />
-      <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-gradient-radial from-vault-coral-500/5 via-transparent to-transparent dark:from-vault-coral-500/5" />
-      
-      {/* Floating decorative elements */}
-      <div className="absolute top-40 left-10 w-20 h-20 bg-vault-green-100 dark:bg-vault-green-800/20 rounded-2xl rotate-12 float-slow opacity-60" />
-      <div className="absolute top-72 right-20 w-16 h-16 bg-vault-coral-100 dark:bg-vault-coral-800/20 rounded-xl -rotate-12 float-medium opacity-60" />
-      <div className="absolute bottom-40 left-1/4 w-12 h-12 bg-vault-green-200 dark:bg-vault-green-700/20 rounded-lg rotate-45 float-fast opacity-40" />
+    <section className="relative overflow-hidden bg-grey px-4 pb-16 pt-28 sm:px-6 lg:px-10 lg:pb-24 lg:pt-32">
+      <div className="pointer-events-none absolute inset-0 marketing-grid opacity-50" />
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-          {/* Left Column - Content */}
-          <div className="text-center lg:text-left">
-            {/* Badge */}
-            <div className="inline-flex items-center gap-2 bg-accent text-accent-foreground px-4 py-2 rounded-full text-sm font-medium mb-8 animate-fade-in border border-primary/20">
-              <Scale className="w-4 h-4" />
-              <span>{badgeText}</span>
-            </div>
+      <div className="relative mx-auto max-w-marketing-wide">
+        <div className="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-12 xl:gap-16">
+          <div>
+            <StatusPill>Built for the CCO</StatusPill>
 
-            {/* Headline */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold font-display leading-tight mb-8 text-foreground animate-fade-in-up">
-              Turn client meetings into{' '}
-              <span className="text-gradient">exam-ready audit documentation</span>{' '}
-              — in minutes.
-            </h1>
+            <HeroHeadline
+              mode="tint"
+              lead="Route attention,"
+              accent="not retention."
+            />
 
-            {/* Subheadline */}
-            <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed mb-10 max-w-xl mx-auto lg:mx-0 animate-fade-in-up animation-delay-100">
-              Upload recordings from Zoom, Teams, Google Meet, Webex, and more. Generate timestamped supervision notes with evidence links. 
-              Review, finalize, and export a defensible documentation pack.
+            <p className="mt-9 max-w-xl text-lg leading-8 text-body-muted sm:text-xl">
+              ComplyVault is an evidence layer for RIA compliance. It turns client
+              meeting recordings into sealed audit packs your CCO can defend,
+              sitting alongside the tools advisors already use.
             </p>
 
-            {/* CTAs */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-12 animate-fade-in-up animation-delay-200">
-              <Button href="/sample-audit-pack" size="lg" className="group">
-                See a sample export pack
-                <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <Button href="/sample-audit-pack" size="lg" className="group h-14 rounded-xl shadow-none">
+                See a sample audit pack
+                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Button>
-              <Button href="#cta" variant="outline" size="lg" className="group">
+              <MarketingButton href="#cta" variant="outline" size="lg">
                 Book a demo
-                <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-              </Button>
+              </MarketingButton>
             </div>
 
-            {/* Trust Indicators - Actually Built Features */}
-            <div className="flex flex-wrap gap-6 justify-center lg:justify-start text-sm text-muted-foreground animate-fade-in-up animation-delay-300 mb-6">
-              <div className="flex items-center gap-2">
-                <Clock className="w-5 h-5 text-vault-green-500 dark:text-vault-green-400" />
-                <span>Evidence timestamps</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <FileCheck className="w-5 h-5 text-vault-green-500 dark:text-vault-green-400" />
-                <span>Audit trail logging</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Users className="w-5 h-5 text-vault-green-500 dark:text-vault-green-400" />
-                <span>CCO-only finalization</span>
-              </div>
-            </div>
-
-            {/* Tech Credentials */}
-            <div className="flex flex-wrap gap-4 justify-center lg:justify-start text-xs text-muted-foreground animate-fade-in-up animation-delay-400">
-              <span className="flex items-center gap-1.5">
-                <Shield className="w-4 h-4 text-vault-green-500 dark:text-vault-green-400" />
-                Enterprise-grade encryption
+            <div className="mt-10 flex flex-wrap gap-x-6 gap-y-3 text-sm text-body-muted">
+              <span className="inline-flex items-center gap-2">
+                <Lock className="h-4 w-4 text-primary" aria-hidden />
+                Immutable seal layer
               </span>
-              <span className="text-muted-foreground/60">•</span>
-              <span className="flex items-center gap-1.5">
-                <FileCheck className="w-4 h-4 text-vault-green-500 dark:text-vault-green-400" />
-                SOC 2 controls
+              <span className="inline-flex items-center gap-2">
+                <Users className="h-4 w-4 text-primary" aria-hidden />
+                Three-layer human review
+              </span>
+              <span className="inline-flex items-center gap-2">
+                <FileCheck className="h-4 w-4 text-primary" aria-hidden />
+                Seven-file audit pack
               </span>
             </div>
           </div>
 
-          {/* Right Column - Dashboard Mockup */}
-          <div className="relative animate-fade-in-up animation-delay-200">
-            <div className="relative">
-              {/* Main Dashboard Card */}
-              <div className="bg-card dark:card-elevated rounded-3xl shadow-2xl shadow-foreground/10 dark:shadow-black/30 p-6 border border-border dark:glow-green">
-                {/* Dashboard Header */}
-                <div className="flex items-center justify-between mb-6">
-                  <div>
-                    <h3 className="text-lg font-semibold text-card-foreground">Review Queue</h3>
-                    <p className="text-sm text-muted-foreground">Client interaction records</p>
-                  </div>
-                  <div className="flex items-center gap-2 px-3 py-1.5 bg-vault-green-500/10 dark:bg-vault-green-500/15 text-vault-green-600 dark:text-vault-green-400 rounded-full text-sm font-medium border border-vault-green-500/20">
-                    <span className="w-2 h-2 bg-vault-green-500 rounded-full animate-pulse" />
-                    Ready for Review
-                  </div>
+          <ProductMockShell
+            title="Review queue"
+            sidebar={
+              <>
+                <div className="mb-9 flex items-center gap-2">
+                  <span className="grid h-8 w-8 place-items-center rounded-full bg-primary/90">
+                    <Shield className="h-4 w-4" aria-hidden />
+                  </span>
+                  <span className="text-sm font-medium">ComplyVault</span>
                 </div>
-
-                {/* Stats Row */}
-                <div className="grid grid-cols-3 gap-4 mb-6">
-                  <div className="bg-muted dark:bg-white/5 rounded-xl p-4 text-center border border-transparent dark:border-white/5">
-                    <div className="text-2xl font-bold text-vault-green-500 dark:text-vault-green-400">12</div>
-                    <div className="text-xs text-muted-foreground">Finalized</div>
-                  </div>
-                  <div className="bg-muted dark:bg-white/5 rounded-xl p-4 text-center border border-transparent dark:border-white/5">
-                    <div className="text-2xl font-bold text-card-foreground">3</div>
-                    <div className="text-xs text-muted-foreground">Drafts</div>
-                  </div>
-                  <div className="bg-muted dark:bg-white/5 rounded-xl p-4 text-center border border-transparent dark:border-white/5">
-                    <div className="text-2xl font-bold text-card-foreground">8m</div>
-                    <div className="text-xs text-muted-foreground">Avg. Review</div>
-                  </div>
+                <div className="space-y-2 text-xs text-white/50">
+                  {['Review queue', 'Sealed packs', 'Disclosures', 'Email evidence', 'Ask'].map(
+                    (item, index) => (
+                      <div
+                        key={item}
+                        className={`rounded-lg px-3 py-2.5 ${
+                          index === 0 ? 'bg-white/10 text-white' : ''
+                        }`}
+                      >
+                        {item}
+                      </div>
+                    )
+                  )}
                 </div>
+              </>
+            }
+          >
+            <div className="flex flex-col gap-5 sm:flex-row sm:items-start sm:justify-between">
+              <div>
+                <p className="text-[10px] font-medium uppercase tracking-[0.2em] text-black/40">
+                  Awaiting CCO sign-off
+                </p>
+                <h2 className="font-editorial mt-2 text-3xl font-normal tracking-[-0.035em] sm:text-4xl">
+                  Harrison annual review
+                </h2>
+                <p className="mt-2 text-sm text-black/45">
+                  Advisor certified · CM reviewed
+                </p>
+              </div>
+              <div className="rounded-full border border-black/10 bg-white/70 px-3 py-2 text-xs text-black/55">
+                <span className="mr-2 inline-block h-1.5 w-1.5 rounded-full bg-positive-soft" />
+                Seal ready
+              </div>
+            </div>
 
-                {/* Recent Activity */}
-                <div className="space-y-3">
-                  <div className="flex items-center gap-3 p-3 bg-vault-green-500/10 dark:bg-vault-green-500/15 rounded-xl border border-vault-green-500/20">
-                    <FileCheck className="w-5 h-5 text-vault-green-500 dark:text-vault-green-400" />
-                    <div className="flex-1">
-                      <p className="text-sm font-medium text-card-foreground">Johnson Portfolio Review</p>
-                      <p className="text-xs text-muted-foreground">Finalized by Sarah (CCO)</p>
-                    </div>
-                    <CheckCircle2 className="w-5 h-5 text-vault-green-500 dark:text-vault-green-400" />
-                  </div>
-                  <div className="flex items-center gap-3 p-3 bg-muted dark:bg-white/5 rounded-xl border border-transparent dark:border-white/5">
-                    <Clock className="w-5 h-5 text-vault-coral-500 dark:text-vault-coral-400" />
-                    <div className="flex-1">
-                      <p className="text-sm font-medium text-card-foreground">Smith Retirement Planning</p>
-                      <p className="text-xs text-muted-foreground">Draft ready • 45 min meeting</p>
-                    </div>
-                    <span className="text-xs font-medium text-muted-foreground bg-muted dark:bg-white/5 px-2 py-1 rounded-full">
-                      Review
+            <div className="mt-8 grid gap-4 sm:grid-cols-3">
+              {[
+                ['Seal ID', 'rs_8f2c…'],
+                ['Content digest', 'sha256…'],
+                ['Lifecycle', 'CM_REVIEWED'],
+              ].map(([label, value]) => (
+                <div
+                  key={label}
+                  className="rounded-2xl border border-black/10 bg-white/65 p-4"
+                >
+                  <p className="text-[10px] uppercase tracking-[0.16em] text-black/40">
+                    {label}
+                  </p>
+                  <p className="font-editorial mt-3 text-2xl tracking-[-0.03em] sm:text-3xl">
+                    {value}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-4 rounded-2xl border border-black/10 bg-white/70 p-5">
+              <p className="text-sm font-medium">Supervision trail</p>
+              <p className="mt-1 text-xs text-black/42">
+                Advisor certification → compliance manager triage → CCO sign-off
+              </p>
+              <div className="mt-4 grid gap-3 sm:grid-cols-3">
+                {[
+                  ['ADVISOR_CERTIFIED', 'Complete'],
+                  ['CM_REVIEWED', 'Complete'],
+                  ['CCO_SIGNED_OFF', 'Next'],
+                ].map(([label, value], index) => (
+                  <div key={label} className="rounded-xl bg-[#efede8] p-4">
+                    <span className="grid h-7 w-7 place-items-center rounded-full bg-white text-[10px] font-semibold">
+                      0{index + 1}
                     </span>
+                    <p className="mt-4 text-xs text-black/45">{label}</p>
+                    <p className="mt-1 text-sm font-medium">{value}</p>
                   </div>
-                </div>
-              </div>
-
-              {/* Floating Cards - Hidden for now */}
-              <div className="hidden absolute -top-[19%] -right-[19%] bg-card dark:bg-[hsl(160_35%_12%)] rounded-2xl shadow-xl shadow-foreground/10 dark:shadow-black/30 p-4 border border-border float-slow">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-vault-green-100 dark:bg-vault-green-800/30 rounded-xl flex items-center justify-center">
-                    <Shield className="w-5 h-5 text-vault-green-500 dark:text-vault-green-400" />
-                  </div>
-                  <div>
-                    <p className="text-sm font-semibold text-card-foreground">Evidence Linked</p>
-                    <p className="text-xs text-muted-foreground">23 timestamps</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="hidden absolute -bottom-[24%] -left-[10%] bg-card dark:bg-[hsl(160_35%_12%)] rounded-2xl shadow-xl shadow-foreground/10 dark:shadow-black/30 p-4 border border-border float-medium">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-vault-coral-100 dark:bg-vault-coral-800/30 rounded-xl flex items-center justify-center">
-                    <FileCheck className="w-5 h-5 text-vault-coral-500 dark:text-vault-coral-400" />
-                  </div>
-                  <div>
-                    <p className="text-sm font-semibold text-card-foreground">Export Pack</p>
-                    <p className="text-xs text-muted-foreground">PDF + CSV + ZIP</p>
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
-          </div>
+          </ProductMockShell>
         </div>
       </div>
     </section>

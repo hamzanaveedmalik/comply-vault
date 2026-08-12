@@ -30,7 +30,7 @@ export function Footer() {
       links: [
         { label: 'Features', href: '/features' },
         { label: 'Pricing', href: isUK ? '/uk/pricing' : '/pricing' },
-        { label: 'Security', href: isUK ? '/uk#security' : '/#security' },
+        { label: 'Security', href: '/trust' },
         { label: 'How It Works', href: isUK ? '/uk#how-it-works' : '/#how-it-works' },
       ],
     },
@@ -51,6 +51,7 @@ export function Footer() {
     resources: {
       title: 'Resources',
       links: [
+        { label: 'Insights', href: '/blog' },
         { label: 'FAQ', href: isUK ? '/uk#faq' : '/#faq' },
         { label: 'Book a Demo', href: isUK ? '/uk#cta' : '/#cta' },
       ],
@@ -60,7 +61,7 @@ export function Footer() {
       links: [
         { label: 'Privacy Policy', href: '/privacy' },
         { label: 'Terms of Service', href: '/terms' },
-        { label: 'Security', href: isUK ? '/uk#security' : '/#security' },
+        { label: 'Security', href: '/trust' },
       ],
     },
   }
@@ -86,7 +87,7 @@ export function Footer() {
               <div className="w-11 h-11 relative">
                 <Image
                   src={logoSrc}
-                  alt="Comply Vault Logo"
+                  alt="ComplyVault logo"
                   fill
                   className="object-contain"
                 />
@@ -96,8 +97,8 @@ export function Footer() {
               </span>
             </a>
             <p className="text-gray-500 dark:text-gray-400 mb-7 max-w-xs leading-relaxed">
-              Turn meeting recordings into exam-ready client interaction records. 
-              Upload, review, finalize, export.
+              Evidence layer for RIA compliance. Seal meeting and email evidence
+              into audit packs your CCO can defend.
             </p>
             
             {/* Contact Info */}
@@ -136,7 +137,7 @@ export function Footer() {
         {/* Bottom Footer */}
         <div className="pt-10 flex flex-col md:flex-row justify-between items-center gap-5">
           <p className="text-sm text-gray-500">
-            © {new Date().getFullYear()} COMPLY VAULT LTD. Company No. 16889706. All rights reserved.
+            © {new Date().getFullYear()} COMPLY VAULT LTD. Company No. 16989706. All rights reserved.
           </p>
 
           {/* Social Links */}

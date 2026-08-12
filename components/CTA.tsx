@@ -1,76 +1,52 @@
 'use client'
 
-import { usePathname } from 'next/navigation'
-import { CheckCircle2, Shield, Clock, FileCheck, Users } from 'lucide-react'
+import { FileCheck, Lock, Shield, Users } from 'lucide-react'
 import { DemoForm } from './DemoForm'
 
+const benefits = [
+  { icon: Lock, text: 'Immutable seal layer' },
+  { icon: FileCheck, text: 'Seven-file sealed audit packs' },
+  { icon: Users, text: 'Advisor, CM, and CCO review gates' },
+  { icon: Shield, text: 'Books-and-records evidence posture' },
+]
+
 export function CTA() {
-  const pathname = usePathname()
-  const isUK = pathname?.startsWith('/uk') ?? false
-  
-  const benefits = [
-    { icon: Clock, text: 'Finalize records in <10 minutes' },
-    { icon: FileCheck, text: 'Evidence-linked audit packs' },
-    { icon: Users, text: isUK ? 'Supervisor-only finalization controls' : 'CCO-only finalization controls' },
-    { icon: Shield, text: isUK ? 'FCA SYSC 9 ready' : 'SEC Rule 204-2 ready' },
-  ]
-  
   return (
-    <section id="cta" className="py-28 lg:py-36 relative overflow-hidden">
-      {/* Background - gradient from dark to green */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[hsl(160_55%_5%)] via-vault-green-900 to-vault-green-800 dark:from-[hsl(160_55%_4%)] dark:via-vault-green-900/90 dark:to-vault-green-800/80" />
-      
-      {/* Pattern Overlay */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute inset-0 bg-grid" style={{ backgroundSize: '60px 60px' }} />
-      </div>
-
-      {/* Decorative Elements */}
-      <div className="absolute top-10 left-10 w-40 h-40 border-2 border-white/10 rounded-full" />
-      <div className="absolute bottom-10 right-10 w-56 h-56 border-2 border-white/10 rounded-full" />
-      <div className="absolute top-1/2 right-1/4 w-5 h-5 bg-vault-coral-400 rounded-full animate-pulse" />
-      <div className="absolute bottom-1/3 left-1/3 w-4 h-4 bg-white/40 rounded-full animate-pulse animation-delay-300" />
-      
-      {/* Glow effects */}
-      <div className="absolute top-1/3 left-1/4 w-[400px] h-[400px] bg-vault-green-500/15 rounded-full blur-3xl" />
-      <div className="absolute bottom-1/4 right-1/3 w-[300px] h-[300px] bg-vault-coral-500/10 rounded-full blur-3xl" />
-
-      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Left Column - Content */}
-          <div className="text-center lg:text-left">
-            {/* Headline */}
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-display text-white mb-6">
-              Ready to Transform Your{' '}
-              <span className="text-vault-coral-300">Compliance Workflow?</span>
+    <section id="cta" className="bg-grey px-4 pb-8 pt-20 sm:px-6 lg:px-10 lg:pt-28">
+      <div className="mx-auto max-w-marketing overflow-hidden rounded-marketing-lg bg-cta px-6 py-16 text-white sm:px-10 lg:px-16 lg:py-20">
+        <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
+          <div>
+            <p className="text-[11px] font-medium uppercase tracking-[0.22em] text-white/70">
+              Next step
+            </p>
+            <h2 className="font-editorial mt-5 text-display-cta font-normal">
+              See the audit pack your exam would request.
             </h2>
-
-            {/* Description */}
-            <p className="text-lg lg:text-xl text-white/85 mb-10 leading-relaxed">
-              See how ComplyVault turns meeting recordings into exam-ready audit packs in under 10 minutes. 
-              Get a personalized demo for your firm.
+            <p className="mt-7 max-w-xl text-lg leading-8 text-white/80">
+              Share how your firm handles meeting evidence today. We will reply
+              with a focused walkthrough of the seal layer and review lifecycle.
             </p>
 
-            {/* Benefits */}
-            <div className="grid sm:grid-cols-2 gap-4 mb-10">
-              {benefits.map((benefit, index) => (
-                <div key={index} className="flex items-center gap-3 text-white/90">
-                  <div className="w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <benefit.icon className="w-5 h-5 text-vault-coral-300" />
+            <div className="mt-10 grid gap-4 sm:grid-cols-2">
+              {benefits.map((benefit) => {
+                const Icon = benefit.icon
+                return (
+                  <div key={benefit.text} className="flex items-center gap-3 text-white/85">
+                    <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-white/10">
+                      <Icon className="h-5 w-5 text-white" aria-hidden />
+                    </span>
+                    <span className="text-sm">{benefit.text}</span>
                   </div>
-                  <span className="text-sm">{benefit.text}</span>
-                </div>
-              ))}
+                )
+              })}
             </div>
 
-            {/* Trust Badge */}
-            <div className="flex items-center gap-3 text-white/60 text-sm justify-center lg:justify-start">
-              <Shield className="w-5 h-5" />
-              <span>256-bit Encryption • SOC 2 Readiness • US-Based Storage</span>
-            </div>
+            <p className="mt-8 flex items-center gap-2 text-sm text-white/60">
+              <Shield className="h-4 w-4" aria-hidden />
+              AES-256 encryption · SOC 2 not started · US-based storage
+            </p>
           </div>
 
-          {/* Right Column - Form */}
           <div>
             <DemoForm />
           </div>

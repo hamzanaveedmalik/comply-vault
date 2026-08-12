@@ -5,8 +5,8 @@ import { CheckCircle2, ArrowRight, CheckCheck, Mail, CalendarClock, FileText } f
 import { SITE_URL } from '@/lib/site'
 
 export const metadata: Metadata = {
-  title: 'Payment Successful! | Comply Vault',
-  description: 'Your payment has been successfully processed. Welcome to Comply Vault!',
+  title: 'Payment Successful! | ComplyVault',
+  description: 'Your payment has been successfully processed. Welcome to ComplyVault!',
   alternates: {
     canonical: `${SITE_URL}/checkout/success`,
   },
@@ -78,7 +78,7 @@ export default function CheckoutSuccessPage() {
                   <div>
                     <h3 className="font-medium">Explore documentation</h3>
                     <p className="text-muted-foreground text-sm mt-1">
-                      Our knowledge base contains helpful guides to get you started with Comply Vault.
+                      Our knowledge base contains helpful guides to get you started with ComplyVault.
                     </p>
                   </div>
                 </div>

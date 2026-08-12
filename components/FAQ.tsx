@@ -1,128 +1,104 @@
 'use client'
 
 import { useState } from 'react'
-import { usePathname } from 'next/navigation'
 import { ChevronDown, HelpCircle } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
-export function FAQ() {
-  const pathname = usePathname()
-  const isUK = pathname?.startsWith('/uk') ?? false
-  
-  const faqs = [
-    {
-      question: 'What exactly does Comply Vault do?',
-      answer: 'Comply Vault turns your meeting recordings from Zoom, Teams, Google Meet, Webex, and other platforms into structured compliance documentation. You upload a recording, we transcribe it with timestamps and speaker labels, extract key information (topics, recommendations, disclosures, decisions, follow-ups), and let you review/edit before finalizing. You get a downloadable audit pack (PDF, CSV, TXT, ZIP) that you can file into your compliance system.',
-    },
-    {
-      question: 'What file formats can I upload?',
-      answer: 'We support MP3, MP4, WAV, and M4A files. These are standard formats from Zoom, Teams, Google Meet, Webex, and other meeting platforms. We recommend uploading the original recording for best transcription quality.',
-    },
-    {
-      question: 'What do I get when I export?',
-      answer: 'A complete audit pack containing: (1) PDF structured compliance note with topics, recommendations, disclosures, decisions, and follow-ups, (2) CSV evidence map linking each claim to timestamps, (3) CSV version history showing all edits, (4) TXT transcript with timestamps and speaker labels, (5) ZIP bundle with everything. You can also export individual files.',
-    },
-    {
-      question: 'How does the finalization workflow work?',
-      answer: isUK
-        ? 'Anyone in your workspace can upload recordings and edit draft records. But only users with supervisor or compliance officer roles can finalize a record. This ensures a clear compliance boundary—the supervisor reviews and approves before anything becomes an official record. All finalization is logged with who approved and when.'
-        : 'Anyone in your workspace can upload recordings and edit draft records. But only users with the CCO/Owner role can finalize a record. This ensures a clear compliance boundary—the CCO reviews and approves before anything becomes an official record. All finalization is logged with who approved and when.',
-    },
-    {
-      question: isUK ? 'Is this FCA compliant?' : 'Is this SEC compliant?',
-      answer: isUK
-        ? 'Comply Vault helps you create documentation that supports your FCA SYSC 9 supervision and monitoring workflows. We generate structured file notes with evidence linking and complete audit trails. However, we don\'t make compliance determinations or guarantee FCA compliance. You and your compliance team are responsible for ensuring your documentation meets your firm\'s requirements. Consult your compliance counsel for specific regulatory questions.'
-        : 'Comply Vault helps you create documentation that supports your books-and-records workflow. We generate structured records with evidence linking and complete audit trails. However, we don\'t make compliance determinations or guarantee SEC compliance. You and your CCO are responsible for ensuring your documentation meets your firm\'s requirements. Consult your compliance counsel for specific regulatory questions.',
-    },
+const faqs = [
   {
-    question: 'How do you ensure the AI extraction is accurate?',
-    answer: 'Three ways: (1) Every extracted claim links to the exact transcript moment so you can verify, (2) We show confidence scores for extracted items, (3) You review and edit before finalizing—nothing becomes official until you approve it. We call this "human-in-the-loop" because your review is the final quality check.',
+    question: 'What exactly does ComplyVault do?',
+    answer:
+      'ComplyVault is a CCO-facing evidence layer. Zoom auto-ingest or a manual upload of MP3, MP4, WAV, or M4A produces a draft record. Humans review through advisor certification, compliance manager triage, and CCO sign-off. The output is a sealed seven-file audit pack with an append-only seal ledger.',
+  },
+  {
+    question: 'What file formats can I upload?',
+    answer:
+      'MP3, MP4, WAV, and M4A. Zoom is the live capture integration. Other meeting sources are supported through file upload, without claiming platform-native integrations that are not built.',
+  },
+  {
+    question: 'What is in the audit pack?',
+    answer:
+      'Seven files: 01_Compliance_Note.pdf, 02_Evidence_Map.csv, 03_Version_History.csv, 04_Transcript.txt, 05_Email_Correspondence.csv, 06_Supersession_Chain.txt, and README.txt.',
+  },
+  {
+    question: 'How does human review work?',
+    answer:
+      'Lifecycle stages run UPLOADING → PROCESSING → DRAFT_READY → ADVISOR_CERTIFIED → CM_REVIEWED → CCO_SIGNED_OFF → FINALIZED. Each gate is recorded. Finalization is not a single CCO-only shortcut that skips earlier supervision.',
+  },
+  {
+    question: 'Is this SEC compliant?',
+    answer:
+      'ComplyVault helps you create documentation that supports books-and-records and supervision workflows. It does not make compliance determinations or guarantee SEC compliance. You and your CCO remain responsible for your firm\'s obligations. Consult compliance counsel for regulatory questions.',
+  },
+  {
+    question: 'How do you keep extraction accountable?',
+    answer:
+      'Extracted claims link to transcript moments, humans must certify and sign off, and sealed packs carry digests and supersession history. AI does not replace policy, judgement, or accountability.',
   },
   {
     question: 'Where is my data stored?',
-    answer: 'All data is stored in US-based cloud infrastructure with AES-256 encryption at rest and TLS encryption in transit. Each workspace is completely isolated—there\'s no cross-tenant access possible. We maintain audit logs of all access to your data.',
+    answer:
+      'Data is stored in US-based cloud infrastructure with encryption in transit and at rest. Workspaces are isolated. Access and seal events are logged.',
   },
   {
     question: 'Do you have SOC 2 certification?',
-    answer: 'We\'re actively working toward SOC 2 Type II certification. Currently, we have security-first architecture with encryption, role-based access, audit logging, and workspace isolation. Contact us for our current security documentation and subprocessor list.',
+    answer:
+      'SOC 2 status: Not started. Encryption, role-based access, audit logging, workspace isolation, and the WORM seal layer are implemented today. Ask for the ungated security overview for current controls and subprocessors.',
   },
 ]
-  
+
+export function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0)
 
   return (
-    <section id="faq" className="py-28 lg:py-36 bg-background relative overflow-hidden noise-texture">
-      <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 bg-accent text-accent-foreground px-5 py-2.5 rounded-full text-sm font-medium mb-8 border border-primary/20">
-            <HelpCircle className="w-4 h-4" />
-            <span>Common Questions</span>
+    <section id="faq" className="bg-grey px-4 py-section sm:px-6 lg:px-10 lg:py-section-lg">
+      <div className="mx-auto grid max-w-marketing gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
+        <div>
+          <div className="mb-4 inline-flex items-center gap-2 text-kicker-muted">
+            <HelpCircle className="h-4 w-4" aria-hidden />
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-display text-foreground mb-6">
-            Frequently Asked{' '}
-            <span className="text-gradient">Questions</span>
+          <p className="section-kicker">Frequently asked</p>
+          <h2 className="font-editorial mt-5 max-w-md text-display-section font-normal">
+            Honest answers about what is shipped.
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Honest answers about what Comply Vault does and doesn't do.
-          </p>
         </div>
 
-        {/* FAQ Accordion */}
-        <div className="space-y-4">
+        <div className="space-y-3">
           {faqs.map((faq, index) => (
             <div
-              key={index}
+              key={faq.question}
               className={cn(
-                'bg-card dark:bg-[hsl(160_35%_10%)] rounded-2xl border transition-all duration-300',
+                'rounded-marketing-md border transition-colors duration-marketing',
                 openIndex === index
-                  ? 'border-primary/30 shadow-lg dark:shadow-black/20'
-                  : 'border-border dark:border-white/10 hover:border-primary/20'
+                  ? 'border-primary/25 bg-white'
+                  : 'border-black/10 bg-white/55'
               )}
             >
               <button
+                type="button"
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                className="w-full flex items-center justify-between p-6 text-left"
+                className="flex w-full items-center justify-between p-6 text-left"
               >
-                <span className="font-semibold text-card-foreground pr-4">
+                <span className="font-editorial pr-4 text-xl font-normal tracking-[-0.02em] text-ink-soft sm:text-2xl">
                   {faq.question}
                 </span>
                 <ChevronDown
                   className={cn(
-                    'w-5 h-5 text-muted-foreground transition-transform duration-300 flex-shrink-0',
+                    'h-5 w-5 shrink-0 text-black/40 transition-transform duration-marketing',
                     openIndex === index && 'rotate-180 text-primary'
                   )}
                 />
               </button>
-
               <div
                 className={cn(
-                  'overflow-hidden transition-all duration-300',
+                  'overflow-hidden transition-all duration-marketing',
                   openIndex === index ? 'max-h-96' : 'max-h-0'
                 )}
               >
-                <div className="px-6 pb-6 text-muted-foreground leading-relaxed">
-                  {faq.answer}
-                </div>
+                <p className="px-6 pb-6 leading-7 text-body-muted">{faq.answer}</p>
               </div>
             </div>
           ))}
-        </div>
-
-        {/* Still Have Questions */}
-        <div className="mt-12 text-center p-8 bg-card dark:bg-[hsl(160_35%_10%)] rounded-2xl border border-border dark:border-white/10">
-          <p className="text-card-foreground font-medium mb-4">
-            Want to see it in action?
-          </p>
-          <p className="text-muted-foreground mb-6">
-            Schedule a demo and we'll walk you through the complete workflow with a sample meeting.
-          </p>
-          <a
-            href="#cta"
-            className="inline-flex items-center gap-2 bg-vault-green-500 text-white font-semibold px-6 py-3 rounded-xl hover:bg-vault-green-600 dark:hover:bg-vault-green-400 transition-colors"
-          >
-            Schedule a Demo
-          </a>
         </div>
       </div>
     </section>

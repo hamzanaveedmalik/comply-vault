@@ -29,11 +29,11 @@ export default function FeaturesPage() {
             </div>
             
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold font-display text-white mb-6">
-              Is Comply Vault Right for <span className="text-vault-green-300">Your Firm?</span>
+              Is ComplyVault Right for <span className="text-vault-green-300">Your Firm?</span>
             </h1>
             
             <p className="text-lg sm:text-xl text-white/90 max-w-3xl mx-auto">
-              Built for RIAs who want meeting documentation that's consistent, evidence-linked, and reviewable — without adding compliance headcount.
+              Built for RIAs who want meeting documentation that's consistent, evidence-linked, and reviewable , without adding compliance headcount.
             </p>
           </div>
         </div>
@@ -120,7 +120,7 @@ export default function FeaturesPage() {
                 <div className="mt-12">
                   <div className="bg-muted/50 p-6 rounded-xl">
                     <p className="font-medium text-foreground mb-3">Not sure?</p>
-                    <p className="text-muted-foreground mb-4">Book a quick fit check — we'll tell you honestly in 10 minutes.</p>
+                    <p className="text-muted-foreground mb-4">Book a quick fit check. We will tell you honestly whether the product fits.</p>
                     <Link 
                       href="#demo" 
                       className="inline-flex items-center gap-2 text-vault-green-500 hover:text-vault-green-400 transition-colors"
@@ -206,7 +206,7 @@ export default function FeaturesPage() {
         <div id="demo" className="py-16 md:py-24">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="text-3xl sm:text-4xl font-bold font-display text-foreground mb-6">
-              Ready to see if Comply Vault is right for you?
+              Ready to see if ComplyVault is right for you?
             </h2>
             <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
               Schedule a quick fit check demo. We'll be honest about whether our solution matches your compliance needs.

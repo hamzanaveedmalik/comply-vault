@@ -5,8 +5,8 @@ import Image from 'next/image'
 import { SITE_URL } from '@/lib/site'
 
 export const metadata: Metadata = {
-  title: 'About Us | Comply Vault',
-  description: 'Learn about the team and mission behind Comply Vault.',
+  title: 'About Us | ComplyVault',
+  description: 'Learn about the team and mission behind ComplyVault.',
   alternates: {
     canonical: `${SITE_URL}/about`,
   },
@@ -16,7 +16,7 @@ const values = [
   {
     icon: Shield,
     title: 'Security First',
-    description: 'We handle sensitive financial data. Security isn\'t a feature—it\'s our foundation.',
+    description: 'We handle sensitive financial data. Security is not a feature: it is our foundation.',
   },
   {
     icon: Zap,
@@ -36,10 +36,10 @@ const values = [
 ]
 
 const stats = [
-  { value: '<10min', label: 'Average review time' },
+  { value: '7 files', label: 'Sealed audit pack' },
   { value: '256-bit', label: 'Encryption standard' },
-  { value: 'SEC 204-2', label: 'Compliance ready' },
-  { value: '6 years', label: 'Default retention' },
+  { value: '3 gates', label: 'Human review layers' },
+  { value: 'US', label: 'Data residency' },
 ]
 
 export default function AboutPage() {
@@ -86,8 +86,9 @@ export default function AboutPage() {
             Even then, they're never quite sure their records are "exam ready."
           </p>
           <p className="text-lg text-foreground leading-relaxed mb-6">
-            <strong>Our solution:</strong> Upload a meeting recording, get a structured audit pack in under 
-            10 minutes. Evidence-linked, version-controlled, and ready for examination.
+            <strong>Our solution:</strong> Upload a meeting recording and move it through advisor,
+            compliance manager, and CCO review into a sealed audit pack. Evidence-linked,
+            version-controlled, and ready for examination.
           </p>
           <p className="text-lg text-muted-foreground leading-relaxed">
             We're not building AI that replaces compliance officers. We're building tools that make them 
@@ -145,7 +146,7 @@ export default function AboutPage() {
             Previously worked on enterprise software and AI applications.
           </p>
           <p className="text-sm text-muted-foreground mt-3">
-            COMPLY VAULT LTD is a registered company in the UK (Company No. 16889706).
+            COMPLY VAULT LTD is a registered company in the UK (Company No. 16989706).
           </p>
           <div className="flex justify-center gap-4 mt-6">
             <a 

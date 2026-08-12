@@ -1,21 +1,21 @@
 import type { Metadata } from 'next'
-import { Outfit, Plus_Jakarta_Sans, Space_Mono } from 'next/font/google'
+import { Inter, Source_Serif_4, Space_Mono } from 'next/font/google'
 import Script from 'next/script'
 import { ThemeProvider } from '@/components/theme-provider'
 import { SITE_URL } from '@/lib/site'
 import './globals.css'
 
-const outfit = Outfit({
+const inter = Inter({
   subsets: ['latin'],
-  variable: '--font-outfit',
-  weight: ['400', '600', '700', '800'],
+  variable: '--font-inter',
+  weight: ['400', '500', '600'],
   display: 'swap',
 })
 
-const plusJakartaSans = Plus_Jakarta_Sans({
+const sourceSerif = Source_Serif_4({
   subsets: ['latin'],
-  variable: '--font-plus-jakarta',
-  weight: ['400', '500', '600', '700'],
+  variable: '--font-source-serif',
+  weight: ['400', '600'],
   display: 'swap',
 })
 
@@ -28,20 +28,20 @@ const spaceMono = Space_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: 'Comply Vault | RIA Compliance Made Simple',
+  title: 'ComplyVault | RIA Compliance Made Simple',
   description: 'The all-in-one compliance vault for Registered Investment Advisors. Automate compliance workflows, manage documentation, and stay audit-ready with ease.',
   keywords: ['RIA compliance', 'investment advisor', 'compliance management', 'SEC compliance', 'regulatory compliance', 'compliance software'],
-  authors: [{ name: 'Comply Vault' }],
+  authors: [{ name: 'ComplyVault' }],
   openGraph: {
-    title: 'Comply Vault | RIA Compliance Made Simple',
+    title: 'ComplyVault | RIA Compliance Made Simple',
     description: 'The all-in-one compliance vault for Registered Investment Advisors. Automate workflows, manage documentation, and stay audit-ready.',
     type: 'website',
     locale: 'en_US',
-    siteName: 'Comply Vault',
+    siteName: 'ComplyVault',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Comply Vault | RIA Compliance Made Simple',
+    title: 'ComplyVault | RIA Compliance Made Simple',
     description: 'The all-in-one compliance vault for Registered Investment Advisors.',
   },
   robots: {
@@ -54,7 +54,7 @@ export default function RootLayout({
   children,
 }: {
   children: React.ReactNode
-}) {
+}): React.ReactElement {
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
@@ -82,7 +82,9 @@ export default function RootLayout({
           `}
         </Script>
       </head>
-      <body className={`${outfit.variable} ${plusJakartaSans.variable} ${spaceMono.variable} antialiased`}>
+      <body
+        className={`${inter.variable} ${sourceSerif.variable} ${spaceMono.variable} antialiased`}
+      >
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"

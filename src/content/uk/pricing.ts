@@ -30,6 +30,6 @@ export const ukPricingContent = {
     description: 'We offer enterprise plans for larger teams with custom requirements, including advanced compliance workflows, custom integrations, and volume discounts.',
   },
   disclaimer: {
-    text: 'Comply Vault is workflow software and does not provide regulated advice or compliance consulting. Firms remain responsible for FCA obligations and final review/sign-off.',
+    text: 'ComplyVault is workflow software and does not provide regulated advice or compliance consulting. Firms remain responsible for FCA obligations and final review/sign-off.',
   },
 }

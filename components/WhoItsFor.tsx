@@ -1,135 +1,102 @@
-'use client'
-
-import { CheckCircle2, XCircle, Building2, Users, TrendingUp, Scale } from 'lucide-react'
+import { CheckCircle2, XCircle, Building2, Users, FileCheck, Scale } from 'lucide-react'
+import {
+  MarketingContainer,
+  MarketingSection,
+  SectionKicker,
+} from './marketing'
 
 const bestFor = [
   {
-    icon: Scale,
-    title: 'SEC-Registered RIAs',
-    description: '$100M+ AUM with federal registration requirements',
+    icon: Users,
+    title: 'Solo RIAs and small teams',
+    description: 'Firms that want a repeatable, exam-ready documentation workflow.',
   },
   {
-    icon: Users,
-    title: 'CCO-Led Compliance Teams',
-    description: 'Dedicated compliance function (even if part-time)',
+    icon: Scale,
+    title: 'SEC-registered or state-registered RIAs',
+    description: 'Teams that run ongoing client review meetings.',
+  },
+  {
+    icon: FileCheck,
+    title: 'CCO-led supervision',
+    description: 'Dedicated or part-time compliance function with a sign-off gate.',
   },
   {
     icon: Building2,
-    title: 'Regular Client Meetings',
-    description: 'Firms with ongoing advisory relationships to document',
-  },
-  {
-    icon: TrendingUp,
-    title: 'Growing RIAs',
-    description: 'Scaling compliance without adding headcount',
+    title: 'Outsourced CCOs and compliance partners',
+    description: 'Practices serving multiple RIA clients from one operating view.',
   },
 ]
 
 const notIdealFor = [
   'Firms without advice conversations to document',
-  'State-registered only (no SEC filing requirements)',
-  'Teams without compliance concerns or supervision needs',
-  'Broker-dealers (FINRA vs RIA compliance workflows)',
+  'Teams without compliance or supervision needs',
+  'Broker-dealers seeking FINRA workflows',
 ]
 
 export function WhoItsFor() {
   return (
-    <section id="who-its-for" className="py-28 lg:py-36 dark:section-dark-deeper relative overflow-hidden noise-texture section-divider-top">
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="text-center mb-20">
-          <div className="inline-flex items-center gap-2 bg-accent text-accent-foreground px-5 py-2.5 rounded-full text-sm font-medium mb-8 border border-primary/20">
-            <Users className="w-4 h-4" />
-            <span>Built for Specific Firms</span>
-          </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-display text-foreground mb-6">
-            Is Comply Vault Right for{' '}
-            <span className="text-gradient">Your Firm?</span>
+    <MarketingSection tone="bone" id="who-its-for">
+      <MarketingContainer>
+        <div className="text-center">
+          <SectionKicker>Who it is for</SectionKicker>
+          <h2 className="font-editorial mx-auto mt-5 max-w-3xl text-display-section font-normal">
+            Is ComplyVault right for your firm?
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            We've built Comply Vault for firms that need defensible documentation and compliance trails.
-            Here's how to know if we're a fit.
+          <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-body-muted">
+            Built for RIAs and the CCOs who supervise them, including solo practices
+            and small teams.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16">
-          {/* Best For */}
-          <div className="bg-card dark:bg-[hsl(160_35%_10%)] rounded-2xl p-8 lg:p-10 border border-vault-green-500/30 shadow-lg dark:shadow-black/20">
-            <div className="flex items-center gap-3 mb-8">
-              <div className="w-12 h-12 bg-vault-green-500/15 rounded-xl flex items-center justify-center">
-                <CheckCircle2 className="w-6 h-6 text-vault-green-500 dark:text-vault-green-400" />
-              </div>
-              <h3 className="text-2xl font-bold font-display text-card-foreground">
-                Best For
+        <div className="mt-14 grid gap-8 lg:grid-cols-2">
+          <div className="rounded-marketing-md border border-black/10 bg-white/55 p-8 sm:p-10">
+            <div className="mb-8 flex items-center gap-3">
+              <CheckCircle2 className="h-6 w-6 text-primary" aria-hidden />
+              <h3 className="font-editorial text-3xl font-normal tracking-[-0.03em]">
+                Best for
               </h3>
             </div>
-
             <div className="space-y-6">
-              {bestFor.map((item, index) => (
-                <div key={index} className="flex items-start gap-4">
-                  <div className="w-10 h-10 bg-vault-green-100 dark:bg-vault-green-800/30 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <item.icon className="w-5 h-5 text-vault-green-500 dark:text-vault-green-400" />
+              {bestFor.map((item) => {
+                const Icon = item.icon
+                return (
+                  <div key={item.title} className="flex items-start gap-4">
+                    <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-black/10 bg-white">
+                      <Icon className="h-5 w-5 text-primary" aria-hidden />
+                    </span>
+                    <div>
+                      <h4 className="font-medium text-ink-soft">{item.title}</h4>
+                      <p className="mt-1 text-sm text-body-muted">{item.description}</p>
+                    </div>
                   </div>
-                  <div>
-                    <h4 className="font-semibold text-card-foreground mb-1">
-                      {item.title}
-                    </h4>
-                    <p className="text-sm text-muted-foreground">
-                      {item.description}
-                    </p>
-                  </div>
-                </div>
-              ))}
+                )
+              })}
             </div>
           </div>
 
-          {/* Not Ideal For */}
-          <div className="bg-card dark:bg-[hsl(160_35%_10%)] rounded-2xl p-8 lg:p-10 border border-border dark:border-white/10 shadow-sm">
-            <div className="flex items-center gap-3 mb-8">
-              <div className="w-12 h-12 bg-muted dark:bg-white/5 rounded-xl flex items-center justify-center">
-                <XCircle className="w-6 h-6 text-muted-foreground" />
-              </div>
-              <h3 className="text-2xl font-bold font-display text-card-foreground">
-                Not Ideal For
+          <div className="rounded-marketing-md border border-black/10 bg-white/35 p-8 sm:p-10">
+            <div className="mb-8 flex items-center gap-3">
+              <XCircle className="h-6 w-6 text-black/35" aria-hidden />
+              <h3 className="font-editorial text-3xl font-normal tracking-[-0.03em]">
+                Not ideal for
               </h3>
             </div>
-
             <div className="space-y-5">
-              {notIdealFor.map((item, index) => (
-                <div key={index} className="flex items-center gap-4">
-                  <XCircle className="w-5 h-5 text-muted-foreground flex-shrink-0" />
-                  <span className="text-muted-foreground">{item}</span>
+              {notIdealFor.map((item) => (
+                <div key={item} className="flex items-center gap-4">
+                  <XCircle className="h-5 w-5 shrink-0 text-black/30" aria-hidden />
+                  <span className="text-body-muted">{item}</span>
                 </div>
               ))}
             </div>
-
-            <div className="mt-8 pt-6 border-t border-border dark:border-white/10">
-              <p className="text-sm text-muted-foreground">
-                <strong className="text-card-foreground">Not sure?</strong> Book a quick call and we'll help you 
-                determine if Comply Vault is the right fit for your firm's specific situation.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* Learn More CTA */}
-        <div className="mt-16 text-center">
-          <div className="inline-block bg-card dark:bg-[hsl(160_35%_10%)] rounded-2xl p-8 border border-border dark:border-white/10">
-            <p className="text-muted-foreground mb-4">
-              Want to learn more about our RIA compliance software features?
+            <p className="mt-8 border-t border-black/10 pt-6 text-sm text-body-muted">
+              Not sure? Book a demo and we will map your supervision workflow against
+              what is shipped today.
             </p>
-            <a
-              href="/ria-compliance-software"
-              className="inline-flex items-center gap-2 text-vault-green-500 dark:text-vault-green-400 font-semibold hover:underline transition-all"
-            >
-              Explore RIA Compliance Software
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </a>
           </div>
         </div>
-      </div>
-    </section>
+      </MarketingContainer>
+    </MarketingSection>
   )
 }

@@ -1,118 +1,106 @@
-'use client'
-
-import { 
-  Mic, 
-  Brain, 
-  Link2, 
-  Edit3, 
-  UserCheck, 
+import {
+  Mic,
+  Brain,
+  Link2,
+  Edit3,
+  UserCheck,
   History,
-  ArrowRight 
 } from 'lucide-react'
 
 const features = [
   {
     icon: Mic,
-    title: 'Smart Transcription',
-    description: 'Upload meeting recordings from Zoom, Teams, Google Meet, Webex, and more (MP3, MP4, WAV, M4A) and get speaker-diarized transcripts with precise timestamps.',
+    title: 'Capture and transcription',
+    description:
+      'Zoom auto-ingest, or upload MP3, MP4, WAV, and M4A files. Speaker-diarized transcripts with timestamps.',
     color: 'green',
   },
   {
     icon: Brain,
-    title: 'AI Extraction',
-    description: 'Automatically identify topics discussed, recommendations made, disclosures, decisions, and follow-up items.',
+    title: 'Structured extraction',
+    description:
+      'Topics, recommendations, disclosures, decisions, and follow-ups drafted for human review.',
     color: 'coral',
   },
   {
     icon: Link2,
-    title: 'Evidence Linking',
-    description: 'Every extracted claim links to the exact transcript moment with timestamp and snippet. Click to verify.',
+    title: 'Evidence linking',
+    description:
+      'Every extracted claim links to the transcript moment with timestamp and snippet.',
     color: 'green',
   },
   {
     icon: Edit3,
-    title: 'Review Workflow',
-    description: 'Edit extracted fields before finalizing. Add context, correct errors, and ensure accuracy with your review.',
+    title: 'Three-layer review',
+    description:
+      'Advisor certification, compliance manager triage, then CCO sign-off before a pack can seal.',
     color: 'coral',
   },
   {
     icon: UserCheck,
-    title: 'CCO-Only Finalization',
-    description: 'Role-gated workflow ensures only CCO/Owner can finalize records. Members can upload and edit drafts.',
+    title: 'Firm disclosure profile',
+    description:
+      'Compliance Cockpit makes missing-disclosure flags firm-specific rather than generic.',
     color: 'green',
   },
   {
     icon: History,
-    title: 'Complete Audit Trail',
-    description: 'Every action logged: who uploaded, who edited what, who finalized, when. Full version history included.',
+    title: 'Seal and supersession',
+    description:
+      'Append-only RecordSeal ledger, deterministic pack bytes, and corrections that preserve prior seals.',
     color: 'coral',
   },
 ]
 
 export function Features() {
   return (
-    <section id="features" className="py-28 lg:py-36 dark:section-dark-deeper relative overflow-hidden noise-texture section-divider-top">
-      {/* Background Elements */}
-      <div className="absolute top-0 left-0 w-full h-full bg-grid opacity-30" />
-      <div className="absolute top-1/4 -right-40 w-96 h-96 bg-vault-green-500/5 rounded-full blur-3xl" />
-      <div className="absolute bottom-1/4 -left-40 w-96 h-96 bg-vault-coral-500/5 rounded-full blur-3xl" />
-
+    <section id="features-legacy" className="py-28 lg:py-36 bg-bone relative overflow-hidden">
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
         <div className="text-center mb-20">
-          <div className="inline-flex items-center gap-2 bg-accent text-accent-foreground px-5 py-2.5 rounded-full text-sm font-medium mb-8 border border-primary/20">
-            <Brain className="w-4 h-4" />
-            <span>Core Capabilities</span>
-          </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-display text-foreground mb-6">
-            What Comply Vault{' '}
-            <span className="text-gradient">Actually Does</span>
+          <p className="section-kicker mb-8">Core capabilities</p>
+          <h2 className="font-editorial text-display-section font-normal text-ink-soft mb-6">
+            What ComplyVault actually does
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Upload meeting recordings, get structured documentation with evidence linking. 
-            Review, finalize, and export.
+          <p className="text-lg text-body-muted max-w-2xl mx-auto leading-relaxed">
+            An evidence layer for CCOs: capture, review, seal, and export a
+            defensible audit pack.
           </p>
         </div>
 
-        {/* Features Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
-          {features.map((feature, index) => (
+          {features.map((feature) => (
             <div
-              key={index}
-              className="group bg-card dark:bg-[hsl(160_35%_10%)] rounded-2xl p-8 lg:p-10 border border-border dark:border-white/10 shadow-sm hover:shadow-xl dark:hover:shadow-black/20 hover:border-primary/30 transition-all duration-300 card-hover"
+              key={feature.title}
+              className="rounded-marketing-md border border-black/10 bg-white/55 p-8"
             >
-              {/* Icon */}
-              <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-8 transition-all duration-300 ${
-                feature.color === 'green' 
-                  ? 'bg-vault-green-100 dark:bg-vault-green-800/30 group-hover:bg-vault-green-500' 
-                  : 'bg-vault-coral-100 dark:bg-vault-coral-800/30 group-hover:bg-vault-coral-500'
-              }`}>
-                <feature.icon className={`w-8 h-8 transition-colors duration-300 ${
+              <div
+                className={`mb-8 flex h-14 w-14 items-center justify-center rounded-2xl ${
                   feature.color === 'green'
-                    ? 'text-vault-green-500 dark:text-vault-green-400 group-hover:text-white'
-                    : 'text-vault-coral-500 dark:text-vault-coral-400 group-hover:text-white'
-                }`} />
+                    ? 'bg-vault-green-100'
+                    : 'bg-vault-coral-100'
+                }`}
+              >
+                <feature.icon
+                  className={`h-7 w-7 ${
+                    feature.color === 'green'
+                      ? 'text-vault-green-500'
+                      : 'text-vault-coral-500'
+                  }`}
+                />
               </div>
-
-              {/* Content */}
-              <h3 className="text-xl font-semibold text-card-foreground mb-4 group-hover:text-primary transition-colors">
+              <h3 className="font-editorial text-2xl font-normal tracking-[-0.02em] text-ink-soft mb-4">
                 {feature.title}
               </h3>
-              <p className="text-muted-foreground leading-relaxed">
-                {feature.description}
-              </p>
+              <p className="text-body-muted leading-relaxed">{feature.description}</p>
             </div>
           ))}
         </div>
 
-        {/* Note about what this ISN'T */}
-        <div className="mt-16 text-center">
-          <p className="text-sm text-muted-foreground max-w-2xl mx-auto">
-            <strong>Note:</strong> Comply Vault helps you create exam-ready documentation. 
-            It does not make compliance determinations or guarantee SEC compliance. 
-            Always consult with your CCO.
-          </p>
-        </div>
+        <p className="mt-16 text-center text-sm text-body-muted max-w-2xl mx-auto">
+          ComplyVault helps you create exam-ready documentation. It does not make
+          compliance determinations or guarantee SEC compliance. Consult your CCO
+          and counsel.
+        </p>
       </div>
     </section>
   )

@@ -25,13 +25,13 @@ export const usPlanFeatures = {
   ],
   enterprise: [
     { name: 'Everything in Professional', included: true },
-    { name: 'CRM integration (Wealthbox/Redtail/Salesforce)', included: true },
-    { name: 'SSO', included: true },
-    { name: 'Multi-branch supervision workflows', included: true },
+    { name: 'Multi-client CCO workspace', included: true },
     { name: 'Custom retention mappings', included: true },
     { name: 'Dedicated onboarding', included: true },
+    { name: 'CRM integrations (roadmap)', included: false },
+    { name: 'Single sign-on (roadmap)', included: false },
   ],
   essentialsDescription: 'For individual RIA advisors',
   professionalDescription: 'For growing RIA practices',
-  enterpriseDescription: 'For multi-branch RIA firms',
+  enterpriseDescription: 'For multi-branch RIA firms and partner CCOs',
 }
